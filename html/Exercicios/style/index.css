@@ -1,0 +1,19 @@
+body{
+	background-image: url('../img/backgroundindex.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+form{
+	color: #ffffff;
+	font-size: 20px;
+	text-align: right;
+	font-family: "Georgia", serif;
+}
+h4{
+	color: #ffffff;
+	font-size: 20px;
+	text-align: right;
+}
+.link{
+	color: #ffffff;
+}

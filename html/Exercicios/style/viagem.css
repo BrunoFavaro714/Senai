@@ -1,0 +1,18 @@
+body{
+	background-image: url('../img/backgroundviagem.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+table{
+	text-align: center;
+	
+}
+tr:hover {background-color: #fff;}
+
+h4{
+	text-align: right;
+	font-size: 30px;
+}
+.link{
+	color: #ffffff;
+}

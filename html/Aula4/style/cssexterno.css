@@ -1,0 +1,17 @@
+
+body{
+	background-image: url('../img/background.jpg'); 
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+label{
+	color: #ffffff;
+	font-size: 30px;
+}
+.class{
+	font-weight: bolder;
+}
+#id{
+	font-size: 50px;
+}
+	

@@ -1,0 +1,8 @@
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title> CSS InLine </title>
+	</head>
+	<body style="background-image: url('img/background.jpg'); background-repeat: no-repeat; background-size: cover">
+	</body>
+</html>
