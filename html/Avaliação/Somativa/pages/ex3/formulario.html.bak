@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Formulario </title>
+		<link rel="stylesheet" href="../../style/formulario.css"/>
+	</head>
+	<body>
+		<h1>Formulario</h1>
+		<form>
+			<div class="cadastro">Nome:<input type="text" value="nome"/></div><div class="vl"></div><br/>
+			<div class="cadastro">Email:<input type="email"/></div><div class="login">Email:<input type="email"/></div><br/>
+			<div class="cadastro">Senha:<input type="password" value="senha"/></div><div class="login">Senha:<input type="password" value="senha"/></div><br/>
+			<div class="cadastro">Data:<input type="date"/><br/>
+			
+		</form>
+		<form action="../ex2/climatempo.html">
+			<input type="submit" value="Previsão Do Tempo"/></a>
+		</form>
+	</body>
+</html>

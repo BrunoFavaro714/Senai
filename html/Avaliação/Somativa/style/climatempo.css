@@ -1,0 +1,38 @@
+body{
+	background-color: cyan;
+	text-align: center;
+	margin-top: 50px;
+}
+.tabela{
+	text-align: center;
+	background-color: #ffffff;
+	margin-top: 150px;
+	margin-left: auto;
+	margin-right: auto;
+}
+table, tr, td{
+	border: 1px solid;
+	height: 30px;
+}
+#min{
+	color: blue;
+}
+#max{
+	color: red;
+}
+#chu{
+	color: gray;
+}
+.button {
+  background-color: #ffffff;
+  border: 100;
+  color: #000000;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+

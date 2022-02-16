@@ -1,0 +1,10 @@
+body{
+	background-color: pink;
+	text-align: center;
+	margin-top: 50px;
+}
+.tabela{
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid;
+}

@@ -1,0 +1,22 @@
+body{
+	background-color: pink;
+	text-align: center;
+	margin-top: 50px;
+}
+.tabela{
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid;
+}
+.button {
+  background-color: #ffffff;
+  border: 100;
+  color: #000000;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}

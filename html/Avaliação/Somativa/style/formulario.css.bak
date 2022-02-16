@@ -1,0 +1,25 @@
+body{
+	background-color: orange;
+	text-align: center;
+	margin-top: 50px;
+}
+form{
+	margin-top: 150px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #ffffff;
+}
+.cadastro{
+	margin-right: 300px;
+}
+.login{
+	margin-left: 300px;
+}
+.vl{
+	border-left: 6px solid #000000;
+	height: 420px;
+	position: absolute;
+	left: 50%;
+	margin-left: -3px;
+	top: 200;
+}
