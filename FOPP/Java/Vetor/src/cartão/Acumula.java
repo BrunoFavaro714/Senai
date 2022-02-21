@@ -14,7 +14,7 @@ public class Acumula {
 		System.out.println("simples, retorno = " + simples(345));
 		System.out.println("Acumulado total = " + random(2));
 		System.out.println(fat(7));
-		System.out.println(emprestimo());
+		System.out.printf("%.2f",emprestimo());
 	}
 	public static int simples(int iteracoes){
 		int x = 0;
@@ -49,13 +49,14 @@ public class Acumula {
 		valor = input.nextDouble();
 		
 		tempo = valor / (renda*0.3);
-		taxa = 1 + (0.1/100);
+		taxa = 1 + (0.85/100);
 		montante = valor * Math.pow(taxa, tempo);
 		
 		for(int i = 0; i < tempo; i++) {
 			juros = montante - valor;
 			montante+=juros;
 		}
+		System.out.println(tempo);
 		return montante;
 	}
 
