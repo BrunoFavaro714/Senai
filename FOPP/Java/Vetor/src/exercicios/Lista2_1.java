@@ -11,7 +11,7 @@ public class Lista2_1 {
 		
 		System.out.println("Indice:\t\tValor:");
 		for(int i = 0; i < vetor.length; i++) {
-		System.out.println("Vetor " + (i + 1) +":\t"+vetor[i]);
+		System.out.println(i+"\t\t"+vetor[i]);
 		}
 	}
 }
