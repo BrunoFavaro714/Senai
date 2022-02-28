@@ -10,7 +10,7 @@
     text-decoration: none;
     color: rgb(82, 82, 82);;
     height: 60%;
-    background-color: lightcoral;
+    background-color: lightskyblue;
     padding: 0 15px;
     border-radius: 5px;
     cursor: pointer;
@@ -40,7 +40,7 @@ header p{
     height: 20% 
 }
 .imagem:hover{
-    background-color:lightcoral;
+    background-color:lightsteelblue;
     border-radius: 50%;
     transform: scale(1.1);
     cursor: pointer;
@@ -76,6 +76,22 @@ header p{
     margin-top: 2%;
     grid-template-rows: 50% 50%;
 }
+
+@media(max-width: 1250px){
+
+	.grid{
+		grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+	}
+}
+@media(max-width: 950px){
+
+	.grid{
+		grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+	}
+}
+
 .produto{
     display: flex;
     height: 300px;
@@ -83,10 +99,11 @@ header p{
     background-color: rgb(196, 196, 196);
     border-radius: 5px;
     justify-content: space-evenly;
+    align-items: center;
 }
 .produto img{
     display: flex;
-    height: 10%;
+    height: 90%;
     margin: 3px;
 }
 .produto:hover{
@@ -101,6 +118,20 @@ header p{
     background-color: rgb(82, 82, 82);
     color: #fff;
 }
+
+@media(max-width: 1250px){
+
+	.filter{
+		grid-row: 1 / span 3;
+	}
+}
+@media(max-width: 950px){
+
+	.filter{
+		grid-row: 1 / span 6;
+	}
+}
+
 .filter li{
     display: flex;
     height: 5%;
@@ -109,7 +140,7 @@ header p{
     align-items: center;
 }
 .filter li:hover{
-    background-color: rgb(245, 205, 205);
+    background-color: lightsteelblue;
     transform: scale(1.1);
     color: rgb(100, 100, 110);
 }
@@ -119,7 +150,7 @@ header p{
     text-align: center;
 }
 .bloco p{
-    padding-top: 10%;
+    padding-top: 5%;
     cursor: default;
 }
 #categorias{
@@ -145,6 +176,46 @@ header p{
 }
 #categorias a:hover{
     transform: scale(1.5);
-    background-color: rgb(245, 205, 205);
+    background-color: lightsteelblue;
     color: rgb(100, 100, 110);
+}
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    flex-direction: row;
+    height: 10%;
+    width: 100%;
+    color: #ffffff;
+    background-color: rgb(120, 120, 120);
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    font-size: 1.5em;
+}
+.contato{
+    display: flex;
+    height: 50%;
+    margin-top: 10px;
+    padding: 0;
+    list-style: none;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.contato li{
+    display: inline-block;
+    cursor: pointer;
+}
+.opcao{
+    display: flex;
+    height: 50%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.opcao li{
+    display: inline-block;
+    cursor: pointer;
 }
