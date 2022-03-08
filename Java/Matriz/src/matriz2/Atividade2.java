@@ -9,6 +9,7 @@ public class Atividade2 {
 	public static void main(String[] args) {
 		
 		Database[] matri = new Database[size];
+		Database[] org = new Database[size];
 		int menu = 0;
 		while(menu != 3) {
 			System.out.println("1.Cadastrar\t2.Matriculas\n3.Sair");
@@ -17,10 +18,11 @@ public class Atividade2 {
 			switch(menu) {
 			case 1:
 				matri = cadastrar();
+				org = organizador(matri);
 				break;
 			case 2:
-				matriculas(matri);
-				menu(matri);
+				matriculas(org);
+				menu(org);
 				break;
 			case 3:
 				break;
@@ -46,7 +48,7 @@ public class Atividade2 {
 		return aluno;
 	}
 	public static void matriculas(Database[] aluno) {
-		System.out.println("Como gostaria de procurar? (ID/Nome)");
+		System.out.println("Gostaria de procurar um aluno?Se sim como? (ID/Nome)");
 		String p = input.next();
 		
 		int k = 0;
@@ -74,16 +76,17 @@ public class Atividade2 {
 	}
 	public static void menu(Database[] matri) {
 		int menu = 0;
+		int[] media = new int[size];
 		while(menu != 3) {
-			System.out.println("1.Agregar Notas\t2.Media\n3.Sair");
+			System.out.println("1.Agregar Notas\t2.Verificar Aprovados\n3.Sair");
 			menu = input.nextInt();
 			
 			switch(menu) {
 			case 1:
-				agregarNota(matri);
+				media = agregarNota(matri);
 				break;
 			case 2:
-				media();
+				media(matri, media);
 				break;
 			case 3:
 				break;
@@ -93,24 +96,57 @@ public class Atividade2 {
 		}
 	}
 	
-	public static void agregarNota(Database[] aluno) {
+	public static int[] agregarNota(Database[] aluno) {
 		int[] notas = new int[3];
-		Database[] valor = new Database[size];
+		int[] valor = new int[size];
+		String[] aprov = new String[size];
 		
-		System.out.print("Insira as notas do aluno ");
+		System.out.println("Insira as notas dos alunos ");
 		
 		for(int j = 0; j < valor.length; j++) {
 			System.out.println(aluno[j].output());
-			for(int i = 0; i < notas.length; i++) {
-				System.out.print((i+1) + "º nota:");
-				notas[i] = input.nextInt();
-			}
-			valor[j].media = ((notas[0]*5)+(notas[1]*3)+(notas[2]*2))/10;
+				System.out.print("1º nota:");
+				notas[0] = input.nextInt();
+				System.out.print("2º nota:");
+				notas[1] = input.nextInt();
+				System.out.print("3º nota:");
+				notas[2] = input.nextInt();
+			valor[j] = ((notas[0]*5)+(notas[1]*3)+(notas[2]*2))/10;
+			
+				
 		}
-		
+		return valor;
 	}
 		
-	public static void media() {
+	public static void media(Database[] Aluno, int[] nota) {
+		String[] aprov = new String[size];
+		for(int i = 0; i < size; i++) {
+			
+			if(nota[i] >5) {
+				aprov[i] = "Aprovado";
+			}else {
+				aprov[i] = "Reprovado";
+			}
+				System.out.println(Aluno[i].outputMedia()+nota[i]+"\t"+aprov[i]);
+		}
+	}
+	public static Database[] organizador(Database[] matri) {
+		Database[] aux = new Database[size];
+		Database[] org = new Database[size];
 		
+		for(int i = 0; i < matri.length; i++) {
+			org[i] = matri[i];
+		}
+		for(int i = 0; i < matri.length; i++) {
+			for(int j = 0; j < matri.length; j++) {
+				int val = matri[j].name.compareTo(matri[i].name);
+				if(val < 0) {
+					aux[i] = org[i];
+					org[i] = org[j];
+					org[j] = aux[i];
+				}
+			}
+		}
+		return org;
 	}
 }
