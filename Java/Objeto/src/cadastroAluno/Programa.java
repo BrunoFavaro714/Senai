@@ -26,7 +26,7 @@ public class Programa {
 			switch(menu) {
 			case 1:
 				CadAluno(id, nome, sobrenome, idade, aprov);
-				organizador();
+				organizador(id, nome, sobrenome, idade);
 				break;
 			case 2:
 				CadNota(id, nome, sobrenome, media);
@@ -72,7 +72,7 @@ public class Programa {
 	}
 	public static void CadNota(int[] id, String[] nome, String[] sobrenome, int[] media) {
 		
-		System.out.println("");
+		System.out.println("Quantas Comp");
 		int compo = input.nextInt();
 		
 		int k, q;
@@ -92,7 +92,29 @@ public class Programa {
 			media[i] = q/k;
 		}
 	}
-	public static void organizador() {
-		
+	public static void organizador(int[] id, String[] nome, String[] sobrenome, int[] idade) {
+		int aux;
+		String auxS;
+		for(int i = 0; i < vagas; i++) {
+			for(int j = 0; j < vagas; j++) {
+				if(nome[i].compareTo(nome[j]) < nome[j].compareTo(nome[i])) {
+					aux = id[i];
+					id[i] = id[j];
+					id[j] = aux;
+					
+					auxS = nome[i];
+					nome[i] = nome[j];
+					nome[j] = auxS;
+					
+					auxS = sobrenome[i];
+					sobrenome[i] = sobrenome[j];
+					sobrenome[j] = auxS;
+					
+					aux = idade[i];
+					idade[i] = idade[j];
+					idade[j] = aux;
+				}
+			}
+		}
 	}
 }
