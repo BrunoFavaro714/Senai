@@ -9,8 +9,9 @@ import modelo.*;
 public class Principal {
 
 	static SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-	static int valor = 1;
+	static int valor = 0;
 	static Scanner input = new Scanner(System.in);
+	static int id = 0;
 	static Aluno[] alunos = new Aluno[10];
 	
 	public static void main(String[] args) throws IOException, ParseException {
@@ -52,59 +53,34 @@ public class Principal {
 		}
 	}
 	public static void cadAluno() throws ParseException {
-		System.out.println("qtd");
-		int qtd = input.nextInt();
-		System.out.println("Nome\tIdade\tData de Nascimento");
-		System.out.println("\t\t(dd/MM/yyyy)");
-		for(int i = 0; i < qtd; i++) {
-			alunos[i] = new Aluno();
-			alunos[i].id = i+1;
-			alunos[i].nome = input.next();
-			alunos[i].sobrenome = input.next();
-			alunos[i].dataNas = df.parse(input.next());
-			System.out.println("----------------------");
-			valor++;
-		}
+		id++;
+		System.out.println("Nome  Sobrenome\tdata de Nascimento");
+		alunos[valor] =  new Aluno(id, input.next(), input.next(), df.parse(input.next()));
+		valor++;
 	}
 	public static void cadNota() {
-		System.out.println("Deseja cadastrar um ou multiplos alunos? (1.apenas um/2.multiplos)");
-		int qtd = input.nextInt();
-		
-		if(qtd == 2) {
-			for(int i = 0; i < valor; i++) {
-				alunos[i] = new Aluno();
-				System.out.println("Aluno");
-				System.out.println("Componente: \tNota.1\tNota.2\tNota.3");
-				Nota[] nota = alunos[i].notas;
-				nota[i].componente = input.next();
-				for(int j = 0; j < 3; j++) {
-					
-					nota[i].nota[j] = input.nextFloat();
-				}
-			}
-		}else if(qtd == 1) {
-			System.out.println("Qual Aluno?");
-			String busca = input.next();
-			for(int i = 0; i < valor; i++) {
-				alunos[i] = new Aluno();
-				if(alunos[i].nome.equalsIgnoreCase(busca)) {
-					Nota[] nota = alunos[i].notas;
-					nota[i].componente = input.next();
-					for(int j = 0; j < 3; j++) {
-						nota[i].nota[j] = input.nextFloat();
-					}
-					break;
+		System.out.println("Qual aluno?");
+		String u = input.next();
+		for(int i = 0; i < valor; i++) {
+			for(int j = 0; i < 4; j++) {
+				if((alunos[i].nome).equalsIgnoreCase(u)) {
+					System.out.println("Componente\t 1 2 3\t\t(caso não tenha sido avaliado coloque -1)");
+					alunos[i].notas[j] = new Nota(input.next(), input.nextInt(), input.nextInt(), input.nextInt());
 				}
 			}
 		}
 		
 	}
 	public static String listaAluno() {
-		
+		for(int i = 0; i < valor; i++) {
+			System.out.println(alunos[i].formatAluno());
+		}
 	return null;
 	}
 	public static String listaNotas() {
-		
+		for(int i = 0; i < valor; i++) {
+			System.out.println(alunos[i].formatMedia());
+		}
 	return null;
 	}
 	public static Aluno buscarAluno() {
