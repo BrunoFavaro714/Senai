@@ -29,7 +29,12 @@ public class Nota {
 		}else {
 			c++;
 		}
-		this.media = (a+b+c)/cont;
+		
+			this.media = (a+b+c)/(cont);
+		
 	}
-	
+	public String formatMedia() {
+		
+		return "\n"+ componente + " " + a + " " + b + " " + c + " " + media;
+	}
 }

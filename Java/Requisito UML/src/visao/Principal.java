@@ -18,7 +18,7 @@ public class Principal {
 		
 		int menu = 0;
 		while(menu != 8) {
-			System.out.println("1. 2. 3. 4. 5. 6. 7.Sair");
+			System.out.println("1.Cadastrar Aluno\t2.Cadastrar Nota\n3.Listar Alunos\t4.Listar Notas\n5.Buscar Aluno\t6.Listar Aprovados\n7.Listar Reprovados\tSair");
 			menu = input.nextInt();
 			
 			switch(menu) {
@@ -62,8 +62,8 @@ public class Principal {
 		System.out.println("Qual aluno?");
 		String u = input.next();
 		for(int i = 0; i < valor; i++) {
-			for(int j = 0; i < 4; j++) {
-				if((alunos[i].nome).equalsIgnoreCase(u)) {
+			if((alunos[i].nome).equalsIgnoreCase(u)) {
+				for(int j = 0; j < 4; j++) {
 					System.out.println("Componente\t 1 2 3\t\t(caso não tenha sido avaliado coloque -1)");
 					alunos[i].notas[j] = new Nota(input.next(), input.nextInt(), input.nextInt(), input.nextInt());
 				}
@@ -72,6 +72,7 @@ public class Principal {
 		
 	}
 	public static String listaAluno() {
+		System.out.println("ID.\t Nome.\tIdade.");
 		for(int i = 0; i < valor; i++) {
 			System.out.println(alunos[i].formatAluno());
 		}
@@ -79,19 +80,34 @@ public class Principal {
 	}
 	public static String listaNotas() {
 		for(int i = 0; i < valor; i++) {
-			System.out.println(alunos[i].formatMedia());
+			for(int j = 0; j < 4; j++){
+				System.out.println(alunos[i].formatLista());
+			}
 		}
 	return null;
 	}
 	public static Aluno buscarAluno() {
+		System.out.println("Qual aluno?");
+		String u = input.next();
+		for(int i = 0; i < valor; i++) {
+			if((alunos[i].nome).equalsIgnoreCase(u)) {
+					System.out.println(alunos[i].formatLista());
+			}
+		}
 	return null;
 	}
 	public static String listaAprovado() {
-	
+		for(int i = 0; i < valor; i++) {
+			if(!alunos[i].conceito)
+			System.out.println(alunos[i].listaApRep());
+		}
 	return null;
 	}
 	public static String listaReprovado() {
-		
+		for(int i = 0; i < valor; i++) {
+			if(alunos[i].conceito)
+			System.out.println(alunos[i].listaApRep());
+		}
 	return null;
 	}
 }
