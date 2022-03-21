@@ -9,7 +9,7 @@ import modelo.*;
 public class Principal {
 
 	static SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-	static int valor = 0;
+	static int cadastrados = 0;
 	static Scanner input = new Scanner(System.in);
 	static int id = 0;
 	static Aluno[] alunos = new Aluno[10];
@@ -55,13 +55,13 @@ public class Principal {
 	public static void cadAluno() throws ParseException {
 		id++;
 		System.out.println("Nome  Sobrenome\tdata de Nascimento");
-		alunos[valor] =  new Aluno(id, input.next(), input.next(), df.parse(input.next()));
-		valor++;
+		alunos[cadastrados] =  new Aluno(id, input.next(), input.next(), df.parse(input.next()));
+		cadastrados++;
 	}
 	public static void cadNota() {
 		System.out.println("Qual aluno?");
 		String u = input.next();
-		for(int i = 0; i < valor; i++) {
+		for(int i = 0; i < cadastrados; i++) {
 			if((alunos[i].nome).equalsIgnoreCase(u)) {
 				for(int j = 0; j < 4; j++) {
 					System.out.println("Componente\t 1 2 3\t\t(caso não tenha sido avaliado coloque -1)");
@@ -73,23 +73,21 @@ public class Principal {
 	}
 	public static String listaAluno() {
 		System.out.println("ID.\t Nome.\tIdade.");
-		for(int i = 0; i < valor; i++) {
+		for(int i = 0; i < cadastrados; i++) {
 			System.out.println(alunos[i].formatAluno());
 		}
 	return null;
 	}
 	public static String listaNotas() {
-		for(int i = 0; i < valor; i++) {
-			for(int j = 0; j < 4; j++){
+		for(int i = 0; i < cadastrados; i++) {
 				System.out.println(alunos[i].formatLista());
-			}
 		}
 	return null;
 	}
 	public static Aluno buscarAluno() {
 		System.out.println("Qual aluno?");
 		String u = input.next();
-		for(int i = 0; i < valor; i++) {
+		for(int i = 0; i < cadastrados; i++) {
 			if((alunos[i].nome).equalsIgnoreCase(u)) {
 					System.out.println(alunos[i].formatLista());
 			}
@@ -97,14 +95,14 @@ public class Principal {
 	return null;
 	}
 	public static String listaAprovado() {
-		for(int i = 0; i < valor; i++) {
+		for(int i = 0; i < cadastrados; i++) {
 			if(!alunos[i].conceito)
 			System.out.println(alunos[i].listaApRep());
 		}
 	return null;
 	}
 	public static String listaReprovado() {
-		for(int i = 0; i < valor; i++) {
+		for(int i = 0; i < cadastrados; i++) {
 			if(alunos[i].conceito)
 			System.out.println(alunos[i].listaApRep());
 		}

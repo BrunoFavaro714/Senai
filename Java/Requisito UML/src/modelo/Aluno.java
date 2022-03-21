@@ -61,7 +61,7 @@ public class Aluno {
 	}	
 	public String formatLista() {
 		
-		return id + " " + nome + " " +  sobrenome + " " + CalcIdade() + " " + df.format(dataNas);
+		return id + " " + nome + " " +  sobrenome + " " + CalcIdade() + " " + df.format(dataNas) + "\n" + apresenta();
 	}
 	public String listaApRep() {
 		
