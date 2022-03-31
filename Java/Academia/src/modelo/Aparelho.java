@@ -31,14 +31,18 @@ public class Aparelho {
 	}
 	public double depreciacao() {
 		
-		return 0;
+		return valorAquisicao/(60);
 	}
-	public double valorDeprecicacao() {
-		
-		return 0;
+	public double valorDeprecicado() {
+		double depreciado = valorAquisicao-(depreciacao()*(tempoUso() * 12));
+		if(depreciado < 0) {
+			return 0;
+		}else {
+			return  depreciado;
+		}
 	}
 	public String paraString() {
 		
-		return nome + " " + tipoExercicio + " " + grupoMuscular + " " + tempoUso() + " " + String.format("R$%.2f",valorAquisicao);
+		return nome + " " + tipoExercicio + " " + grupoMuscular + " " + tempoUso() + " " + String.format("R$%.2f",valorDeprecicado());
 	}
 }

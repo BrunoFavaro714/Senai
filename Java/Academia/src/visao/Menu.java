@@ -15,7 +15,7 @@ public class Menu {
 	public static void main(String[] args) throws ParseException {
 		int opcao = 0;
 		while(opcao != 3) {
-			System.out.print("Opção: ");
+			System.out.print("1. Cadastrar Aparelho\t2. Listar Aparelhos\nOpção: ");
 			opcao = input.nextInt();
 			switch (opcao) {
 				
@@ -37,6 +37,7 @@ public class Menu {
 		contApar++;
 	}
 	private static void listarAparelhos() {
+		System.out.println("Nome\tTipo\tGrupo Muscular\tData de Aquisição\tPreço depreciado do Equipamento");
 		for(int i = 0; i < contApar; i++) {
 			System.out.println(aparelhos[i].paraString());
 		}
