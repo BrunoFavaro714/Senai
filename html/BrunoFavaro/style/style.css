@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-repeat: no-repeat;
+    background-size: 100%
+}
+.icon{
+    display: flex;
+    justify-content: center;
+}
+.icon img{
+    height: 10%;
+    width: 10%;
+}
+.head h2{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+}
+.body{
+    display: inline;
+    justify-content: space-around;
+    margin-top: 3%;
+    
+}
+.body h4{
+    margin-left: 7%;
+    padding-top: 2%;
+}
+.body p{
+    margin-left: 10%;
+    padding-right: 10%;
+    padding-top: 5px;
+}
