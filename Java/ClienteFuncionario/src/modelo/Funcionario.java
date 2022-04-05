@@ -6,9 +6,13 @@ public class Funcionario extends Pessoa {
 
 	private int matricula;
 	private double comicao;
-	/*private String senha;
+	private String senha;
 	
 	
+	public Funcionario() {
+	}
+	
+
 	public String getSenha() {
 		return senha;
 	}
@@ -16,7 +20,7 @@ public class Funcionario extends Pessoa {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	*/
+	
 	public Funcionario(String nome, String telefone, Date nascimento) {
 		super(nome, telefone, nascimento);
 	}

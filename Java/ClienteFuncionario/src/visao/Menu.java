@@ -10,20 +10,23 @@ public class Menu {
 
 	private static Scanner input = new Scanner(System.in);
 	private static int opcao = 0;
-	private static String[] funcionalidades = {"Cadastrar Funcionario", "Cadastar Cliente\t", "Listar Funcionario(s)", "Listar Cliente(s)\t","Cadastrar Vendas\t","Listar Vendas\t", "Sair\t\t\t"};
+	private static String[] funcionalidades = {"Cadastrar Funcionario", "Cadastar Cliente\t", "Listar Funcionario(s)", "Listar Cliente(s)\t","Cadastrar Vendas\t","Listar Vendas\t","Trocar de Usuario\t", "Sair\t\t\t"};
 	private static int id = 0, matricula = 0;
 	private static SimpleDateFormat df = new SimpleDateFormat("dd/MM/yy");
+	
+	private static int usuarioLogado = 0;
+	private static String senha = "admin123";
+	private static Funcionario logado = new Funcionario();
 	
 	private static ArrayList<Cliente> clientes = new ArrayList<>();
 	private static ArrayList<Funcionario> funcionarios = new ArrayList<>();
 	private static ArrayList<Venda> vendas = new ArrayList<>();
 	
 	public static void main(String[] args) throws ParseException {
-		//int[] funcionarioId = {1, 2, 3};
-		//String[] funcionario = {"Bruno", "Enzo", "Enhique"};
-		//String[] senha = {"Bru123", "Enz123", "Enh123"};
 		
-		while(opcao != 7) {
+		login();
+		
+		while(opcao != 8) {
 			System.out.println("Opção");
 			opcao = menu(funcionalidades);
 			switch(opcao) {
@@ -46,6 +49,9 @@ public class Menu {
 				listarVenda();
 				break;
 			case 7:
+				login();
+				break;
+			case 8:
 				System.out.println("Some!");
 				break;
 			default:
@@ -53,42 +59,65 @@ public class Menu {
 			}
 		}
 	}
-
 	
-
-	private static void vendas() {
-		Venda venda = new Venda();
-		System.out.println("Digite o ID do Cliente:");
-		int clienteID = input.nextInt();
-		venda.setCodCliente(clienteID);
-		
-		System.out.println("Digite o ID do Funcionario:");
-		int funcionarioID = input.nextInt();
-		venda.setCodFuncionario(funcionarioID);
-		
-		System.out.println("Valor da compra:");
-		float compra = input.nextFloat();
-		venda.setValor(compra);
-		
-		for (Cliente c : clientes) {
-			if(c.getId() == clienteID) {
-				if(c.getCreditoLimite() > compra) {
-					c.setCreditoLimite((c.getCreditoLimite()-compra));
-				}else {
-					System.out.println("Saldo Insuficiente");
+	private static void login() {
+		System.out.print("Digite o ID do usuario: ");
+		usuarioLogado = input.nextInt();
+		System.out.print("\nDigite a senha: ");
+		senha = input.next();
+		if(funcionarios.size() != 0) {
+			for (Funcionario f : funcionarios) {
+				if(senha.equals(f.getSenha()) && usuarioLogado == f.getMatricula()) {
+					System.out.println("Login efetuado");
+					logado = f;
+					break;
+				}else if(senha.equals("admin123") && usuarioLogado == 0) {
+					System.out.println("Você esta Logado como Administrador, Vendas NÃO poderão ser efetuadas!");
+					break;
 				}
 			}
+		}else {
+			 if(senha.equals("admin123") && usuarioLogado == 0) {
+					System.out.println("\nVocê esta Logado como Administrador, Vendas NÃO poderão ser efetuadas!\n");
+			 }
 		}
-		for (Funcionario f : funcionarios) {
-			if(f.getMatricula() == funcionarioID) {
-				f.setComicao((f.getComicao()+(compra*0.10)));
+		
+	}
+
+	private static void vendas() {
+		if(usuarioLogado != 0) {
+			if(usuarioLogado == logado.getMatricula()) {
+				Venda venda = new Venda();
+				System.out.println("Digite o ID do Cliente:");
+				int clienteID = input.nextInt();
+				venda.setCodCliente(clienteID);
+				
+				venda.setCodFuncionario(logado.getMatricula());
+				
+				System.out.println("Valor da compra:");
+				float compra = input.nextFloat();
+				venda.setValor(compra);
+				
+				for (Cliente c : clientes) {
+					if(c.getId() == clienteID) {
+						if(c.getCreditoLimite() >= compra) {
+							c.setCreditoLimite((c.getCreditoLimite()-compra));
+							logado.setComicao((logado.getComicao()+(compra*0.10)));
+						}else {
+							System.out.println("Saldo Insuficiente");
+						}
+					}
+				}
+				
+				vendas.add(venda);
+			}else {
+				System.out.println("Por Favor, entre como funcionario!");
+				listaFuncionario();
 			}
+		}else {
+			System.out.println("Por Favor, entre como funcionario!");
+			listaFuncionario();
 		}
-		
-		
-		
-		
-		vendas.add(venda);
 	}
 
 	private static void cadCliente() throws ParseException {
@@ -106,6 +135,9 @@ public class Menu {
 		matricula++;
 		Funcionario funcionario = new Funcionario(input.next(), input.next(), df.parse(input.next()));
 		funcionario.setMatricula(matricula);
+		System.out.println("Seu ID de usuario é " + matricula);
+		System.out.print("Digite uma senha: ");
+		funcionario.setSenha(input.next());
 		funcionarios.add(funcionario);
 	} 
 

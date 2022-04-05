@@ -37,7 +37,7 @@ public class Venda {
 
 	@Override
 	public String toString() {
-		return "ID do Cliente: " + codCliente + " ID do Funcionario: " + codFuncionario + " Valor da Compra: " + String.format("R$%.2f",valor);
+		return "ID do Cliente: " + codCliente + "\n ID do Funcionario: " + codFuncionario + "\n Valor da Compra: " + String.format("R$%.2f",valor);
 	}
 	
 	
