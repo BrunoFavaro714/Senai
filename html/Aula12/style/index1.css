@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 2%;
+    height: 90vh;
+}
+div{
+    font-size: 20px;
+    display: flex;
+    height: 20%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+a{
+    text-align: right;
+}
+.titulo{
+    height: 15%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.lista1{
+    display: flex;
+    flex-direction: column;
+}
+.lista2{
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    height: 30%;
+    justify-content: space-between;
+}
+.lista3{
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    height: 30%;
+    justify-content: space-between;
+    list-style-type: none;
+}
+li::marker{
+    font-size: 12px;
+}
