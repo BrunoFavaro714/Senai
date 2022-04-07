@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: Segoe UI;
 }
 body{
     height: 90vh;
@@ -27,18 +28,55 @@ a{
     align-items: center;
 }
 .menu{
-    background-color: grey;
-    opacity: 0.7;
+    background-color: rgb(128, 128, 128, 0.7);  
     height: 5%;
     width: 100%;
     display: flex;
-    flex-direction: row
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    justify-content: space-between;
+    font-size: 20px;
 }
-
+.left img{
+    width: 30px;
+}
+.left{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 20%;
+    opacity: 1;
+    padding-left: 1%;
+}
+.left span{
+    padding-left: 3%;
+}
+.right{
+    display: flex;
+    justify-content: right;
+    width: 20%;
+    opacity: 1;
+    padding-right: 1%;
+}
+.right span{
+    padding-right: 3%;
+}
 .icons{
     border-radius: 20px;
-    background-color: grey;
-    opacity: 0.7;
+    background-color: rgb(128, 128, 128, 0.7);
     height: 10%;
     width: 70%;
+}
+.destaque{
+    font-weight: bolder;
+}
+.icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.icons img{
+    height: 80%;
 }
