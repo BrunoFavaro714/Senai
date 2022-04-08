@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas: "header"
+                         "main"
+                         "footer";
+}
+div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-areas: "h1 h2 h3";
+    border-bottom: 1px solid;
+}
+.h1{
+    grid-area: h1;
+    border-right: 1px solid;
+}
+.h2{
+    grid-area: h2;
+    border-right: 1px solid;
+}
+.h3{
+    grid-area: h3;
+}
+main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-areas: "m1 m2 m3";
+    border-bottom: 1px solid;
+}
+.m1{
+    grid-area: m1;
+    border-right: 1px solid;
+}
+.m2{
+    grid-area: m2;
+    border-right: 1px solid;
+}
+.m3{
+    grid-area: m3;
+}
+footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-areas: "f1 f2 f3";
+}
+.f1{
+    grid-area: f1;
+    border-right: 1px solid;
+}
+.f2{
+    grid-area: f2;
+    border-right: 1px solid;
+}
+.f3{
+    grid-area: f3;
+}
