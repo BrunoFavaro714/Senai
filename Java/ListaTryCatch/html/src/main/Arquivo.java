@@ -21,6 +21,19 @@ public class Arquivo {
 			System.out.println(e.toString());
 		}
 	}
+	public void css(String line) {
+		try {
+			FileWriter fw = new FileWriter("style.css", true);
+			BufferedWriter bw = new BufferedWriter(fw);
+			
+			bw.write(line+"\r\n");
+			
+			bw.close();
+			fw.close();
+		}catch (Exception e) {
+			System.out.println(e.toString());
+		}
+	}
 	public ArrayList<String> out(){
 		ArrayList<String> html = new ArrayList<>();
 		

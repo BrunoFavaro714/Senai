@@ -15,13 +15,19 @@ public class Main {
 				+ "    <meta charset=\"UTF-8\">\r\n"
 				+ "    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n"
 				+ "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n"
+				+ "	   <link rel=\"stylesheet\" href=\"style.css\">"
 				+ "    <title>Document</title>\r\n"
 				+ "</head>\r\n"
 				+ "<body>");
 		
 		int opcao = 0;
-		while(opcao != 6) {
-			System.out.println("1.Criar Div\t2.Criar Span\n3.Criar Paragrafo\t4.Criar Nav\n5.Criar Tabela\t6.Finalizar");
+		while(opcao != 11) {
+			System.out.println("1.Criar Div\t2.Personalizar Div"
+								+ "\n3.Criar Span\t4.Personalizar Span"
+								+ "\n5.Criar Paragrafo\t6.Personalizar Paragrafo"
+								+ "\n7.Criar Nav\t8.Personalizar Nav"
+								+ "\n9.Criar Tabela\t10.Peronalizar Tabela"
+								+ "\n11.Finalizar");
 			opcao = input.nextInt();
 			input.nextLine();
 			switch(opcao) {
@@ -29,26 +35,70 @@ public class Main {
 					Div();
 					break;
 				case 2:
-					Span();
+					cssDiv();
 					break;
 				case 3:
-					Para();
+					Span();
 					break;
 				case 4:
-					nav();
+					cssSpan();
 					break;
 				case 5:
-					tabela();
+					Para();
+					break;
 				case 6:
+					cssPara();
+					break;
+				case 7:
+					nav();
+					break;
+				case 8:
+					cssNav();
+					break;
+				case 9:
+					tabela();
+					break;
+				case 10:
+					cssTabela();
+					break;
+				case 11:
 					break;
 				default:
-					
 					break;
 			}
 		}
 		
 		arq.in("</body>\r\n"
 				+ "</html>");
+	}
+
+	private static void cssTabela() {
+		arq.css("table{");
+		System.out.println("Tamanho da tabela, altura e largura");
+		arq.css("height: "+ input.nextLine()
+				+ "width: "+ input.nextLine());
+		System.out.println("Cor de fundo");
+		arq.css("background-color: " + input.next());
+		System.out.println("Cor e tamanho da fonte");
+		arq.css("color: " + input.next()
+				+ "font-size: "+ input.next());
+		arq.css("}");
+	}
+
+	private static void cssNav() {
+		System.out.println();
+	}
+
+	private static void cssPara() {
+		System.out.println();
+	}
+
+	private static void cssSpan() {
+		System.out.println();
+	}
+
+	private static void cssDiv() {
+		System.out.println();
 	}
 
 	private static void tabela() {
