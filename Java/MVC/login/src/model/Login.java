@@ -18,4 +18,10 @@ public class Login {
 	public String getSenha() {
 		return v2;
 	}
+
+
+	@Override
+	public String toString() {
+		return v1 + ";" + v2;
+	}
 }

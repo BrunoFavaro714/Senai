@@ -23,16 +23,12 @@ public class DAO {
 			while(linha != null) {
 				l = new Login(linha);
 				linhas.add(l);
-				linha = br.readLine();
-				
+				linha = br.readLine().toString();
 			}
 		}catch (Exception e) {
 			System.out.println(e.toString());
 		}
 		return linhas;
-	}
-	public void checkup() {
-		
 	}
 	
 }

@@ -1,10 +1,17 @@
 package vision;
 
+import java.util.Scanner;
+
+import control.ProcessaLogin;
+
 public class Menu {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		Scanner input = new Scanner(System.in);
+		String email = "andre@gmail.com";
+		String senha = "123mudar";
+		
+		ProcessaLogin.login(email, senha);
 	}
 
 }
