@@ -2,26 +2,29 @@ package model;
 
 public class Login {
 
-	private String v1;
-	private String v2;
+	private String usuario;
+	private String senha;
 	
+	public Login(String usuario, String senha) {
+		this.usuario = usuario;
+		this.senha = senha;
+	}
 	public Login(String entrada) {
-		v1 = entrada.split(";")[0];
-		v2 = entrada.split(";")[1];
+		this.usuario = entrada.split(";")[0];
+		this.senha = entrada.split(";")[1];
+	}
+	public String getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 	
-
-	public String getUser() {
-		return v1;
-	}
-
-	public String getSenha() {
-		return v2;
-	}
-
-
-	@Override
-	public String toString() {
-		return v1 + ";" + v2;
-	}
+	
 }
