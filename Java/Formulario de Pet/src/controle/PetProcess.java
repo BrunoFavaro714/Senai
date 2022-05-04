@@ -7,6 +7,15 @@ import modelo.Pet;
 public class PetProcess {
 
 	public static ArrayList<Pet> pets = new ArrayList<>();
+	private static PetDAO pd = new PetDAO();
+	
+	public static void abrir() {
+		pets = pd.ler();
+	}
+	
+	public static void salvar() {
+		pd.escrever(pets);
+	}
 	
 	public static void carregarTeste() {
 		
