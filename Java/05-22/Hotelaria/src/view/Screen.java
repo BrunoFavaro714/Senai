@@ -3,16 +3,24 @@ package view;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Currency;
+import java.util.Locale;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
+import control.RoomProcess;
+import model.Room;
 
 public class Screen extends JFrame implements ActionListener {
 
@@ -26,6 +34,8 @@ public class Screen extends JFrame implements ActionListener {
 	private JButton adicionar, alterar, excluir;
 	
 	private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	private final Locale BRASIL = new Locale("pt", "BR");
+	private DecimalFormat df = new DecimalFormat("#.00");
 	
 	Screen(){
 		setTitle("Letoh");
@@ -92,10 +102,13 @@ public class Screen extends JFrame implements ActionListener {
 	}
 	private void textArea() {
 		listaQuartos = new JTextArea();
-		listaQuartos.setBounds(20, 270, 495, 300);
+		listaQuartos.setBounds(20, 300, 495, 270);
 		listaQuartos.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
 		painel.add(listaQuartos);
-		
+		filtrar = new JComboBox<String>(new String[] {"Sem Filtro" ,"Ocupados", "Livres"});
+		filtrar.setBounds(20, 270, 495, 30);
+		quartos.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
+		painel.add(filtrar);
 	}
 	private void button() {
 		adicionar = new JButton("Adicionar Reserva");
@@ -103,15 +116,106 @@ public class Screen extends JFrame implements ActionListener {
 		painel.add(adicionar);
 		alterar = new JButton("Alterar Reserva");
 		alterar.setBounds(300, 90, 200, 50);
+		alterar.setEnabled(false);
 		painel.add(alterar);
 		excluir = new JButton("Cancelar Reserva");
 		excluir.setBounds(300, 160, 200, 50);
+		excluir.setEnabled(false);
 		painel.add(excluir);
+	}
+	
+	
+	private void adicionar(){
+		if(tfNomeCompleto.getText().length() != 0 && tfTelefone.getText().length() != 0 && tfDataEntrada.getText().length() != 0 && tfDataSaida.getText().length() != 0 
+				&& tfVPerNoite.getText().length() != 0) {
+			
+			df.setCurrency(Currency.getInstance(BRASIL));
+			float vPerNoite;
+			try {
+				vPerNoite = Float.parseFloat(df.parse(tfVPerNoite.getText()).toString());
+			} catch(ParseException e) {
+				System.out.println(e);
+				vPerNoite = 0;
+			}
+			
+			RoomProcess.rooms.add(new Room(quartos.getSelectedItem().toString(), tfNomeCompleto.getText(), tfTelefone.getText(), tfDataEntrada.getText(), tfDataSaida.getText(), tfVPerNoite.getText()));
+			
+			preencherAreaDeTexto();
+			limparCampos();
+		}else {
+			JOptionPane.showMessageDialog(this, "Favor Preencher Todos os Campos");
+		}
+	}
+	private void alterar() {
+		int quarto = Integer.parseInt(quartos.getSelectedItem().toString());
+		Room room = new Room(quarto);
+		int indice = RoomProcess.rooms.indexOf(room);
+		if(tfNomeCompleto.getText().length() != 0 && tfTelefone.getText().length() != 0 && tfDataEntrada.getText().length() != 0 && tfDataSaida.getText().length() != 0 
+				&& tfVPerNoite.getText().length() != 0) {
+			
+			df.setCurrency(Currency.getInstance(BRASIL));
+			float vPerNoite;
+			try {
+				vPerNoite = Float.parseFloat(df.parse(tfVPerNoite.getText()).toString()); 
+			}catch(ParseException e) {
+				System.out.println(e);
+				vPerNoite = 0;
+			}
+			
+			RoomProcess.rooms.set(indice, new Room(quartos.getSelectedItem().toString(), tfNomeCompleto.getText(), tfTelefone.getText(), tfDataEntrada.getText(), tfDataSaida.getText(), tfVPerNoite.getText()));
+			
+			preencherAreaDeTexto();
+			limparCampos();
+		}else {
+			JOptionPane.showMessageDialog(this, "Favor Preencher Todos os Campos");
+		}
+			
+		adicionar.setEnabled(true);
+		alterar.setEnabled(false);
+		excluir.setEnabled(true);
+		RoomProcess.salvar();
+	}
+	
+	private void excluir() {
+		int quarto = Integer.parseInt(quartos.getSelectedItem().toString());
+		Room room = new Room(quarto);
+		int indice = RoomProcess.rooms.indexOf(room);
+		
+	}
+
+	private void limparCampos() {
+		tfNomeCompleto.setText(null);
+		tfTelefone.setText(null);
+		tfDataEntrada.setText(null);
+		tfDataSaida.setText(null);
+		tfVPerNoite.setText(null);
+	}
+
+	private void preencherAreaDeTexto() {
+		String texto = "";
+		for (Room r: RoomProcess.rooms) {
+				texto += r.toString();
+		}
+		listaQuartos.setText(texto);
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		if(e.getSource() == quartos) {
+			
+		}
+		if(e.getSource() == filtrar) {
+			
+		}
+		if(e.getSource() == adicionar) {
+			adicionar();
+		}
+		if(e.getSource() == alterar) {
+			alterar();
+		}
+		if(e.getSource() == excluir) {
+			excluir();
+		}
 		
 	}
 	

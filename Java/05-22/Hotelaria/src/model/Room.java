@@ -23,9 +23,9 @@ public class Room {
 	private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	
 	
-	public Room(int quarto, String nomeCompleto, String telefone, String entrada, String saida, float perNoite) {
+	public Room(String quarto, String nomeCompleto, String telefone, String entrada, String saida, String perNoite) {
 		
-		this.quarto = quarto;
+		this.quarto = Integer.parseInt(quarto);
 		this.nomeCompleto = nomeCompleto;
 		this.telefone = telefone;
 		try {
@@ -34,15 +34,8 @@ public class Room {
 		}catch(ParseException e) {
 			System.out.println(e);
 		}
-		this.perNoite = perNoite;
+		this.perNoite = Float.parseFloat(perNoite);
 	}
-	
-
-	public void ValorTotal() {
-		long estadia =  saida.getTime() - entrada.getTime();
-		this.valorTotal = perNoite * estadia;
-	}
-
 	public Room(String linha) {
 		df.setCurrency(Currency.getInstance(BRASIL));
 		
@@ -57,6 +50,15 @@ public class Room {
 		}
 		this.perNoite = Float.parseFloat(linha.split(";")[5]);
 		this.valorTotal = Float.parseFloat(linha.split(";")[6]);
+	}
+	public Room(int quarto) {
+		this.quarto = quarto;
+	}
+	
+	
+	public void ValorTotal() {
+		long estadia =  saida.getTime() - entrada.getTime();
+		this.valorTotal = perNoite * estadia;
 	}
 
 	@Override
