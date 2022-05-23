@@ -29,22 +29,35 @@ public class Manutencao {
 	}
 	
 	public Manutencao(String linha) {
+		try{
+			this.id = Integer.parseInt(linha.split(";")[0]);
+			this.data = sdf.parse(linha.split(";")[1]);
+			this.custoHora = Double.parseDouble(linha.split(";")[3]);
+			this.tempoGasto = Double.parseDouble(linha.split(";")[4]);
+		}catch(ParseException e) {
+			System.out.println(e);
+		}
+		this.equipamento = linha.split(";")[2];
+		
+	}
+
+	public Manutencao(int id2) {
 	}
 
 	public double getTotal() {
 		return custoHora * tempoGasto;
 	}
 
-	public int getId() {
-		return id;
+	public String getId(String s) {
+		return String.valueOf(id);
 	}
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public Date getData() {
-		return data;
+	public String getData() {
+		return sdf.format(data);
 	}
 
 	public void setData(Date data) {
@@ -59,16 +72,16 @@ public class Manutencao {
 		this.equipamento = equipamento;
 	}
 
-	public double getCustoHora() {
-		return custoHora;
+	public String getCustoHora(String string) {
+		return String.format("%.2f", custoHora);
 	}
 
 	public void setCustoHora(double custoHora) {
 		this.custoHora = custoHora;
 	}
 
-	public double getTempoGasto() {
-		return tempoGasto;
+	public String getTempoGasto(String string) {
+		return String.format("%.2f", tempoGasto);
 	}
 
 	public void setTempoGasto(double tempoGasto) {
