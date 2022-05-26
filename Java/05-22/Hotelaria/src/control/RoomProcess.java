@@ -17,12 +17,4 @@ public class RoomProcess {
 		rd.escrever(rooms);
 	}
 	
-	
-	public static void carregarTeste() {
-		rooms = new ArrayList<>();
-		
-		rooms.add(new Room("101", "Carlos Eduardo", "(19)99999-9999", "06/05/2022", "09/05/2022", "230.00"));
-		rooms.add(new Room("302", "Patricia Marcia", "(19)99999-9999", "14/04/2022", "16/04/2022", "130.70"));
-		rooms.add(new Room("501", "Andre Teixeira", "(19)99999-9999", "06/05/2022", "07/05/2022", "250.00"));
-	}
 }

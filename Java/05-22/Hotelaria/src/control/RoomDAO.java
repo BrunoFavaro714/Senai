@@ -34,7 +34,6 @@ public class RoomDAO {
 		return linhas;
 	}
 	
-	//adicionar livro de registros futuramente
 	public void escrever(ArrayList<Room> linhas) {
 		try {
 			bw = new BufferedWriter(new FileWriter(path));
