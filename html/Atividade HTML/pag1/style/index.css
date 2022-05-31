@@ -1,5 +1,28 @@
 .geral{
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    height: 100vh;
+    width: 100vw;
+    padding: 25%;
 }
+.logar{
+    height: 70%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.btb{
+    height: 30%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.btn{
+    text-decoration: none;
+}
+
