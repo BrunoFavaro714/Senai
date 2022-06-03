@@ -165,7 +165,7 @@ public class OrcamentoForm extends JFrame implements ActionListener {
 		if(tfId.getText().length() != 0 && tfFornecedor.getText().length() != 0 && tfProduto.getText().length() != 0 && tfDescricao.getText().length() != 0 && tfPreco.getText().length() != 0) {
 			df.setCurrency(Currency.getInstance(BRASIL));
 			double preco = 0;
-			boolean comprar = false;
+			boolean comprar = true;
 			try {
 				preco = Double.parseDouble(df.parse(tfPreco.getText()).toString());
 			}catch(ParseException e) {
@@ -176,10 +176,11 @@ public class OrcamentoForm extends JFrame implements ActionListener {
 					if(OrcamentoProcess.orcamentos.get(i).getPreco() > preco) {
 						OrcamentoProcess.orcamentos.get(i).setMaisBarato(false);
 						comprar = true;
+					}else {
+						comprar = false;
 					}
-				}else {
-					comprar = true;
 				}
+				
 			}
 			OrcamentoProcess.orcamentos.add(new Orcamento(Integer.parseInt(tfId.getText()), tfFornecedor.getText(), tfProduto.getText(), tfDescricao.getText(), preco, comprar));
 			
