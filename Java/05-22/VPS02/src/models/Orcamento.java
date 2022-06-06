@@ -29,10 +29,17 @@ public class Orcamento {
 	}
 	
 
+	public Orcamento(int id) {
+		this.id = id;
+	}
+
 	public String getId(String s) {
 		return String.valueOf(id);
 	}
 
+	public int getId() {
+		return id;
+	}
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -97,7 +104,7 @@ public class Orcamento {
 	
 	public String toCSV() {
 		return id + ";" + fornecedor + ";" + produto + ";"
-				+ descricao + ";" + preco + ";" + comprar();
+				+ descricao + ";" + preco + ";" + maisBarato + "\r\n";
 	}
 	
 }

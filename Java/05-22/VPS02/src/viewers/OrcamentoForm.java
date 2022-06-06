@@ -12,6 +12,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -161,48 +162,114 @@ public class OrcamentoForm extends JFrame implements ActionListener {
 		}
 	}
 	
+	private boolean comparaPreco() {
+		double preco = 0;
+		boolean comprar = true;
+		try {
+			preco = Double.parseDouble(df.parse(tfPreco.getText()).toString());
+		}catch(ParseException e) {
+			System.out.println(e);
+		}
+		for(int i = 0; i < OrcamentoProcess.orcamentos.size(); i++) {
+			if(OrcamentoProcess.orcamentos.get(i).getProduto().contains(tfProduto.getText())) {
+				if(OrcamentoProcess.orcamentos.get(i).getPreco() > preco) {
+					OrcamentoProcess.orcamentos.get(i).setMaisBarato(false);
+					comprar = true;
+				}else if(OrcamentoProcess.orcamentos.get(i).getPreco() < preco){
+					OrcamentoProcess.orcamentos.get(i).setMaisBarato(true);
+					comprar = false;
+				}
+			}
+			
+		}
+		return comprar;
+	}
+	
 	private void adicionar() {
 		if(tfId.getText().length() != 0 && tfFornecedor.getText().length() != 0 && tfProduto.getText().length() != 0 && tfDescricao.getText().length() != 0 && tfPreco.getText().length() != 0) {
 			df.setCurrency(Currency.getInstance(BRASIL));
 			double preco = 0;
-			boolean comprar = true;
+			boolean comprar = comparaPreco();
 			try {
 				preco = Double.parseDouble(df.parse(tfPreco.getText()).toString());
 			}catch(ParseException e) {
 				System.out.println(e);
 			}
-			for(int i = 0; i < OrcamentoProcess.orcamentos.size(); i++) {
-				if(OrcamentoProcess.orcamentos.get(i).getProduto().contains(tfProduto.getText())) {
-					if(OrcamentoProcess.orcamentos.get(i).getPreco() > preco) {
-						OrcamentoProcess.orcamentos.get(i).setMaisBarato(false);
-						comprar = true;
-					}else {
-						comprar = false;
-					}
-				}
-				
-			}
-			OrcamentoProcess.orcamentos.add(new Orcamento(Integer.parseInt(tfId.getText()), tfFornecedor.getText(), tfProduto.getText(), tfDescricao.getText(), preco, comprar));
+			OrcamentoProcess.orcamentos.add(new Orcamento(Integer.parseInt(tfId.getText()), tfFornecedor.getText(), tfProduto.getText(), tfDescricao.getText(), preco, comparaPreco()));
 			
 			preencherTabela();
 			limparCampos();
 			OrcamentoProcess.salvar();
 		}
 	}
-	
-	private void excluir() {
-		
-	}
-
-	private void alterar() {
-		
-	}
-
 	private void buscar() {
-		
+		String entrada = JOptionPane.showInputDialog(this, "Digite o ID");
+		if(entrada != null) {
+			int id = (Integer.parseInt(entrada));
+			for(int i = 0; i < OrcamentoProcess.orcamentos.size(); i++) {
+				if(OrcamentoProcess.orcamentos.get(i).getId() == id){
+					tfId.setText(OrcamentoProcess.orcamentos.get(i).getId("s"));
+					tfFornecedor.setText(OrcamentoProcess.orcamentos.get(i).getFornecedor());
+					tfProduto.setText(OrcamentoProcess.orcamentos.get(i).getProduto());
+					tfDescricao.setText(OrcamentoProcess.orcamentos.get(i).getDescricao());
+					tfPreco.setText(OrcamentoProcess.orcamentos.get(i).getPreco("s"));
+			
+					adicionar.setEnabled(false);
+					alterar.setEnabled(true);
+					excluir.setEnabled(true);
+					OrcamentoProcess.salvar();
+				}
+			}
+		}
 	}
-
-	
+	private void excluir() {
+		int id = (Integer.parseInt(tfId.getText()));
+		for(int i = 0; i < OrcamentoProcess.orcamentos.size(); i++) {
+			if(OrcamentoProcess.orcamentos.get(i).getId() == id){
+		OrcamentoProcess.orcamentos.remove(i);
+			}
+		}
+		
+		for(int i = 0; i < OrcamentoProcess.orcamentos.size(); i++) {
+			for(int j = 0; j < OrcamentoProcess.orcamentos.size(); j++) {
+				if(OrcamentoProcess.orcamentos.get(i).getProduto().contains(tfProduto.getText())) {
+					if(OrcamentoProcess.orcamentos.get(i).getPreco() < OrcamentoProcess.orcamentos.get(j).getPreco()) {
+						OrcamentoProcess.orcamentos.get(i).setMaisBarato(true);
+						OrcamentoProcess.orcamentos.get(j).setMaisBarato(false);
+					}
+				}
+				
+			}
+		}
+		
+		preencherTabela();
+		limparCampos();
+		
+		adicionar.setEnabled(true);
+		alterar.setEnabled(false);
+		excluir.setEnabled(false);
+		OrcamentoProcess.salvar();
+	}
+	private void alterar() {
+		int id = Integer.parseInt(tfId.getText()) - 1;
+		
+		double preco = 0;
+		boolean comprar = comparaPreco();
+		try {
+			preco = Double.parseDouble(df.parse(tfPreco.getText()).toString());
+		}catch(ParseException e) {
+			System.out.println(e);
+		}
+		OrcamentoProcess.orcamentos.set(id, new Orcamento(Integer.parseInt(tfId.getText()), tfFornecedor.getText(), tfProduto.getText(), tfDescricao.getText(), preco, comparaPreco()));
+		
+		adicionar.setEnabled(true);
+		alterar.setEnabled(false);
+		excluir.setEnabled(false);
+		
+		preencherTabela();
+		limparCampos();
+		OrcamentoProcess.salvar();
+	}
 
 	public static void main(String[] args) {
 		OrcamentoProcess.abrir();

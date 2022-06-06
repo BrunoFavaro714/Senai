@@ -39,6 +39,7 @@ public class OrcamentoDAO {
 			for (Orcamento o : linhas) {
 				bw.write(o.toCSV());
 			}
+			bw.close();
 		}catch(IOException e) {
 			System.out.println(e);
 		}
