@@ -1,0 +1,257 @@
+importar css Global:
+		-	@import url(../../global.css);
+		
+Exemplo grid CSS:
+		-	main{
+				height: 90vh;
+				width: 100vw;
+				display: grid;
+				grid-template-columns: 35vw 65vw ;
+				grid-template-rows: 40vh 50vh;
+				background-color: rgb(226, 226, 226);
+			}
+		- 	.tabela{
+				margin: 0 45px 20px 17px;
+				grid-area: 2 / 1;
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				grid-template-rows: repeat(4, 1fr);
+			}
+
+Exemplo Celula grid CSS:
+		-	.grafico{
+				grid-area: 1 / 2 / span 2 ;
+				display : flex;
+				justify-content: center;
+				align-items: center;
+			}
+			
+Exemplo Hover CSS:
+		-	.tabela div:hover{
+				transform: scale(1.2);
+				background-color: #3971ff;
+			}
+			
+Box-sizing:
+		-	* {
+				box-sizing: border-box;
+			}
+			
+			
+
+
+ Exemplo HTML:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/index.css">
+    <title>DashBoard Performance</title>
+</head>
+<body>
+    <header>
+        <div>
+            <span><img src="assets/logo.png" width="60px"></span>
+            <span><p>Qualidade Aplicada LTDA.</p></span>
+        </div>
+        <div>
+            <span>Olá, Cleiton</span>
+            <span><img src="assets/menu.png" width="50px"></span>
+            <span><img src="assets/house.png" width="40px"></span>
+            <span><img src="assets/user.png" width="50px"></span>
+            <span class="copy"><p>©</p></span>
+            <span><img src="assets/help.png" width="50px"></span>
+            <span><p>Sair</p></span>
+        </div>
+    </header>
+    <main>
+        <div class="performance">
+            <p>DashBoard Performance</p>
+            <hr>
+            <p>Periodo:</p>
+            <input type="date">
+            <input type="date">
+            <p>Tipo de Atividade:</p>
+            <select name="cars" id="cars">
+                <option value="volvo">Auditorias</option>
+                <option value="saab">Redição</option>
+                <option value="mercedes">Pesquisas</option>
+                <option value="audi">Outros</option>
+            </select>
+        </div>
+
+        <div class="tabela">
+            <div>
+                <p>Atividades Concluídas</p>
+                <h2>9</h2>
+            </div>
+            <div>
+                <p>Menos Pontuação</p>
+                <h2>37</h2>
+            </div>
+            <div>
+                <p>Atividades Pendentes</p>
+                <h2>1</h2>
+            </div>
+            <div>
+                <p>Maior Pontuação</p>
+                <h2>91</h2>
+            </div>
+            <div>
+                <p>Atividades Canceladas</p>
+                <h2>0</h2>
+            </div>
+            <div>
+                <p>Tempo Médio em Dias</p>
+                <h2>12</h2>
+            </div>
+            <div>
+                <p>Na Media</p>
+                <h2>5</h2>
+            </div>
+            <div>
+                <p>Desvio Padrão</p>
+                <h2>19,36</h2>
+            </div>
+        </div>
+
+        <div class="grafico">
+            <img src="assets/grafico.png" width="90%">
+        </div>
+    </main>
+</body>
+</html>
+
+
+
+
+Exemplo CSS:
+
+@import url(../../global.css);
+
+body {
+    background-color: rgb(226, 226, 226);
+}
+header {
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(73, 73, 73);
+    color: white;
+    cursor: default;
+}
+header div {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 20px;
+}
+header img {
+    cursor: pointer;
+}
+.copy{
+    font-size: 50px;
+    text-align: center;
+    align-items: center;
+    padding-bottom: 8px;
+}
+main{
+    height: 90vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 35vw 65vw ;
+    grid-template-rows: 40vh 50vh;
+    background-color: rgb(226, 226, 226);
+}
+.performance{    
+    grid-area: 1 / 1;
+    height: 80%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;  
+    background-color: #fff;
+    padding: 15px;
+    margin: 20px 0 0 20px;
+}
+.performance p, input, select{
+    padding: 2%;
+}
+.performance input, select{
+    margin: 0 7px;
+    outline: none;
+    cursor: pointer;
+}
+
+.tabela{
+    margin: 0 45px 20px 17px;
+    grid-area: 2 / 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+.tabela div{
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 3px;
+    background-color: #5984F4;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}
+.tabela div h2{
+    text-align: right;
+    font-size: 40px;
+}
+.tabela div:hover{
+    transform: scale(1.2);
+    background-color: #3971ff;
+}
+.grafico{
+    grid-area: 1 / 2 / span 2 ;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+Exemplo CSS Global:
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Segoe UI;
+}
+
+
+
+
+
+Exemplo Organização de Pastas:
+
+-DashBoard (Pasta);
+	-assets (Pasta);
+		-img.png (arquivo);
+	-style (Pasta);
+		-index.css (arquivo css);
+	-index.html (arquivo html);
+	
+-DashBoard (Pasta);
+	-assets (Pasta);
+		-img.png (arquivo);
+	-style (Pasta);
+		-index.css (arquivo css);
+	-index.html (arquivo html);
+
+- global.css (arquivo css)
