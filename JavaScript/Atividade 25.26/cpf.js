@@ -1,10 +1,8 @@
 const cpf = document.getElementById("cpf"); 
 cpf.value = gerarCpf();
 
-const conf = document.getElementById("cpf");
-
-const validar = document.querySelector("button");
-validar.addEventListener("click", validarCpf);
+const cpfValidar = document.querySelector("#btnCpf");
+cpfValidar.addEventListener("click", validarCpf);
 
 function gerarCpf() {
   const num1 = aleatorio();
@@ -37,27 +35,55 @@ function aleatorio() {
 
 function validarCpf(){
 
-    const vali = /^[0-9]{3}$/;
-    const vali2 = /^[0-9]{2}$/;
+  const vali = /^[0-9]{3}$/;
+  const vali2 = /^[0-9]{2}$/;
 
-    let sec1 = conf.value.split("-");
-    let sec2 = sec1[0].split(".");
+  let sec1 = cpf.value.split("-");
+  let sec2 = sec1[0].split(".");
 
-    let valid = false;
-    for(let i = 0; i < 3; i++){
-      if(vali.test(sec2[i])){
-        valid = true;
-      }else{
-        valid = false;
-        break;
-      }
-    }
-
-    if(valid && vali2.test(sec1[1])){
-        alert("Valido");
+  let valid = false;
+  for(let i = 0; i < 3; i++){
+    if(vali.test(sec2[i])){
+      valid = true;
     }else{
-        alert("Invalido")
+      valid = false;
+      break;
     }
+  }
+
+  if(valid && vali2.test(sec1[1])){
+      alert("Valido");
+  }else{
+      alert("Invalido")
+  }
 }
 
+//=====================================================================//
 
+const placa = document.getElementById("placa");
+
+const placaValidar = document.querySelector("#btnPlaca");
+placaValidar.addEventListener("click", validarPlaca);
+
+function validarPlaca(){
+
+  let placaAntiga = /^[a-zA-Z]{3}[0-9]{4}$/;
+  let placaNova = /^[a-zA-Z]{3}[0-9]{1}[a-zA-Z]{1}[0-9]{2}$/;
+
+  if(placaAntiga.test(placa.value) || placaNova.test(placa.value)){
+    alert("Valido");
+  }else{
+    alert("Invalido");
+  }
+}
+
+//=======================================================================//
+
+const tel = document.getElementById("tel");
+
+const telValidar = document.querySelector("#btnTel");
+placaValidar.addEventListener("click", validarTel);
+
+function validarTel(){
+  
+}
