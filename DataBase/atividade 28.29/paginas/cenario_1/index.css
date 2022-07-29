@@ -1,0 +1,14 @@
+body{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.cliente{
+    display: flex;
+    flex-direction: column;
+}
+.pedido{
+    display: flex;
+    flex-direction: column;
+}

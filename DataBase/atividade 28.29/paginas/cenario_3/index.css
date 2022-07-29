@@ -1,0 +1,14 @@
+body{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.turma{
+    display: flex;
+    flex-direction: column;
+}
+.aluno{
+    display: flex;
+    flex-direction: column;
+}

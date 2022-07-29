@@ -1,0 +1,14 @@
+body{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.tecnico{
+    display: flex;
+    flex-direction: column;
+}
+.manutencao{
+    display: flex;
+    flex-direction: column;
+}
