@@ -4,12 +4,13 @@ const cpfQTD = document.getElementById("cpfGera");
 const cpfCriar = document.querySelector("#btnCpf");
 cpfCriar.addEventListener("click", cpfGerar);
 const apagarCpf = document.querySelector("#cpfApagar")
-apagarCpf.addEventListener("click", () => {cpf.value = null; cpfQTD.value = null})
+apagarCpf.addEventListener("click", () => {cpf.value = null;})
 
 function cpfGerar(){
     for(let i = 0; i < parseInt(cpfQTD.value); i++){
         cpf.value += `${gerarCpf()}\n`;
     }
+    cpfQTD.value = null;
 }
 function gerarCpf() {
   const num1 = aleatorio();
@@ -69,12 +70,14 @@ const qtd = document.getElementById("telQtd");
 const telCriar = document.querySelector("#btnTel");
 telCriar.addEventListener("click", telGerar);
 const apagarTel = document.querySelector("#telApagar");
-apagarTel.addEventListener("click", () => {telefones.value = null; ddd.value = null; qtd.value = null;})
+apagarTel.addEventListener("click", () => {telefones.value = null;})
 
 function telGerar(){
     for(let i = 0; i < parseInt(qtd.value); i++){
         telefones.value += `${gerarTel()}\n`;
     }
+    ddd.value = null; 
+    qtd.value = null;
 }
 
 function gerarTel(){
