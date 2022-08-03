@@ -1,12 +1,30 @@
-var tr = document.createElement("tr");
-var td = document.createElement("td");
+function adiciolarCadastro() {
+    const linha = document.createElement("tr");
+    const tabela = document.querySelector("tbody");
 
-let funcionario = td.append("Claudio");
-let cargo = td.append("OL");
-let salario = td.append("1000");
+    let nome = document.querySelector("#nome");
+    let cargo = document.querySelector("#cargo");
+    let salario = document.querySelector("#salario");
 
-tr.appendChild(funcionario);
-tr.appendChild(cargo);
-tr.appendChild(salario);
+    var nomeT = document.createElement("td");
+    var cargoT = document.createElement("td");
+    var salarioT = document.createElement("td");
 
-document.querySelector("tbody").appendChild(tr);
+    nomeT.id = "tNome";
+    cargoT.id = "tCargo";
+    salarioT.id = "tSalario";
+
+    nomeT.innerHTML = nome.value;
+    cargoT.innerHTML = cargo.value;
+    salarioT.innerHTML = "R$ " + salario.value;
+
+    linha.appendChild(nomeT);
+    linha.appendChild(cargoT);
+    linha.appendChild(salarioT);
+
+    tabela.appendChild(linha);
+
+    nome.value = null;
+    cargo.value = null;
+    salario.value = null;
+}
