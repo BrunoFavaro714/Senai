@@ -1,4 +1,4 @@
-function adiciolarCadastro() {
+function adicionarCadastro() {
     const linha = document.createElement("tr");
     const tabela = document.querySelector("tbody");
 
@@ -9,10 +9,6 @@ function adiciolarCadastro() {
     var nomeT = document.createElement("td");
     var cargoT = document.createElement("td");
     var salarioT = document.createElement("td");
-
-    nomeT.id = "tNome";
-    cargoT.id = "tCargo";
-    salarioT.id = "tSalario";
 
     nomeT.innerHTML = nome.value;
     cargoT.innerHTML = cargo.value;

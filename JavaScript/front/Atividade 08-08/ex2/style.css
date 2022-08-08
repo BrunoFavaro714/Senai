@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+}
+
+.item-carrinho{
+    width: 80vw;
+    height: 10vh;
+    border: 1px solid #888;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px 0;
+    padding: 0 15px;
+}
+
+#img-item{
+    width: 8vh;
+    height: 8vh;
+    
+}
+
+.item-carrinho > button > img{ 
+    width: 32px;
+}
+
+.modelo{
+    visibility: hidden;
+    display: none;
+}
