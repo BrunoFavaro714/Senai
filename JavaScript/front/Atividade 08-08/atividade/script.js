@@ -54,16 +54,28 @@ var funcionario = document.querySelector(".funcionario");
 function carregar() {
 	funcionarios.forEach(func => {
 		let novoFuncionario = funcionario.cloneNode(true);
+		let btnRemover = novoFuncionario.querySelector("#remover");
+		let adimin = novoFuncionario.querySelector(".adm");
 
 		novoFuncionario.classList.remove("modelo");
 
 		novoFuncionario.querySelector("#nome").innerHTML = func.funcionario;
 		novoFuncionario.querySelector("#cargo").innerHTML = func.cargo.nome;
 		novoFuncionario.querySelector("#nivel").value = func.cargo.nível;
-		if(func.autorizado){
-			novoFuncionario.querySelector("#check").checked;
+		novoFuncionario.querySelector("#check").checked = func.autorizado;
+		if(func.cargo.nível != 3){
+			btnRemover.classList.remove("modelo");
+		}
+		if((func.cargo.nome) == 'Analista' || (func.cargo.nome) == 'Desenvolvedor'){
+			if(func.cargo.nível == 3){
+				adimin.classList.remove("modelo");
+			}
 		}
 
 		document.querySelector(".funcionarios").appendChild(novoFuncionario);
 	});
 };
+
+function remover(e){
+	e.parentNode.remove(e);
+}

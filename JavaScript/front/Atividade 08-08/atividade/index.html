@@ -10,15 +10,22 @@
 <body onload="carregar()">
     <div class="funcionarios">
         <div class="funcionario modelo">
-            <p id="nome">Nome Funcionario</p>
-            <div>
+            <span>
+                <p id="nome">Nome Funcionario</p>
                 <p id="cargo">Analista</p>
-                <input type="number" placeholder="Nivel" id="nivel">
-            </div>
-            <div>
-                <input type="checkbox" value="autorizado" id="check">
+            </span>
+            <span>
+                <div class="nivel">
+                    <p>Nível: </p>
+                    <input type="number" placeholder="Nivel" id="nivel" readonly="readonly">
+                </div>
+                <p class="adm modelo">Adimin</p>
+            </span>
+            <div class="check">
+                <input type="checkbox" value="autorizado" id="check" disabled="disabled">
                 <label>Autorizado</label>
             </div>
+            <button type="button" id="remover" class="modelo" onClick="remover(this)" >Remover</button>
         </div>
     </div>
 </body>
