@@ -24,8 +24,9 @@ body{
     flex-direction: column;
     height: 120px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #eee;
     align-items: center;
+    box-shadow: 2px 3px 5px #aaa;
 }
 span{
     display: flex;

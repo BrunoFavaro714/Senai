@@ -77,5 +77,5 @@ function carregar() {
 };
 
 function remover(e){
-	e.parentNode.remove(e);
+	e.parentNode.remove();
 }

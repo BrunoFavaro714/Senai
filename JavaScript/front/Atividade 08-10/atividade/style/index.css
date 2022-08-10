@@ -1,0 +1,35 @@
+@import "../global.css";
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.right{
+    display: flex;
+    flex-direction: row;
+}
+
+.produtos{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.imgProduto{
+    height: 70%;
+    width: 100%;
+}
+
+.produto{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 15px;
+    height: 300px;
+    width: 250px;
+    margin-left: clamp(10px, 5vw, 100px);
+    margin-bottom: clamp(10px, 5vh, 50px);
+}
+.produto:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
