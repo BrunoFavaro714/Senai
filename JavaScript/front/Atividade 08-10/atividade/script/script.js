@@ -2,17 +2,20 @@ var usuarios = [
     {
         "id":1,
         "usuario":"a",
-        "senha":"123"
+        "senha":"123",
+        "icon":""
     },
     {
         "id":2,
         "usuario":"b",
-        "senha":"456"
+        "senha":"456",
+        "icon":""
     },
     {
         "id":3,
         "usuario":"c",
-        "senha":"789"
+        "senha":"789",
+        "icon":""
     }
 ]
 

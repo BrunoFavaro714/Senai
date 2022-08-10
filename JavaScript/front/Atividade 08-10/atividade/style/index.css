@@ -1,19 +1,55 @@
 @import "../global.css";
 
 header{
+    height: 5vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    background-color: #444;
 }
-.right{
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: #666;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.left > ul {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: clamp(200px, 15vw, 300px);
+}
+.left > ul > li > a {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+a:hover{
+    background-color: #ddd;
+    color: #333 !important;
+}
+
+.right > ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 200px;
+    color: #fff;
 }
 
 .produtos{
     display: flex;
     flex-wrap: wrap;
-    
+    margin-top: 50px;
 }
 
 .imgProduto{
@@ -29,7 +65,27 @@ header{
     width: 250px;
     margin-left: clamp(10px, 5vw, 100px);
     margin-bottom: clamp(10px, 5vh, 50px);
+    background-color: #eee;
 }
 .produto:hover{
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transform: scale(1.1);
 }
+.info{
+    padding: 0 10px 0 10px;
+    height: 30%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.info > span{
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+#nome{
+    font-weight: bold;
+}
+
