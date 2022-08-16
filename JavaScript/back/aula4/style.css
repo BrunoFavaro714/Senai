@@ -16,7 +16,7 @@ input{
 
 .todos{
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
 }
@@ -29,6 +29,10 @@ input{
     padding: 0 10px 0 10px;
     margin-bottom: 15px;
     box-shadow: 2px 2px 3px #888;
+}
+.todo:hover{
+    transition: all 0.5s;
+    transform: scale(1.1);
 }
 .wrap{
     width: 100%;

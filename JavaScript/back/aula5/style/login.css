@@ -1,0 +1,29 @@
+@import "../global.css";
+
+div{
+    display: flex;
+    flex-direction: column;
+    width: clamp(150px, 15vw, 250px);
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #333;
+    padding: 20px 0 20px 0;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+input{
+    border: none;
+    border-bottom: 1px solid #333;
+    outline: none;
+}
+button{
+    border: none;
+    background-color: #333;
+    color: #fff;
+    height: 20px;
+    width: 70px;
+}
