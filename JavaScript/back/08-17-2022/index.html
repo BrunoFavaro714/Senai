@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <form class="forms">
+        <div class="dadosUsuario">
+            <div>
+                <input type="text" id="nome" placeholder="Nome Completo">
+                <input type="text" id="email" placeholder="Email">
+            </div>
+            <div>
+                <input type="password" id="senha" onchange="senhaTamanho(this)" placeholder="Senha">
+                <input type="password" id="confSenha" onchange="confirmar(this)" placeholder="Confirme a Senha">
+            </div>
+            <div>
+                <input type="text" id="telefone" placeholder="Telefone">
+                <input type="number" id="cep" placeholder="Cep">
+            </div>
+        </div>
+        <div class="dadosCep">
+            <div>
+                <input type="text" id="logradouro" placeholder="Logradouro" disabled>
+                <input type="text" id="complemento" placeholder="Complemento">
+            </div>
+            <div>
+                <input type="text" id="bairro" placeholder="Bairro" disabled>
+                <input type="text" id="cidade" placeholder="Cidade" disabled>
+                <input type="text" id="estado" placeholder="Estado" disabled>
+            </div>
+        </div>
+        <button type="submit" onClick="cadastrar()" id="btn" disabled="true">Cadastrar</button> 
+    </form>
+</body>
+<script src="script.js"></script>
+</html>

@@ -1,6 +1,9 @@
+const usuario = JSON.parse(window.localStorage.getItem("infoUser"));
+
 function posts(){
-    let userId = window.localStorage.getItem("userId");
-    let userName = window.localStorage.getItem("userName")
+    
+    var userId = usuario.id;
+    var userName = usuario.name;
 
     document.querySelector("#nome").innerHTML = userName;
 

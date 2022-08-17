@@ -9,9 +9,16 @@ function logar(){
     .then((userData) => {
         userData.forEach(data => {
             if(psw == data.username) {
+                
+                let infoUser = {
+                    "id":data.id,
+                    "name":data.name
+                };
+
+                console.log(infoUser);
+
+                window.localStorage.setItem("infoUser", JSON.stringify(infoUser));
                 window.location.href ="./index.html";
-                window.localStorage.setItem("userId", data.id);
-                window.localStorage.setItem("userName", data.name);
             }else{
                 alert("Usuario ou senha Incorreta")
             }
