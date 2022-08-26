@@ -19,3 +19,20 @@ create table telefones(
 describe clientes;
 describe telefones;
 show tables;
+
+LOAD DATA INFILE 'D:/BrunoFavaro/Senai/JavaScript/database/Atividade 08-18-2022/clientes/clientes.csv'
+INTO TABLE clientes
+FIELDS TERMINATED BY ';'
+ENCLOSED BY '"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE 'D:/BrunoFavaro/Senai/JavaScript/database/Atividade 08-18-2022/clientes/telefones.csv'
+INTO TABLE telefones
+FIELDS TERMINATED BY ';'
+ENCLOSED BY '"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS;
+
+select * from clientes;
+select * from telefones;

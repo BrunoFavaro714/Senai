@@ -36,3 +36,14 @@ describe linhas;
 describe horarios;
 describe mot_linha;
 show tables;
+
+select * from motorista m
+join telefones t
+on m.cpf = t.cpf;
+
+create view vw_motorista as
+select c.cpf, c.nome_motorista, t.telefones from clientes c
+join telefones t
+on c.cpf = t.cpf;
+
+select * from vw_motorista;

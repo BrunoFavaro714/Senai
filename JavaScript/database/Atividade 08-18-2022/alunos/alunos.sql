@@ -29,7 +29,7 @@ create table exercicios(
     foreign key (id_aparelho) references aparelhos(id_aparelho)
 );
 
-create table ficha_exercicios(
+create table ficha(
     id_aluno integer not null,
     id_exercicio integer not null,
     dia_semana varchar(15) not null,
@@ -42,5 +42,46 @@ describe clientes;
 describe telefones;
 describe aparelhos;
 describe exercicios;
-describe ficha_exercicios;
+describe ficha;
 show tables;
+
+LOAD DATA INFILE 'D:/BrunoFavaro/Senai/JavaScript/database/Atividade 08-18-2022/alunos/alunos.csv'
+INTO TABLE alunos
+FIELDS TERMINATED BY ';'
+ENCLOSED BY '"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE 'D:/BrunoFavaro/Senai/JavaScript/database/Atividade 08-18-2022/alunos/telefones.csv'
+INTO TABLE telefones
+FIELDS TERMINATED BY ';'
+ENCLOSED BY '"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE 'D:/BrunoFavaro/Senai/JavaScript/database/Atividade 08-18-2022/alunos/aparelho.csv'
+INTO TABLE aparelhos
+FIELDS TERMINATED BY ';'
+ENCLOSED BY '"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE 'D:/BrunoFavaro/Senai/JavaScript/database/Atividade 08-18-2022/alunos/exercicios.csv'
+INTO TABLE exercicios
+FIELDS TERMINATED BY ';'
+ENCLOSED BY '"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE 'D:/BrunoFavaro/Senai/JavaScript/database/Atividade 08-18-2022/alunos/ficha.csv'
+INTO TABLE ficha
+FIELDS TERMINATED BY ';'
+ENCLOSED BY '"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS;
+
+select * from alunos;
+select * from telefones;
+select * from aparelhos;
+select * from exercicios;
+select * from ficha;
