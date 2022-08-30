@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Lojinha</title>
+</head>
+<body>
+    <button onClick="showModal()">Adicionat Produto</button>
+    <div class="produtos">
+        <div class="produto model">
+            <p id="nome">Nome</p>
+            <p id="preco">Preco</p>
+            <button>Comprar</button>
+        </div>
+    </div>
+    <div class="modal model">
+        <div class="form-modal">
+            <input type="text" id="cod" placeholder="Codigo do Produto">
+            <input type="text" id="nnome" placeholder="Nome do Produto">
+            <input type="number" id="qntd" placeholder="Quantidade do Produto">
+            <input type="number" id="ppreco" placeholder="Preco do Produto">
+            <button onClick="cadastrar()">Cadastrar</button>
+            <button id="cancel" onClick="showModal()">X</button>
+        </div>
+    </div>
+</body>
+<script src="./script.js"></script>
+</html>

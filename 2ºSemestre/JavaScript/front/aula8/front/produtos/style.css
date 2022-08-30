@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.produto{
+    border: 1px solid #333;
+    border-radius: 20px;
+    width: 160px;
+    padding: 20px;
+    margin: 15px;
+}
+
+.modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.form-modal{
+    width: 50vh;
+    height: 50vh;
+    background-color: #fff;
+    border-radius: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 60px 120px;
+}
+.form-modal > input , button{
+    margin: 15px 0;
+}
+
+#cancel{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    background: none;
+    border: none;
+}
+
+.model{
+    display: none;
+    visibility: hidden;
+}
