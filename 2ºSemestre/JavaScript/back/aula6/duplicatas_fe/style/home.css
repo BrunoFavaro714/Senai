@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+}
+.clientes{
+    display: flex;
+    flex-wrap: wrap;
+}
+.cliente{
+    width: clamp(300px, 50vw, 800px);
+    height: 150px;
+    display:flex;
+    flex-direction: column;
+    position: relative;
+}
+.cliente div{
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.endereco{
+    height: 100px !important;
+    display: flex;
+    flex-direction: column !important;
+}
+.endereco span{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+#codCli{
+    height: 30px;
+    width: 30px;
+}
+#nome{
+    height: 30px;
+    width: 80%;
+}
+#telefones{
+    height: 30px;
+}
+
+#endereco, #bairro, #cidade, #uf{
+    height: 30px;
+    width: 47%;
+}
+.modal{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100% !important;
+}
