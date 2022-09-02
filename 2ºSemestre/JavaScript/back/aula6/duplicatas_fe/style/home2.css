@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+table {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #ddd;
+}
+
+td {
+    text-align: center;
+}
+
+.tels {
+    cursor: pointer;
+}
+
+#modais {
+    background-color: rgba(0, 0,0, 0.5);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+#modalTels {
+    position: relative;
+    top: 10vw;
+    box-shadow: 2px 2px 4px black;
+}
+
+.fechar{
+    cursor: pointer;
+    width: 25px;
+    font-weight: bold;
+    color: #ccc;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: #fff;
+}

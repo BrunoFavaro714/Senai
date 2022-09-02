@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/home2.css">
+    <title>Document</title>
+</head>
+<body onload="loadCli()">
+    <table>
+        <thead>
+            <tr>
+                <th colspan='7'>Clientes</th>
+            </tr>
+            <tr>
+                <th>Cod_cli</th>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
+                <th>UF</th>
+                <th>Telefones</th>
+            </tr>
+        </thead>
+        <tbody id="allCli"></tbody>
+    </table>
+    <div id="modais">
+        <div id="modalTels" style="display:none;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Telefones</th>
+                        <th align="right"><button class="fechar"
+                                onclick="modais.setAttribute('style','display:none;')">X</button></th>
+                    </tr>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Número</th>
+                    </tr>
+                </thead>
+                <tbody id="telefones"></tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script src="../script/home2.js"></script>
+</html>

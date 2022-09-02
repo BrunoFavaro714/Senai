@@ -7,15 +7,13 @@
     <link rel="stylesheet" href="../style/home.css">
     <title>Document</title>
 </head>
-<body>
-    
-
+<body onLoad="carregar()">
     <div class="clientes">
         <div class="cliente model">
             <div>
                 <input type="text" id="codCli">
                 <input type="text" id="nome" placeholder="Astolfo">
-                <img src="../assets/telIcon.png" alt="Telefone" id="telefones">
+                <img src="../assets/telIcon.png" alt="Telefone" id="telefones" onClick="showModal()">
             </div>
             <div class="endereco">
                 <span>
@@ -27,16 +25,15 @@
                     <input type="text"id="uf" placeholder="UF">
                 </span>
             </div>
-            <div class="modal model">
-                <span>
-                    <input type="text" id="tipoCli">
-                    <input type="text" id="telCli">
-                </span>
-            </div>
         </div>
     </div>
-    
-    
+    <div class="modal model">
+        <div>
+            <input type="text" id="tipoCli">
+            <input type="text" id="telCli">
+            <button id="close" onClick="showModal()">X</button>
+        </div>
+    </div>
 </body>
 <script src="../script/home.js"></script>
 </html>
