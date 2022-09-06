@@ -1,0 +1,40 @@
+@import url('../global/styles/estrutura.css');
+
+table {
+    width: 100%;
+}
+
+table >tbody > tr > td {
+    text-align: center;
+}
+
+.icon{
+    width: 22px;
+}
+
+ td > button{
+    background: none;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+td > button:hover {
+    cursor: pointer;
+    transition: all 0.5;
+    transform: scale(1.2);
+    background-color: #ddd;
+    border-radius: 50%;
+}
+.fechar {
+    background: none;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+.fechar:hover {
+    cursor: pointer;
+    transition: all 0.5;
+    transform: scale(1.1);
+    border-radius: 50%;
+}
