@@ -31,20 +31,20 @@ main {
 }
 
 .modal {
-    position: fixed;
     display: flex;
+    position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0,0,0,.5);
     align-items: center;
     justify-content: center;
 }
 
 .modal-content {
     width: 350px;
-    background-color: #fff;
+    background-color: #FFF;
     border-radius: 20px;
-    position:relative;
+    position: relative;
     display: flex;
     flex-direction: column;
     padding: 20px 40px;
@@ -63,37 +63,54 @@ main {
     margin: 20px;
 }
 
-.modal-content-body {
-    margin-top: 20px;
-}
-
 .modal-content-footer {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    margin-top: 15px;
+}
+
+.modal-content-body {
     margin-top: 20px;
 }
 
-.confirm{
+.confirm {
     padding: 10px 15px;
-    color: #fff;
+    color: white;
     border-radius: 5px;
     background-color: #2fd659;
-    border:none;
 }
-.cancel{
+
+.cancel {
     padding: 10px 15px;
-    color: #fff;
+    color: white;
     border-radius: 5px;
-    background-color: #fa2828;
-    border:none;
+    background-color: #fa2828; 
 }
 
 input {
-    border: 1px solid #333;
+    width: 100%;
+    border: 1px solid gray;
     border-radius: 5px;
     outline: none;
-    padding:5px 10px;
+    padding: 5px 10px;
     margin-top: 10px;
-    width:100%;
+}
+
+.cadastrar {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid #2fd659;
+    margin-bottom: 20px;
+}
+
+.cadastrar:hover {
+    color:  #fff;
+    background-color: #2fd659;
+}
+
+.cadastrar > img {
+    margin-left: 10px;
 }

@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lojinha - Produtos</title>
     <link rel="stylesheet" href="./style.css">
-    <title>Lojinha</title>
 </head>
 <body>
-    <button onClick="showModal()">Adicionat Produto</button>
+    <button onClick="showModal()">Adicionar Produto</button>
     <div class="produtos">
         <div class="produto model">
-            <p id="nome">Nome</p>
-            <p id="preco">Preco</p>
+            <p id="nome">Nome do Produto</p>
+            <p id="preco">Preço do Produto</p>
             <button>Comprar</button>
         </div>
     </div>
     <div class="modal model">
         <div class="form-modal">
-            <input type="text" id="cod" placeholder="Codigo do Produto">
-            <input type="text" id="nnome" placeholder="Nome do Produto">
-            <input type="number" id="qntd" placeholder="Quantidade do Produto">
-            <input type="number" id="ppreco" placeholder="Preco do Produto">
+            <input id="cod" type="text" placeholder="Código do Produto">
+            <input id="nnome" type="text" placeholder="Nome do Produto">
+            <input id="qntd" type="number" placeholder="Quantidade do Produto">
+            <input id="ppreco" type="number" placeholder="Preço do Produto">
             <button onClick="cadastrar()">Cadastrar</button>
-            <button id="cancel" onClick="showModal()">X</button>
+            <button id="cancel" onClick="showModal()">Cancelar</button>
         </div>
     </div>
 </body>

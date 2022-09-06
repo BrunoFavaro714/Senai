@@ -1,18 +1,20 @@
-const listaProd = document.querySelector("#listaProd")
-const linhamod = document.querySelector(".linhamod");
+const listaProdutos = document.querySelector("#lista-produtos")
+const linhamodelo = document.querySelector(".linhamodelo");
 const modalExcluir = document.querySelector(".excluir");
 const modalEditar = document.querySelector(".editar");
 
-const inpCod = document.querySelector("#codigo");
-const inpNome = document.querySelector("#nome");
-const inpQntd = document.querySelector("#quantidade");
-const inpValor = document.querySelector("#valor");
+const inputCodigo = document.querySelector("#codigo");
+const inputNome = document.querySelector("#nome");
+const inputQuantidade = document.querySelector("#quantidade");
+const inputValor = document.querySelector("#valor");
+
+const btCadedit = document.querySelector("#cadedit");
 
 fetch("http://localhost:3000/produtos")
-.then(res => {return res.json()})
+.then(res => { return res.json() })
 .then(produtos => {
     produtos.forEach(produto => {
-        let linha = linhamod.cloneNode(true);
+        let linha = linhamodelo.cloneNode(true);
         linha.classList.remove("model");
 
         let colunas = linha.querySelectorAll("td");
@@ -21,60 +23,70 @@ fetch("http://localhost:3000/produtos")
         colunas[2].innerHTML = produto.qntd;
         colunas[3].innerHTML = "R$ " + produto.preco;
 
-
-
-        linha.querySelector("#exclui").addEventListener("click", () =>{
+        linha.querySelector("#exclui").addEventListener("click", () => {
             modalExcluir.classList.remove("model");
             modalExcluir.querySelector("#cod").innerHTML = produto.cod;
         })
 
-        linha.querySelector("#edita").addEventListener("click", () =>{
-            modalEditar.classList.remove("model");
-            inpCod.value = produto.cod;
-            inpNome.value = produto.nome;
-            inpQntd.value = produto.qntd;
-            inpValor.value = produto.preco;
+        linha.querySelector("#edita").addEventListener("click", () => {
+            modalEditar.classList.remove("model"); 
+            btCadedit.innerHTML = "Editar";
+            btCadedit.onclick = () => { editarProduto() }
+            inputCodigo.value = produto.cod;
+            inputNome.value = produto.nome;
+            inputQuantidade.value = produto.qntd;
+            inputValor.value = produto.preco;
         })
 
-        listaProd.appendChild(linha);
+        listaProdutos.appendChild(linha);
     });
 });
 
-function fecharExcluir() {
+function fecharModalExcluir() {
     modalExcluir.classList.add("model");
 }
 
-function fecharEditar() {
+function fecharModalEditar() {
     modalEditar.classList.add("model");
+}
+
+function abrirModalCadastro() {
+    btCadedit.innerHTML = "Cadastrar";
+    btCadedit.onclick = () => { cadastrarProduto(); }
+    inputCodigo.value = "";
+    inputNome.value = "";
+    inputQuantidade.value = "";
+    inputValor.value = "";
+    modalEditar.classList.remove("model");
 }
 
 function editarProduto() {
     let produto = {
-        "cod": inpCod.value,
-        "nome": inpNome.value,
-        "qntd": inpQntd.value,
-        "valor": inpValor.value
+        "cod":inputCodigo.value,
+        "nome":inputNome.value,
+        "qntd":inputQuantidade.value,
+        "preco":inputValor.value,
     }
 
     fetch("http://localhost:3000/produto", {
         "method":"PUT",
-        "headers":{
+        "headers": {
             "Content-Type":"application/json"
         },
         "body":JSON.stringify(produto)
     })
-    .then(res => {return res.json()})
+    .then(res => { return res.json() })
     .then(resp => {
-        if(resp.cod != undefined){
-            alert("Produto Alterado com Sucesso");
-            location.reload();
+        if(resp.cod !== undefined) {
+            alert("Produto Alterado com Sucesso !");
+            window.location.reload();
         }else {
-            alert("Falha ao Salvar Alterações");
+            alert("Falha ao salvar alterações !");
         }
-    });
+    })
 }
 
-function excluirProduto(){
+function excluirProduto() {
     let data = {
         "cod":document.querySelector("#cod").innerHTML
     }
@@ -82,17 +94,43 @@ function excluirProduto(){
     fetch("http://localhost:3000/produto", {
         "method":"DELETE",
         "headers":{
-            "Content-Type":"application/json"
+            "Content-Type": "application/json"
         },
-        "body":JSON.stringify(produto)
+        "body":JSON.stringify(data)
+    })
+    .then(res => { return res.json() })
+    .then(resp => {
+        if(resp.cod !== undefined) {
+            alert("Produto Excluido Com Sucesso!");
+            window.location.reload();
+        }else {
+            alert("Falha ao excluir produto !");
+        }
+    });
+}
+
+function cadastrarProduto() {
+    let produto = {
+        "cod": inputCodigo.value,
+        "nome": inputNome.value,
+        "qntd": inputQuantidade.value,
+        "preco": inputValor.value
+    };
+
+    fetch("http://localhost:3000/produtos", {
+        "method":"POST",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": JSON.stringify(produto)
     })
     .then(res => {return res.json()})
     .then(resp => {
-        if(resp.cod != undefined){
-            alert("Produto Excluido com Sucesso");
-            location.reload();
+        if(resp.cod !== undefined){
+            alert("Produto Cadastrado Com Sucesso !");
+            window.location.reload();
         }else {
-            alert("Falha ao Excluir Produto");
+            alert("Falha ao cadastrar produto");
         }
-    });
+     })
 }
