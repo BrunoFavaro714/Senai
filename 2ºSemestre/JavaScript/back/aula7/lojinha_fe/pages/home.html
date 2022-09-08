@@ -7,66 +7,70 @@
     <title>Document</title>
     <link rel="stylesheet" href="../style/home.css">
 </head>
-<body>
+<body onload="carregar()">
     <header>
-        <div>Livro Caixa</div>
-        <div>
-            <label>Filtro 
-                <select name="datas" id="datas">
-                    <option onselect="setData()">0000-00-00</option>
-                </select>
-            </label>
-            <label>Novo Lançamento <button><img src="https://cdn-icons-png.flaticon.com/512/1004/1004759.png" alt="Adicionar" width="10px"></button></label>
+        <div class="titulo">Laçamentos</div>
+        <div class="label">
+            <label for="datas">Filtro</label>
+            <select name="datas" id="datas" onclick="opicoes()" onchange="limpar()">
+                <option id="selected-data"></option>
+            </select>
+            <label for="btnLancar">Novo Lançamento </label>
+            <button name="btnLancar" id="btnLancar"><img src="https://cdn-icons-png.flaticon.com/512/1004/1004759.png" alt="Adicionar" width="10px"></button>
         </div>
     </header>
     <main>
         <table>
-            <tr>
-                <th>Debitos</th>
-                <th>Creditos</th>
-            </tr>
-            <tr>
-                <td>
-                    <table class="debi">
-                        <tbody class="tabel-debito">
-                            <tr>
-                                <td>N-Lançamento</td>
-                                <td>Data</td>
-                                <td>Descrição</td>
-                                <td>Valor</td>
-                                <td>Tipo</td>
-                              </tr>
-                              <tr class="linha-debi modelo">
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                        </tbody>
-                    </table>
-                </td>
-                <td>
-                    <table class="cred">
-                        <tbody class="tabel-credito">
-                            <tr>
-                                <td>N-Lançamento</td>
-                                <td>Data</td>
-                                <td>Descrição</td>
-                                <td>Valor</td>
-                                <td>Tipo</td>
-                              </tr>
-                              <tr class="linha-cred modelo ">
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
+            <thead class="mother">
+                <tr>
+                    <th>Debitos</th>
+                    <th>Creditos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <table class="body">
+                            <tbody class="table-debito">
+                                <tr>
+                                    <td>N-Lançamento</td>
+                                    <td>Data</td>
+                                    <td>Descrição</td>
+                                    <td>Valor</td>
+                                    <td>Tipo</td>
+                                  </tr>
+                                  <tr class="linha-debi modelo">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td>
+                        <table class="body">
+                            <tbody class="table-credito">
+                                <tr>
+                                    <td>N-Lançamento</td>
+                                    <td>Data</td>
+                                    <td>Descrição</td>
+                                    <td>Valor</td>
+                                    <td>Tipo</td>
+                                  </tr>
+                                  <tr class="linha-cred modelo ">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </main>
 

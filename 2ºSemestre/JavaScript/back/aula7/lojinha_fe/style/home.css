@@ -1,12 +1,61 @@
-main{
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+}
+header{
+    height: 15vh;
+    width: 100vw;
     display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
-.dabi{
-    height: 500px;
-    overflow: scroll;
+.titulo{
+    font-size: 36px;
+    font-weight: bolder;
+}
+.label{
+    height: 30px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+#datas{
+    margin: 0 30px 0 5px;
+    width: 100px;
+}
+#btnLancar{
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#btnLancar img{
+    margin-left: 5px;
+    width: 20px;
+}
 
+main{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.credi{
-    height: 500px;
-    overflow: scroll;
+.mother{
+    justify-content: space-between ;
+}
+
+.body{
+    height: 80vh;
+    margin:0 25px 0 25px;
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
 }

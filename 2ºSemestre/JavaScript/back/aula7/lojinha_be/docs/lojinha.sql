@@ -5,7 +5,7 @@ USE livrocaixa;
 
 CREATE TABLE lancamentos (
     id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    data DATE NOT NULL,
+    data varchar(10) NOT NULL,
     descricao varchar(50) NOT NULL,
     valor float(10,2) NOT NULL,
     tipo varchar(1)
