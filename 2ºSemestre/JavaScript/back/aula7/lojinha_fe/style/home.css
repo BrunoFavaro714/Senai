@@ -1,0 +1,12 @@
+main{
+    display: flex;
+}
+.dabi{
+    height: 500px;
+    overflow: scroll;
+
+}
+.credi{
+    height: 500px;
+    overflow: scroll;
+}

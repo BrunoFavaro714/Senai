@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/home.css">
+</head>
+<body>
+    <header>
+        <div>Livro Caixa</div>
+        <div>
+            <label>Filtro 
+                <select name="datas" id="datas">
+                    <option onselect="setData()">0000-00-00</option>
+                </select>
+            </label>
+            <label>Novo Lançamento <button><img src="https://cdn-icons-png.flaticon.com/512/1004/1004759.png" alt="Adicionar" width="10px"></button></label>
+        </div>
+    </header>
+    <main>
+        <table>
+            <tr>
+                <th>Debitos</th>
+                <th>Creditos</th>
+            </tr>
+            <tr>
+                <td>
+                    <table class="debi">
+                        <tbody class="tabel-debito">
+                            <tr>
+                                <td>N-Lançamento</td>
+                                <td>Data</td>
+                                <td>Descrição</td>
+                                <td>Valor</td>
+                                <td>Tipo</td>
+                              </tr>
+                              <tr class="linha-debi modelo">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>
+                    <table class="cred">
+                        <tbody class="tabel-credito">
+                            <tr>
+                                <td>N-Lançamento</td>
+                                <td>Data</td>
+                                <td>Descrição</td>
+                                <td>Valor</td>
+                                <td>Tipo</td>
+                              </tr>
+                              <tr class="linha-cred modelo ">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </main>
+
+
+</body>
+<script src="../script/home.js"></script>
+</html>
