@@ -1,3 +1,5 @@
+const time = new Date().toISOString().slice(0, 10);
+
 const modLinhaCred = document.querySelector(".linha-cred");
 const modLinhaDebi = document.querySelector(".linha-debi");
 const tableCredito = document.querySelector(".table-credito");
@@ -114,4 +116,36 @@ function limpar() {
     }
 
     fetchFiltrado()
+}
+
+function lancar() {
+    let info = {
+        "data": time,
+        "desc": document.querySelector("#inpDesc").value,
+        "valor": document.querySelector("#inpValor").value,
+        "tipo": document.querySelector("#inpTipo").value
+    };
+
+    fetch('http://localhost:3000/livrocaixa/lancamentos',{
+        "method":"POST",
+        "headers":{
+            "Content-Type":"application/json"
+        },
+        "body":JSON.stringify(info)
+    }).then(res => { return res.json()})
+    .then(resp => {
+        if(resp !== undefined){
+            alert("Produto Cadastrado Com Sucesso !");
+            window.location.reload();
+        }else {
+            alert("Falha ao cadastrar produto");
+        }
+    })
+}
+
+function abrirModalCadastro() {
+    document.querySelector(".modal").classList.remove('modelo');
+}
+function fecharModalCadastro() {
+    document.querySelector(".modal").classList.add('modelo');
 }

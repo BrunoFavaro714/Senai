@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Livro Caixa</title>
     <link rel="stylesheet" href="../style/home.css">
 </head>
 <body onload="carregar()">
@@ -16,7 +16,7 @@
                 <option id="selected-data"></option>
             </select>
             <label for="btnLancar">Novo Lançamento </label>
-            <button name="btnLancar" id="btnLancar"><img src="https://cdn-icons-png.flaticon.com/512/1004/1004759.png" alt="Adicionar" width="10px"></button>
+            <button name="btnLancar" id="btnLancar" onclick="abrirModalCadastro()"><img src="https://cdn-icons-png.flaticon.com/512/1004/1004759.png" alt="Adicionar" width="10px"></button>
         </div>
     </header>
     <main>
@@ -74,6 +74,21 @@
         </table>
     </main>
 
+    <div class="modal modelo" onclick="fecharModalCadastro()">
+        <div class="modal-content">
+            <button id="fechar" onclick="fecharModalCadastro()"><img src="https://icones.pro/wp-content/uploads/2022/05/icone-fermer-et-x-noir-1.png" width="10px" alt="fechar" ></button>
+            <input type="text" id="inpDesc" placeholder="Drescrição">
+            <input type="number" id="inpValor" placeholder="Valor">
+            <span>
+                <label for="tipo">Tipo</label>
+                <select name="tipo" id="inpTipo">
+                    <option value="D">Debito</option>
+                    <option value="C">Credito</option>
+                </select>
+            </span>
+            <button id="lancar" onclick="lancar()">Lançar</button>
+        </div>
+    </div>
 
 </body>
 <script src="../script/home.js"></script>

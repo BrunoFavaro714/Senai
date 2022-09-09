@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 body{
     height: 100vh;
@@ -58,4 +59,42 @@ main{
     display: flex;
     justify-content: center;
     overflow-y: scroll;
+    border: 2px solid #333;
+
+}
+
+.modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.5);
+    align-items: center;
+    justify-content: center;
+}
+.modal-content {
+    background-color: #fff;
+    position: relative;
+    height: 175px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 30px;
+    width: 300px;
+}
+#fechar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border:none;
+}
+
+
+.modelo{
+    display: none;
+    visibility: hidden;
 }
