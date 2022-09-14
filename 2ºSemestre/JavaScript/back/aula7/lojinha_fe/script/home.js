@@ -4,6 +4,7 @@ const modLinhaCred = document.querySelector(".linha-cred");
 const modLinhaDebi = document.querySelector(".linha-debi");
 const tableCredito = document.querySelector(".table-credito");
 const tableDebito = document.querySelector(".table-debito");
+const valorSaldo = document.querySelector(".saldo");
 
 const select = document.querySelector("#datas");
 const selectedData = document.querySelector("#selected-data");
@@ -22,9 +23,9 @@ function fetchCompleto() {
     .then(lancamentos => {
         selctOptions[0] = lancamentos[0].data;
         let i = 1;
-        lancamentos.forEach(lancamento => {
-            
-            
+        let debito = 0;
+        let credito = 0;
+        lancamentos.forEach(lancamento => {    
             if(lancamento.tipo == 'D'){
                 let linhaDebi = modLinhaDebi.cloneNode(true);
                 linhaDebi.classList.remove('modelo');
@@ -35,6 +36,8 @@ function fetchCompleto() {
                 colunasDebi[2].innerHTML = lancamento.descricao;
                 colunasDebi[3].innerHTML = lancamento.valor;
                 colunasDebi[4].innerHTML = lancamento.tipo;
+
+                debito += lancamento.valor;
 
                 tableDebito.appendChild(linhaDebi);
             }else if(lancamento.tipo == 'C'){
@@ -47,6 +50,8 @@ function fetchCompleto() {
                 colunasCred[2].innerHTML = lancamento.descricao;
                 colunasCred[3].innerHTML = lancamento.valor;
                 colunasCred[4].innerHTML = lancamento.tipo;
+
+                credito += lancamento.valor;
 
                 tableCredito.appendChild(linhaCred);
             }
@@ -56,6 +61,7 @@ function fetchCompleto() {
                 i++;
             }
         });
+        valorSaldo.innerHTML = `Saldo Total: R$${credito - debito}`;
     });
 }
 
@@ -63,6 +69,8 @@ function fetchFiltrado() {
     fetch(`http://localhost:3000/livrocaixa/lancamentos/${select.value}`)
     .then(res => {return res.json()})
     .then(lancamentos => {
+        let debito = 0;
+        let credito = 0;
         lancamentos.forEach(lancamento => {
             if(lancamento.tipo == 'D'){
                 let linhaDebi = modLinhaDebi.cloneNode(true);
@@ -74,6 +82,8 @@ function fetchFiltrado() {
                 colunasDebi[2].innerHTML = lancamento.descricao;
                 colunasDebi[3].innerHTML = lancamento.valor;
                 colunasDebi[4].innerHTML = lancamento.tipo;
+
+                debito += lancamento.valor;
 
                 tableDebito.appendChild(linhaDebi);
             }else if(lancamento.tipo == 'C'){
@@ -87,10 +97,18 @@ function fetchFiltrado() {
                 colunasCred[3].innerHTML = lancamento.valor;
                 colunasCred[4].innerHTML = lancamento.tipo;
 
+                credito += lancamento.valor;
+
                 tableCredito.appendChild(linhaCred);
             }
-        })
-    })
+        });
+        if(select.value == ""){
+            valorSaldo.innerHTML = `Saldo Total: R$${credito - debito}`;
+        }else{
+            valorSaldo.innerHTML = `Saldo do Dia: R$${credito - debito}`;
+        }
+       
+    });
 }
 
 function opicoes() {
@@ -104,7 +122,6 @@ function opicoes() {
 }
 
 function limpar() {
-    console.log("ok")
     let tableCredRows = tableCredito.querySelectorAll('tr');
     let tableDebiRows = tableDebito.querySelectorAll('tr');
 
@@ -114,7 +131,7 @@ function limpar() {
     for(let i = tableDebiRows.length; i > 2; i--){
         tableDebito.deleteRow(i-1)
     }
-
+    valorSaldo.innerHTML = "";
     fetchFiltrado()
 }
 
