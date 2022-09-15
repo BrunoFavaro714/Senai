@@ -19,7 +19,7 @@ function listarFuncionarios(req, res) {
 };
 
 function listaFuncionario(req, res) {
-    let query = `SELECT * FROM funcionarios WHERE id = '${req.params.id}'`;
+    let query = `SELECT * FROM funcionarios WHERE matricula = '${req.params.matricula}'`;
     
     conDB.query(query, (err, result) => {
         if(err == null) {
@@ -54,8 +54,8 @@ function excluirFuncionario(req, res) {
     });
 };
 
-function editarFuncionario(req, res) {
-    let query = `UPDATE funcionarios SET matricula = '${req.body.matricula}', nome = '${req.body.nome}', cargo = ${req.body.cargo}, salario = ${req.body.salario} WHERE id = '${req.body.id}'`;
+function editarFuncionario(req, res){
+    let query = `UPDATE funcionarios SET matricula = '${req.body.matricula}', nome = '${req.body.nome}', cargo = '${req.body.cargo}', salario = ${req.body.salario}, cpf = '${req.body.cpf}' WHERE matricula = '${req.body.matricula}'`;
 
     conDB.query(query, (err, result) => {
         if(err == null) {

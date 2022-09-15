@@ -1,0 +1,5 @@
+@import url("./global.css");
+
+.scroll-mother{
+    overflow-y: scroll;
+}

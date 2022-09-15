@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locadora Martins</title>
+    <link rel="stylesheet" href="../style/devolucoes.css">
+</head>
+<body onload="carregar()">
+    <header>
+        <ul>
+            <li class="here">Clientes</li>
+            <li class="page" onclick="mudarDevolucoes()">Devoluções</li>
+        </ul>
+    </header>
+    <main>
+        <div>
+            <div>
+                <button class="abrit-modal">Novo Cliente <img src="https://cdn-icons-png.flaticon.com/512/1004/1004759.png" width="10px" alt="Adicionar"></button>
+            </div>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome Do Cliente</th>
+                            <th>Telefone Do Cliente</th>
+                            <th>Filme</th>
+                            <th>Data Locação</th>
+                            <th>Multa</th>
+                        </tr>
+                    </thead>
+                    <tbody class="scroll-mother">
+                        <tr class="mod-linha model">
+                            <td>nome</td>
+                            <td>numero</td>
+                            <td>filme</td>
+                            <td>data loca</td>
+                            <td>multa</td>
+                            <td><img src="C:\Users\Desenvolvimento\Desktop\aula8\locadora_fe\assets\return.svg" alt=""></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="../script/devolucoes.js"></script>
+</html>

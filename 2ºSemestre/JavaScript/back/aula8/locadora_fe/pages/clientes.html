@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locadora Martins</title>
+    <link rel="stylesheet" href="../style/clientes.css">
+</head>
+<body onload="carregar()">
+    <header>
+        <ul>
+            <li class="here">Clientes</li>
+            <li class="page" onclick="mudarDevolucoes()">Devoluções</li>
+        </ul>
+    </header>
+    <main>
+        <div>
+            <div>
+                <button class="abrit-modal">Novo Cliente <img src="https://cdn-icons-png.flaticon.com/512/1004/1004759.png" width="10px" alt="Adicionar"></button>
+            </div>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>Endereço</th>
+                            <th>Telefone</th>
+                        </tr>
+                    </thead>
+                    <tbody class="scroll-mother">
+                        <tr class="mod-linha model">
+                            <td>cod</td>
+                            <td>nome</td>
+                            <td>endereco</td>
+                            <td>telefone</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal model">
+        <div class="modal-content">
+            <button id="close"><img src="" alt="">X</button>
+            <input type="text" id="nome-cliente">
+            <input type="text" id="endereco-cliente">
+            <input type="text" id="telefone-cliente">
+
+            <button id="cadastra-cliente">Cadastrar</button>
+        </div>
+    </div>
+</body>
+<script src="../script/clientes.js"></script>
+</html>
