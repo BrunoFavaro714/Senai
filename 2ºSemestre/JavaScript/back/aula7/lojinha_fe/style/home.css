@@ -54,7 +54,7 @@ main{
 }
 
 .body{
-    height: 80vh;
+    height: 70vh;
     margin:0 25px 0 25px;
     display: flex;
     justify-content: center;
@@ -97,4 +97,13 @@ main{
 .modelo{
     display: none;
     visibility: hidden;
+}
+
+footer {
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px
 }
