@@ -32,7 +32,7 @@ export default function Segunda({ navigation }) {
             {
                 produtos.map((produto, indice) => {
                     return(
-                        <TouchableOpacity onPress={() => {navigation.navigate("Descricao", { "descricao":produto.descricao} )}}>
+                        <TouchableOpacity onPress={() => {navigation.navigate("Produto", { "descricao":produto.descricao} )}}>
                             <Text>{produto.nomeprod}</Text>
                             <Text>R$ {produto.preco}</Text>
                         </TouchableOpacity>
