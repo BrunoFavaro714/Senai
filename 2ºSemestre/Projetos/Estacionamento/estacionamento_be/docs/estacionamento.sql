@@ -26,7 +26,7 @@ CREATE TABLE vagas(
 
 CREATE TABLE controle (
     entrada datetime not null,
-    saida datetime not null,
+    saida datetime,
     placa varchar(7) not null,
     id_vaga integer not null,
     foreign key (placa) references veiculos(placa)
@@ -36,6 +36,13 @@ insert into clientes value('989.724.070-54', 'Carlos Andrade Machado Silva', '(6
 insert into veiculos value('CKN2236', 'Carro', 'Fiat Uno', 'Preto', '989.724.070-54');
 insert into vagas value(default, 1, 'Idoso', 5.00);
 insert into controle value('2022-04-23 13:34:26',"2022-04-23 15:42:31", 'CKN2236', 1);
+
+create view vw_completa as
+SELECT c.cpf, c.nome, c.telefone, v.placa, v.tipo, v.modelo, v.cor, ct.entrada, ct.saida, ct.id_vaga From clientes c
+inner join veiculos v
+on c.cpf = v.cpf
+join controle ct
+on v.placa  = ct.placa;
 
 select * from clientes;
 select * from veiculos;

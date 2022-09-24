@@ -60,6 +60,40 @@ app.get('/estacionamento/controle', (req, res) => {
     })
 });
 
+app.get('/estacionamento/completa', (req, res) => {
+    let query = `SELECT * FROM vw_completa`;
+
+    conDB.query(query, (err, result) => {
+        if(err == null){
+            res.status(200).json(result).end();
+        }else{
+            res.status(400).json(err).end();
+        }
+    })
+});
+
+app.post('/estacionamento/cadastro', (req, res) => {
+    let queryCli = `INSERT INTO clientes VALUE ('${req.body.cpf}', '${req.body.nome}', '${req.body.telefone}')`;
+    let queryVei = `INSERT INTO veiculos VALUE ('${req.body.placa}', '${req.body.tipo}', '${req.body.modelo}', '${req.body.cor}', '${req.body.cpf}')`;
+    let queryCon = `INSERT INTO controle VALUE ('${req.body.entrada}', null, '${req.body.placa}', ${req.body.idVaga})`
+
+    conDB.query(queryCli, (err, result) => {
+        if(err == null){
+            conDB.query(queryVei, (err, result) => {
+                if(err == null){
+                    conDB.query(queryCon, (err, result) => {
+                        if(err == null){
+                            res.status(201).json(req.body).end();
+                        }
+                    });  
+                }
+            });
+        }else{
+            res.status(400).json(err).end();
+        }
+    });
+});
+
 app.listen(3000, () => {
     console.log('ok');
 });

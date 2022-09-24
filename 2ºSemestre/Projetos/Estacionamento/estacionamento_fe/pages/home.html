@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
-<body>
+<body onload="preencher()">
     <header>
         <ul>
             <li>Home</li>
@@ -30,8 +30,9 @@
                     <th>Cor</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
+            <tbody id="container">
+                <tr id="linha">
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -50,6 +51,24 @@
             <li>Quem Somos</li>
         </ul>
     </footer>
+
+    <div class="modal">
+        <div class="modal-cont">
+            <div class="cad-cli">
+                <input type="text" id="cpfModal" placeholder="CPF">
+                <input type="text" id="nomeModal" placeholder="Nome do Cliente">
+                <input type="text" id="telModal" placeholder="Telefone">
+            </div>
+            <div class="cad-vei">
+                <input type="text" id="placaModal" placeholder="Placa do Veiculo">
+                <input type="text" id="tipoModal" placeholder="Tipo do Veiculo">
+                <input type="text" id="modModal" placeholder="Modelo">
+                <input type="text" id="corModal" placeholder="Cor">
+            </div>
+            <input type="text" id="vagaModal" placeholder="Vaga">
+            <button onclick="cadastrar()">A</button>
+        </div>
+    </div>
 </body>
-<script src=""></script>
+<script src="../script/home.js"></script>
 </html>
