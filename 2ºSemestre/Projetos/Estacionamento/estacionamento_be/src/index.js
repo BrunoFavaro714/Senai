@@ -94,6 +94,18 @@ app.post('/estacionamento/cadastro', (req, res) => {
     });
 });
 
+app.post('/estacionamento/cad_vaga', (req, res) => {
+    let query = `INSERT INTO vagas VALUE (null, '1', '${req.body.tipo}', ${req.body.valor})`;
+
+    conDB.query(query, (err, result) => {
+        if(err == null) {
+            res.status(201).json(req.body).end();
+        }else{
+            res.status(400).json(err).end();
+        }
+    });
+});
+
 app.listen(3000, () => {
     console.log('ok');
 });
