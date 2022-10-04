@@ -53,4 +53,6 @@ function cadastrar() {
             alert("Falha ao cadastrar");
         }
     })
+
+    fetch('http://localhost:3000/estacionamento/status')
 }

@@ -106,6 +106,12 @@ app.post('/estacionamento/cad_vaga', (req, res) => {
     });
 });
 
+app.put('/estacionamento/status', (req, res) => {
+    let query = `UPDATE vagas SET status=${req.body.status} WHERE id_vaga=${req.body.idVaga}`;
+
+    
+})
+
 app.listen(3000, () => {
     console.log('ok');
 });
