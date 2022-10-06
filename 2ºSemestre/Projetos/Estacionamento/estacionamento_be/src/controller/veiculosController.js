@@ -2,7 +2,7 @@ const conDB = require('../DAO/conDB.js');
 const veiculos = require('../model/veiculosModel.js');
 
 const veiculosListar = (req, res) => {
-    conDB.query(veiculos.toReadAll(), (err, results) => {
+    conDB.query(veiculos.toReadAll(), (err, result) => {
         if (err == null) {
             res.status(200).json(result).end()
         }else {

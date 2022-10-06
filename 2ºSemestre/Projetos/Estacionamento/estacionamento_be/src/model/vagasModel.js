@@ -10,8 +10,15 @@ const toCreate = (body) => {
     return `INSERT INTO vagas VALUE (null, '1', '${body.tipo}', ${body.valor})`;
 }
 
+const toUpdate = (body) => {
+    return `UPDATE vagas SET
+            status='${body.status}'
+            WHERE id_vaga='${body.id_vaga}';`
+}
+
 module.exports = {
     toReadAll,
     toRead,
-    toCreate
+    toCreate,
+    toUpdate
 }

@@ -1,5 +1,5 @@
 const toReadAll = () => {
-    return `SELECT * FROM clientes`;
+    return `SELECT * FROM vw_completa`;
 }
 
 const toRead = (params) => {

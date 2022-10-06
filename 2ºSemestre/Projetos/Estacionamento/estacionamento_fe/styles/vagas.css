@@ -1,0 +1,84 @@
+@import url('../global/styles/global.css');
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#botao1{
+    width: 150px;
+    height: 40px;
+    margin: 15px;
+    background-color: #D0B8A8;
+    color: #fff;
+    border: none;
+}
+
+table{
+    margin-top: 30px;
+    background-color: #FFFF;
+    border-collapse: collapse;
+    width: 30vw;
+}
+
+th{
+    background-color: #D0B8A8;
+    color: #fff;
+}
+
+th, td{
+    height: 30px;
+    text-align: center;
+    padding: 10px;
+}
+
+.modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.5);
+}
+
+.form-modal{
+    width: 25%;
+    height: 25%;
+    background-color: #F8EDE3;
+    border-radius: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 120px;
+}
+
+input{
+    height: 35px;
+    width: 300px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.cad-vaga{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+}
+
+#botCad{
+    margin-top: 15px;
+    width: 200px;
+    height: 25px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #D0B8A8;
+    border: none;
+}

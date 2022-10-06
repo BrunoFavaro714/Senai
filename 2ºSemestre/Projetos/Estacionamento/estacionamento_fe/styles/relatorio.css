@@ -1,0 +1,26 @@
+@import url('../global/styles/global.css');
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+table{
+    margin-top: 30px;
+    background-color: #FFFF;
+    border-collapse: collapse;
+    width: 50vw;
+}
+
+th{
+    background-color: #D0B8A8;
+    color: #fff;
+}
+
+th, td{
+    height: 30px;
+    text-align: center;
+    padding: 10px;
+}

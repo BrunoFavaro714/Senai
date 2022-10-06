@@ -5,20 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/home.css">
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/1048/1048314.png" type="image/x-icon">
 </head>
 <body onload="preencher()">
     <header>
         <ul>
-            <li>Home</li>
-            <li>Vagas</li>
-            <li>Relatório</li>
+            <li><a href="#">Home</a></li>
+            <li><a href="vagas.html">Vagas</a></li>
+            <li><a href="relatorio.html">Relatório</a></li>
         </ul>
-        <img>
+        <button id="botao1" onclick="abrirModal()">Cadastrar</button>
     </header>
     <main>
-        <table>
+        <table border="2">
             <thead>
                 <tr>
                     <th>CPF</th>
@@ -28,18 +28,19 @@
                     <th>Tipo</th>
                     <th>Modelo</th>
                     <th>Cor</th>
+                    <th>ID Vaga</th>
                 </tr>
             </thead>
             <tbody id="container">
-                <tr id="linha">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                <tr id="linha" class="model">
+                    <td>a</td>
+                    <td>a</td>
+                    <td>a</td>
+                    <td>a</td>
+                    <td>a</td>
+                    <td>a</td>
+                    <td>a</td>
+                    <td>a</td>
                 </tr>
             </tbody>
         </table>
@@ -52,8 +53,9 @@
         </ul>
     </footer>
 
-    <div class="modal">
-        <div class="modal-cont">
+    <div class="modal model" >
+        <div class="form-modal">
+            <p onclick="fecharModal()">x</p>
             <div class="cad-cli">
                 <input type="text" id="cpfModal" placeholder="CPF">
                 <input type="text" id="nomeModal" placeholder="Nome do Cliente">
@@ -64,9 +66,10 @@
                 <input type="text" id="tipoModal" placeholder="Tipo do Veiculo">
                 <input type="text" id="modModal" placeholder="Modelo">
                 <input type="text" id="corModal" placeholder="Cor">
+
+                <input type="text" id="vagaModal" placeholder="Vaga">
+                <button id="botCad" onclick="cadastrar()">Enviar</button>
             </div>
-            <input type="text" id="vagaModal" placeholder="Vaga">
-            <button onclick="cadastrar()">A</button>
         </div>
     </div>
 </body>

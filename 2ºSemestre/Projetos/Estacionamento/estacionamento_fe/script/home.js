@@ -1,58 +1,123 @@
-const time = new Date().toISOString().slice(0, 10);
+const inpCpf = document.querySelector('#cpfModal');
+const inpNome = document.querySelector('#nomeModal');
+const inpTel = document.querySelector('#telModal');
+const inpPlaca = document.querySelector('#placaModal');
+const inpTipo = document.querySelector('#tipoModal');
+const inpMod = document.querySelector('#modModal');
+const inpCor = document.querySelector('#corModal');
+const inpVaga = document.querySelector('#vagaModal');
 
-const body = document.querySelector("#container");
+function preencher() {
+    buscaVisao();
+}
 
-function preencher(){
-    fetch('http://localhost:3000/estacionamento/completa')
-    .then(res => { return res.json()})
-    .then(lista => {
-        lista.forEach(item => {
-            let nLinha = document.querySelector("#linha").cloneNode(true);
+function cadastrar() {
+    fetchCadastro();
+}
+
+function abrirModal() {
+    document.querySelector(".modal").classList.toggle("model");
+}
+function fecharModal(){
+    document.querySelector(".modal").classList.toggle("model");
+}
+
+function buscaVisao() {
+    fetch('http://localhost:3000/estacionamento/clientes')
+    .then(response => { return response.json(); })
+    .then(clientes => {
+        clientes.forEach(cliente => {
+            let nLinha = document.querySelector('#linha').cloneNode(true);
+
+            nLinha.classList.remove('model');
 
             let colunas = nLinha.querySelectorAll("td");
-            colunas[0].innerHTML = item.cpf;
-            colunas[1].innerHTML = item.nome;
-            colunas[2].innerHTML = item.telefone;
-            colunas[3].innerHTML = item.placa;
-            colunas[4].innerHTML = item.tipo;
-            colunas[5].innerHTML = item.modelo;
-            colunas[6].innerHTML = item.cor;
-            colunas[7].innerHTML = item.id_vaga;
+            colunas[0].innerHTML = cliente.cpf;
+            colunas[1].innerHTML = cliente.nome;
+            colunas[2].innerHTML = cliente.telefone;
+            colunas[3].innerHTML = cliente.placa;
+            colunas[4].innerHTML = cliente.tipo;
+            colunas[5].innerHTML = cliente.modelo;
+            colunas[6].innerHTML = cliente.cor;
+            colunas[7].innerHTML = cliente.id_vaga;
 
-            body.appendChild(nLinha);
+            document.querySelector("#container").appendChild(nLinha);
         })
     })
 }
 
-function cadastrar() {
-    let info = {
-        "cpf":document.querySelector("#cpfModal").value,
-        "nome":document.querySelector("#nomeModal").value,
-        "telefone":document.querySelector("#telModal").value,
-        "placa":document.querySelector("#placaModal").value,
-        "tipo":document.querySelector("#tipoModal").value,
-        "modelo":document.querySelector("#modModal").value,
-        "cor":document.querySelector("#corModal").value,
-        "entrada":time,
-        "idVaga":document.querySelector("#vagaModal").value
+function fetchCadastro() {
+    let cadastri = {
+        "cpf":inpCpf.value,
+        "nome":inpNome.value,
+        "telefone":inpTel.value,
+        "placa":inpPlaca.value,
+        "tipo":inpTipo.value,
+        "modelo":inpMod.value,
+        "cor":inpCor.value,
+        "id_vaga":inpVaga.value,
+        "status":true
     }
 
-    fetch('http://localhost:3000/estacionamento/cadastro', {
+    fetch('http://localhost:3000/estacionamento/cadastrar/cliente', {
         "method": "POST",
-        "headers": {
+        "headers":{
             "content-type": "application/json"
         },
-        "body": JSON.stringify(info)
-    })
-    .then(res => { return res.json() })
+        "body": JSON.stringify(cadastri)
+    }).then( res => { return res.json()})
     .then(resp => {
-        if(resp !== undefined){
-            alert("Cadastrado Com Sucesso !");
-            window.location.reload();
-        }else {
-            alert("Falha ao cadastrar");
+        if(resp != undefined){
+            console.log("ok");
+        }else{
+            console.log("n ok");
         }
-    })
+    });
 
-    fetch('http://localhost:3000/estacionamento/status')
+    fetch('http://localhost:3000/estacionamento/cadastrar/veiculo', {
+        "method": "POST",
+        "headers":{
+            "content-type": "application/json"
+        },
+        "body": JSON.stringify(cadastri)
+    }).then( res => { return res.json() })
+    .then( resp => {
+        if(resp != undefined){
+            console.log("ok");
+        }else{
+            console.log("n ok");
+        }
+    });
+
+    fetch('http://localhost:3000/estacionamento/cadastrar/relatorio', {
+        "method": "POST",
+        "headers":{
+            "content-type": "application/json"
+        },
+        "body": JSON.stringify(cadastri)
+    }).then( res => { return res.json() })
+    .then( resp => {
+        if(resp != undefined){
+            console.log("ok");
+        }else{
+            console.log("n ok");
+        }
+    });
+
+    fetch('http://localhost:3000/estacionamento/vagas', {
+        "method": "PUT",
+        "headers":{
+            "content-type":"application/json"
+        },
+        "body": JSON.stringify(cadastri)
+    }).then( res => { return res.json() })
+    .then( resp => {
+        if(resp != undefined){
+            console.log("ok");
+        }else{
+            console.log("n ok");
+        }
+    });
+
+    window.location.reload();
 }
