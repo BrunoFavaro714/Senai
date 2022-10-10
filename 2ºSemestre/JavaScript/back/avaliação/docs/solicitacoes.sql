@@ -108,8 +108,24 @@ join Produtos p
 on it.Cod_Produto = p.Cod_Produto;
 
 create view vw_func_solic as
-select f.Nome_Func, sum(it.Valor) From Funcionarios f
+select f.Nome_Func, count(s.Num_Sol) as qtd_Solic From Funcionarios f
 join Solicitacoes s
 on f.Cod_Func = s.Cod_Func
-join Itens_Solicitacao it
-on s.Num_Sol = it.Num_Sol;
+GROUP BY f.Nome_Func;
+
+drop procedure if exists solicita_um_item;
+delimiter //
+create procedure solicita_um_item(n_sol int,depto int,func int,prod int,qtd int,total float)
+BEGIN
+	declare erro_sql tinyint default false;
+	declare continue handler for sqlexception set erro_sql = true;
+	insert into Solicitacoes values (n_sol,curdate(),depto,func);
+	insert into Itens_Solicitacao values (n_sol,prod,qtd,total);
+	IF erro_sql = false THEN
+		select * from vw_solicitacoes where Num_Sol = n_sol;
+		select 'Solicitação cadastrada com sucesso' as 'Sucesso';
+	ELSE
+		select 'Erro ao inserir solicitação' as 'Erro';
+	END IF;
+end //
+delimiter ;
