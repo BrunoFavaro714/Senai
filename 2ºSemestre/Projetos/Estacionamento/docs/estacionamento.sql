@@ -3,13 +3,13 @@ CREATE DATABASE estacionamento charset=UTF8 collate utf8_general_ci;
 USE estacionamento;
 
 CREATE TABLE clientes(
-    cpf varchar(14) primary key not null unique,
+    cpf varchar(14) primary key not null,
     nome varchar(100) not null,
     telefone varchar(20) not null
 );
 
 CREATE TABLE veiculos(
-    placa varchar(7) primary key not null unique,
+    placa varchar(7) primary key not null,
     tipo varchar(5) not null,
     modelo varchar(25) not null,
     cor varchar(50) not null,
@@ -29,10 +29,7 @@ CREATE TABLE controle (
     entrada datetime not null,
     saida datetime,
     placa varchar(7) not null,
-    id_vaga integer not null,
-    foreign key (cpf) references clientes(cpf),
-    foreign key (placa) references veiculos(placa),
-    foreign key (id_vaga) references vagas(id_vaga)
+    id_vaga integer not null
 );
 
 insert into clientes value('989.724.070-54', 'Carlos Andrade Machado Silva', '(68)3216-6247');
@@ -51,3 +48,29 @@ select * from clientes;
 select * from veiculos;
 select * from vagas;    
 select * from controle;
+
+drop procedure if exists check_in;
+delimiter //
+create procedure check_in(cpf varchar(14), nome varchar(100), telefone varchar(20), placa varchar(7), tipo varchar(5), modelo varchar(25), cor varchar(50), idVaga int)
+BEGIN
+
+    insert into clientes value(cpf, nome, telefone);
+    insert into veiculos value(placa, tipo, modelo, cor, cpf);
+    insert into controle value(cpf, curdate(), null, placa, idVaga);
+    update vagas set status=1 where id_vaga=idVaga;
+
+END //
+delimiter ;
+
+drop procedure if exists check_out;
+delimiter //
+create procedure check_out(cli_cpf varchar(14), idVaga int)
+BEGIN
+
+    update controle set saida=curdate() where cpf=cli_cpf order by entrada desc limit 1;
+    update vagas set status=0 where id_vaga=idVaga;
+    delete from veiculos where cpf=cli_cpf;
+    delete from clientes where cpf=cli_cpf;
+    
+END //
+delimiter ;
