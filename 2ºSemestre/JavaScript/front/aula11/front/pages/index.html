@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/index.css">
+    <title>Document</title>
+</head>
+<body onload="carregar()">
+    <header>
+        <ul>
+            <li>Home</li>
+            <li>Departamento</li>
+            <li>Produtos</li>
+        </ul>
+    </header>
+    <main>
+        <div>
+            <select name="Data" id="selectData">
+                <option value="" class="op"></option>
+            </select>
+        </div>
+        <table>
+            <div>
+                <button onclick="toggleModal()">Cadastrar</button>
+            </div>
+            <thead>
+                <tr>
+                    <th>Numero</th>
+                    <th>Data</th>
+                    <th>Departamento</th>
+                    <th>Funcionario</th>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody class="content">
+                <tr class="linha">
+                    <td>num</td>
+                    <td>data</td>
+                    <td>dep</td>
+                    <td>func</td>
+                    <td>prod</td>
+                    <td>quant</td>
+                    <td>valor</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <div class="modal model">
+        <div class="modal-content">
+            <button class="fechar" onClick="toggleModal()">X</button>
+            <input type="number" id="inpN_sol" placeholder="Numero Solicitação">
+            <input type="number" id="inpDepto" placeholder="Departamento">
+            <input type="number" id="inpFunc" placeholder="Funcionario">
+            <input type="number" id="inpProd" placeholder="Produto">
+            <input type="number" id="inpQtd" placeholder="Quantidade">
+            <input type="number" id="inpValor" placeholder="Valor">
+            <button id="btn-cad" onclick="cadastrar()">Cadastrar</button>
+        </div>
+    </div>
+</body>
+<script src="../script/index.js"></script>
+</html>

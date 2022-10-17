@@ -1,0 +1,42 @@
+.model {
+    visibility: hidden;
+    display: none;
+}
+
+.modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    width: 350px;
+    height: 120px;
+    background-color: #FFF;
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 40px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-content > .fechar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 15px;
+}
+
+.modal-content > input {
+    width: 85%;
+    border: none;
+    border-bottom: 1px solid #333;
+}
