@@ -17,7 +17,7 @@ function fecharModal() {
 }
 
 function preencher() {
-    fetch('http://localhost:3000/estacionamento/vagas')
+    fetch('http://localhost:3000/estacionamento/get/vagas')
     .then(resp => { return resp.json()})
     .then(vagas => {
         vagas.forEach(vaga => {

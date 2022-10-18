@@ -5,7 +5,7 @@ function carregar() {
 }
 
 function fetchCompleto() {
-    fetch('http://localhost:3000/estacionamento/relatorio')
+    fetch('http://localhost:3000/estacionamento/get/relatorio')
     .then(resp => { return resp.json()})
     .then(lista => { 
         lista.forEach(item => {

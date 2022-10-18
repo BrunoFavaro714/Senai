@@ -23,7 +23,7 @@ function fecharModal(){
 }
 
 function buscaVisao() {
-    fetch('http://localhost:3000/estacionamento/clientes')
+    fetch('http://localhost:3000/estacionamento/get/vw_completa')
     .then(response => { return response.json(); })
     .then(clientes => {
         clientes.forEach(cliente => {
@@ -59,7 +59,7 @@ function fetchCadastro() {
         "status":true
     }
 
-    fetch('http://localhost:3000/estacionamento/cadastrar/cliente', {
+    fetch('http://localhost:3000/estacionamento/post/cadastro', {
         "method": "POST",
         "headers":{
             "content-type": "application/json"
@@ -67,36 +67,6 @@ function fetchCadastro() {
         "body": JSON.stringify(cadastri)
     }).then( res => { return res.json()})
     .then(resp => {
-        if(resp != undefined){
-            console.log("ok");
-        }else{
-            console.log("n ok");
-        }
-    });
-
-    fetch('http://localhost:3000/estacionamento/cadastrar/veiculo', {
-        "method": "POST",
-        "headers":{
-            "content-type": "application/json"
-        },
-        "body": JSON.stringify(cadastri)
-    }).then( res => { return res.json() })
-    .then( resp => {
-        if(resp != undefined){
-            console.log("ok");
-        }else{
-            console.log("n ok");
-        }
-    });
-
-    fetch('http://localhost:3000/estacionamento/cadastrar/relatorio', {
-        "method": "POST",
-        "headers":{
-            "content-type": "application/json"
-        },
-        "body": JSON.stringify(cadastri)
-    }).then( res => { return res.json() })
-    .then( resp => {
         if(resp != undefined){
             console.log("ok");
         }else{

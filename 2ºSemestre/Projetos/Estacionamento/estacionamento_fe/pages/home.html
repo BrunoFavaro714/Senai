@@ -15,7 +15,7 @@
             <li><a href="vagas.html">Vagas</a></li>
             <li><a href="relatorio.html">Relatório</a></li>
         </ul>
-        <button id="botao1" onclick="abrirModal()">Cadastrar</button>
+        <button class="botaobotao" onclick="abrirModal()">Cadastrar</button>
     </header>
     <main>
         <table border="2">
@@ -55,7 +55,7 @@
 
     <div class="modal model" >
         <div class="form-modal">
-            <p onclick="fecharModal()">x</p>
+            <button class="fechar" onclick="fecharModal()">X</button>
             <div class="cad-cli">
                 <input type="text" id="cpfModal" placeholder="CPF">
                 <input type="text" id="nomeModal" placeholder="Nome do Cliente">
@@ -67,7 +67,7 @@
                 <input type="text" id="modModal" placeholder="Modelo">
                 <input type="text" id="corModal" placeholder="Cor">
 
-                <input type="text" id="vagaModal" placeholder="Vaga">
+                <input type="number" id="vagaModal" placeholder="Vaga">
                 <button id="botCad" onclick="cadastrar()">Enviar</button>
             </div>
         </div>

@@ -7,14 +7,72 @@ header{
     align-items: center;
 }
 
-#botao1{
-    width: 150px;
-    height: 40px;
-    margin: 15px;
-    background-color: #D0B8A8;
+.botaobotao {
+    --border-radius: 15px;
+    --border-width: 4px;
+    appearance: none;
+    position: relative;
+    padding: 1em 2em;
+    border: 0;
+    background-color: #000;
+    font-family: "Roboto", Arial, "Segoe UI", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
     color: #fff;
-    border: none;
-}
+    z-index: 2;
+    margin: 15px;
+   }
+   
+   .botaobotao::after {
+    --m-i: linear-gradient(#000, #000);
+    --m-o: content-box, padding-box;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: var(--border-width);
+    border-radius: var(--border-radius);
+    background-image: conic-gradient(
+           #488cfb,
+           #29dbbc,
+           #ddf505,
+           #ff9f0e,
+           #e440bb,
+           #655adc,
+           #488cfb
+       );
+    -webkit-mask-image: var(--m-i), var(--m-i);
+    mask-image: var(--m-i), var(--m-i);
+    -webkit-mask-origin: var(--m-o);
+    mask-origin: var(--m-o);
+    -webkit-mask-clip: var(--m-o);
+    mask-composite: exclude;
+    -webkit-mask-composite: destination-out;
+    filter: hue-rotate(0);
+    animation: rotate-hue linear 500ms infinite;
+    animation-play-state: paused;
+   }
+   
+   .botaobotao:hover::after {
+    animation-play-state: running;
+   }
+   
+   @keyframes rotate-hue {
+    to {
+     filter: hue-rotate(1turn);
+    }
+   }
+   
+   .botaobotao,
+   .botaobotao::after {
+    box-sizing: border-box;
+   }
+   
+   .botaobotao:active {
+    --border-width: 5px;
+   }
 
 table{
     margin-top: 30px;
@@ -24,7 +82,7 @@ table{
 }
 
 th{
-    background-color: #D0B8A8;
+    background-color: #000;
     color: #fff;
 }
 
@@ -47,9 +105,9 @@ th, td{
 }
 
 .form-modal{
-    width: 35%;
-    height: 50%;
-    background-color: #F8EDE3;
+    width: 30%;
+    height: 48%;
+    background-color: #212121;
     border-radius: 30px;
     position: relative;
     display: flex;
@@ -57,19 +115,43 @@ th, td{
     padding: 30px 120px;
 }
 
-input{
-    height: 35px;
-    width: 300px;
-    padding: 10px;
+input {
+    color: #FFF;
+    border: 2px solid #FFF;
+    border-radius: 10px;
+    padding: 7px 20px;
+    background: transparent;
+    max-width: 190px;
     margin: 5px;
-    border-radius: 5px;
-    border: none;
+}
+   
+input:active {
+    box-shadow: 2px 2px 10px #FFF inset;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .cad-cli{
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+}
+
+.fechar{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    padding: 5px;
+    background: none;
+    border:none;
+    color: #fff;
+    font-size: 18px;
 }
 
 .cad-vei{
@@ -79,12 +161,41 @@ input{
     padding: 15px;
 }
 
-#botCad{
-    margin-top: 15px;
-    width: 200px;
-    height: 25px;
-    border-radius: 5px;
-    color: #fff;
-    background-color: #D0B8A8;
-    border: none;
-}
+#botCad {
+    margin-top: 10px;
+    padding: 9px 20px;
+    border: unset;
+    border-radius: 15px;
+    color: #FFF;
+    z-index: 1;
+    background: #000;
+    position: relative;
+    font-weight: 1000;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 15px -7px rgba(255,255,255,0.27);
+    overflow: hidden;
+   }
+   
+   #botCad::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #FFF;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms
+   }
+   
+   #botCad:hover {
+    color: #000;
+   }
+   
+   #botCad:hover::before {
+    width: 100%;
+   }
