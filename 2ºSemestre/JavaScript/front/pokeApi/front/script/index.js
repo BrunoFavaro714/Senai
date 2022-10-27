@@ -1,16 +1,18 @@
 const searchBar = document.querySelector('#pokeSearch');
 
-searchBar.addEventListener('keyup', () => {
-    if(searchBar.value == ""){
-        document.querySelector('#pokeDisplay').src = "";
-        document.querySelector('#HP').innerHTML = "";
-        document.querySelector('#Spe').innerHTML = "";
-        document.querySelector('#Atk').innerHTML = "";
-        document.querySelector('#Def').innerHTML = "";
-        document.querySelector('#SpAtk').innerHTML = "";
-        document.querySelector('#SpDef').innerHTML = "";
-    }else{
-        pokemon(searchBar.value);
+searchBar.addEventListener('keypress', (e) => {
+    if(13 == e.keyCode){
+        if(searchBar.value == ""){
+            document.querySelector('#pokeDisplay').src = "";
+            document.querySelector('#HP').innerHTML = "";
+            document.querySelector('#Spe').innerHTML = "";
+            document.querySelector('#Atk').innerHTML = "";
+            document.querySelector('#Def').innerHTML = "";
+            document.querySelector('#SpAtk').innerHTML = "";
+            document.querySelector('#SpDef').innerHTML = "";
+        }else{
+            pokemon(searchBar.value);
+        }
     }
 });
 
