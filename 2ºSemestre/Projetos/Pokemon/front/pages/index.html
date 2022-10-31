@@ -4,25 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/index.css">
     <title>Document</title>
 </head>
-<body onload="PokemonEscolhido()">
-    <div class="seu-poke">
-        <div id="suaLifeBar">
+<body onload="load()">
+    <main>
+        <div class="outro-poke">
+            <div>
+                <div id="outraLifeBar" class="otherLife lifeBar">
+                    <span>
+                        <p>nome</p>
+                        <p>Lv.</p>
+                    </span>
+                    <div class="life">
+                        <p>HP</p><progress id="otherHealth" class="health" value="5" max="100"></progress>
+                    </div>
+                </div>
+                <div id="outroMon">
+                    <img id="outraSprite" src="">
+                </div>
+            </div>
+        </div>
+        <div class="seu-poke">
+            <div id="seuMon">
+                <img id="suaSprite" src="">
+            </div>
+            <div id="suaLifeBar" class="yourLife lifeBar">
+                <span>
+                    <p>nome</p>
+                    <p>Lv.</p>
+                </span>
+                <div class="life">
+                    <p>HP</p><progress id="yourHealth" class="health" value="" max=""></progress>
+                </div>
+                <progress id="xp" value="50" max="100"></progress>
+            </div>
+        </div>
+    </main>
 
+    <footer>
+        <div>
+            <div>
+                <div class="inv">
+                </div>
+                <div class="vis">
+                </div>
+            </div>
+            <div>
+                <div>Fight</div>
+                <div>Bag</div>
+                <div>Pokemons</div>
+                <div>Run</div>
+            </div>
         </div>
-        <div id="seuMon">
-            <img id="suaSprite" src="">
-        </div>
-    </div>
-    <div class="outro-poke">
-        <div id="outraLifeBar">
-
-        </div>
-        <div id="outroMon">
-
-        </div>
-    </div>
+    </footer>
 </body>
-<script src="../scripts/fetchs.js"></script>src
+<script src="../scripts/index.js"></script>
 </html>

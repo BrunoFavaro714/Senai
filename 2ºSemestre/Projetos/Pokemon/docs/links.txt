@@ -1,0 +1,6 @@
+calc stats:
+https://bulbapedia.bulbagarden.net/wiki/Stat
+
+
+lifebar:
+https://stackoverflow.com/questions/20277052/how-to-make-a-health-bar
