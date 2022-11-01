@@ -14,12 +14,14 @@ body{
     background-color: #000;
 }
 main{
+    position: relative;
     width: 80vw;
-    background-color: #fff;
-    /* background-image: url('../../assets/backgroun.jpg');
+    height: 80vh;
+    /* background-color: #fff; */
+    background-image: url('../../assets/background.jpg');
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover; */
+    background-position-x: 40%;
+    background-size: cover;
 }
 
 .seu-poke{
@@ -44,26 +46,26 @@ main{
     border-radius: 15px 15px 15px 0;
     box-shadow: -10px 10px 0 #333;
     position: absolute;
-    left: 50%;
-    bottom: 25%;
+    left: 47%;
+    bottom: 12%;
 }
 .otherLife{
     border-radius: 15px 15px 0 15px;
     box-shadow: 10px 10px 0 #333;
     position: absolute;
     right: 50%;
-    top: 25%;
+    top: 20%;
 }
 
 #seuMon{
     position: absolute;
-    bottom: 15%;
-    left: 15%;
+    bottom: 29%;
+    left: 25%;
 }
 #outroMon{
     position: absolute;
-    top: 15%;
-    right: 15%;
+    top: 22%;
+    right: 25%;
 }
 
 footer{
@@ -76,7 +78,7 @@ footer{
 }
 
 img{
-    height: 175px;
+    transform: scale(4, 4);
 }
 
 progress{
@@ -86,8 +88,7 @@ progress{
 .health::-webkit-progress-value {
     border-radius: 3px;
     background: #18c020;
-}
-  
+} 
 .health::-webkit-progress-bar {
     background: #fff;
     border-radius: 3px;
@@ -118,8 +119,7 @@ progress{
     border-radius: 3px;
     background: lightblue;
     border: 0.5px solid #000;
-  }
-  
+  }  
 #xp::-webkit-progress-bar {
     border: 1px solid #333;
     background: #aaa;
@@ -131,4 +131,35 @@ progress{
     position: absolute;
     bottom: -11px;
     right: 22px;
+}
+
+footer > div {
+    display:flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.options{
+    height: 100%;
+    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: #333;
+}
+.displayer{
+    height: 100%;
+    width: 50%;
+    padding: 15px;
+}
+.op{
+    width: 98%;
+    height: 92%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    font-weight: bold;
+    background-color: #e8e8e8;
+    border: 3px solid #888;
 }
