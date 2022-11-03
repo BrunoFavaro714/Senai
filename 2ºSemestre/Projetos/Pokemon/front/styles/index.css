@@ -78,7 +78,7 @@ footer{
 }
 
 img{
-    transform: scale(4, 4);
+    transform: scale(3, 3);
 }
 
 progress{
@@ -146,6 +146,7 @@ footer > div {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     background-color: #333;
+    border-radius: 5px;
 }
 .displayer{
     height: 100%;
@@ -153,8 +154,9 @@ footer > div {
     padding: 15px;
 }
 .op{
-    width: 98%;
-    height: 92%;
+    margin: 5px;
+    width: 97%;
+    height: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -162,4 +164,19 @@ footer > div {
     font-weight: bold;
     background-color: #e8e8e8;
     border: 3px solid #888;
+    border-radius: 4px;
+}
+
+.pokeInfos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+    height: 40%;
+    padding-left: 30%;
+    align-items: center;
+}
+.pokeInfos > p {
+    width: 50px;
+    font-size: 22px;
 }
