@@ -1,0 +1,220 @@
+:root {
+    --Radius: 10px;
+    --comp_padding: 10px;
+    --comp_shadow: 0 0 5px #ededed;
+    --btn_radius: 20px;
+    --preset_cyan: hsl(176, 50%, 47%);
+    --preset_cyan_hover: hsl(176, 72%, 28%);
+    --preset_white: #fff; 
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+}
+div{
+    width: 100%;
+}
+span{
+    width: 100%;
+}
+
+body{
+    background-color: #fafafa;
+    position: relative;
+    display: flex;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 45vh;
+    background-image: url('images/image-hero-desktop.jpg');
+    background-repeat: no-repeat
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    top: 35vh;
+    height:65vh;
+    position: absolute;
+    align-items: center;
+}
+
+.comp-header{
+    width: clamp(300px, 70%, 700px);
+    border-radius: var(--Radius);
+    padding: var(--comp_padding);
+    background-color: #fff;
+
+    box-shadow: var(--comp_shadow);
+
+    position: relative;
+}
+
+.comp-value{
+    margin-top: 20px;
+    width:clamp(300px, 70%, 700px);
+    border-radius: var(--Radius);
+    padding: var(--comp_padding);
+    background-color: #fff;
+
+    box-shadow: var(--comp_shadow);
+}
+
+#backed-progress{
+    width: 100%;
+}
+
+.comp-about{
+    margin-top: 20px;
+    width: clamp(300px, 70%, 700px);
+    border-radius: var(--Radius);
+    padding: var(--comp_padding);
+    background-color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-shadow: var(--comp_shadow);
+}
+
+.about{
+    padding-top: 20px;
+    width: 90%;
+}
+.back-options{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card{
+    padding: var(--comp_padding);
+    margin:10px;
+    width: 90%;
+    height: 120px;
+
+    position: relative;
+
+    border-radius: var(--Radius);
+    box-shadow: var(--comp_shadow);
+}
+
+.card > span{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-pledge{
+    width: 22%;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+.card-left{
+    width: 20%;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+.card-reward{
+    width: 20%;
+    height: 40px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+
+    border-radius: var(--btn_radius);
+    border: none !important;
+    background-color: var(--preset_cyan);
+    color: var(--preset_white);
+}
+
+.card-reward:hover{
+    background-color: var(--preset_cyan_hover);
+}
+
+
+
+.title{
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.title > span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bookmark-project-switch{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 170px;
+}
+
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    width:125px;
+    height: 35px;
+    cursor: pointer;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left:-20px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    height:45px;
+    width: 45px;
+    border-radius: 50%;
+    background-image: url('images/icon-bookmark.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+input:checked + .slider {
+    color: var(--preset_cyan_hover);
+    background-color: rgb(60, 180, 172, 0.1);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(26px);
+    transform: translateX(120px);
+    background-image: url('images/icon-bookmark-marked.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+}

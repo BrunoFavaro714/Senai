@@ -1,0 +1,25 @@
+front-end Mentor  -  Atividade
+
+https://www.frontendmentor.io/challenges/crowdfunding-product-page-7uvcZe7ZR/hub/crowdfunding-product-page-7ksVd2Bn61
+
+
+
+W3Schools  -  Gradiente
+
+https://www.w3schools.com/css/css3_gradients.asp
+
+
+
+W3Schools  -  Variavel css
+
+https://www.w3schools.com/css/css3_variables.asp
+
+
+
+W3Schools  -  Shadows
+
+https://www.w3schools.com/css/css3_shadows.asp
+
+W3Schools  -  Switch
+
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_switch
