@@ -74,7 +74,7 @@ function fetchCadastro() {
         }
     });
 
-    fetch('http://localhost:3000/estacionamento/vagas', {
+    fetch('http://localhost:3000/estacionamento/put/vaga', {
         "method": "PUT",
         "headers":{
             "content-type":"application/json"
