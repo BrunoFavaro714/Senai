@@ -351,3 +351,81 @@ ul li{
 .esgotado > button{
     background-color: var(--font_color_under)
 }
+
+.modais{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(122, 122, 122, 0.6)
+}
+
+.modal-back-options{
+    width: clamp(300px, 55%, 700px);
+    border-radius: var(--Radius);
+    padding: 30px 20px;
+    background-color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-shadow: var(--comp_shadow)
+}
+.card-modal{
+    padding: 10px;
+    margin:10px;
+    width: 90%;
+    height: 120px;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: var(--Radius);
+    box-shadow: var(--comp_shadow);
+}
+.backing{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+.modal-card-content{
+    display: flex;
+    width: 90%;
+}
+.modal-title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.card-pledge-modal{
+    margin-left: 10px;
+    color: var(--preset_cyan)
+}
+.modal-checkbox{
+    display: flex;
+    justify-content: center;
+    width: 10%;
+}
+.modal-checkbox > .container {
+    display: block;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.container:hover input ~ .checkmark {
+    background-color: var(--preset_cyan);
+}
+
+.container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}

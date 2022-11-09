@@ -14,6 +14,9 @@ function preencher() {
 function cadastrar() {
     fetchCadastro();
 }
+function saida(cpf, id_vaga){
+    fetchSaida(cpf, id_vaga);
+}
 
 function abrirModal() {
     document.querySelector(".modal").classList.toggle("model");
@@ -40,6 +43,7 @@ function buscaVisao() {
             colunas[5].innerHTML = cliente.modelo;
             colunas[6].innerHTML = cliente.cor;
             colunas[7].innerHTML = cliente.id_vaga;
+            colunas[8].innerHTML = `<button type="button" id="saida_veiculo" onclick="saida(${cliente.cpf}, ${cliente.id_vaga})"><img src="../../assets/"></button>`
 
             document.querySelector("#container").appendChild(nLinha);
         })
@@ -90,4 +94,24 @@ function fetchCadastro() {
     });
 
     window.location.reload();
+}
+
+function fetchSaida(cpf, id_vaga) {
+    let saida = {
+        "cpf":cpf,
+        "id_vaga":id_vaga,
+        "status":false
+    }
+
+    fetch('http://localhost:3000/estacionamento/delete/cadastro', {
+        "method": "DELETE",
+        "headers":{
+            "content-type": "application/json"
+        },
+        body: JSON.stringify(saida)
+    }).then(res => { return res.json() })
+    .then(resp => { 
+        console.log(resp) ;
+        window.location.reload();
+    })
 }

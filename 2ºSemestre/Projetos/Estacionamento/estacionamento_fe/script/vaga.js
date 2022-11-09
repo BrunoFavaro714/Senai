@@ -26,7 +26,7 @@ function preencher() {
 
             nLinha.classList.remove('model');
 
-            if(vaga.status == 0){
+            if(vaga.status == 1){
                 livre = 'Ocupado';
             }else{
                 livre = 'livre';
@@ -48,7 +48,7 @@ function enviar() {
         "tipo":inpTipo.value,
         "valor":inpValor.value
     }
-    fetch('http://localhost:3000/estacionamento/cadastrar/vagas', {
+    fetch('http://localhost:3000/estacionamento/post/vaga', {
         "method": "POST",
         "headers":{
             "content-type": "application/json"
@@ -58,6 +58,7 @@ function enviar() {
     .then(resp => {
         if(resp !== undefined) {
             alert("OK!");
+            window.location.reload();
         }else{
             alert("Error!");
         }

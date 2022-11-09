@@ -142,16 +142,15 @@ footer > div {
 
 .options{
     height: 100%;
-    width: 50%;
+    width: 35%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     background-color: #333;
     border-radius: 5px;
 }
 .displayer{
-    height: 100%;
-    width: 50%;
-    padding: 15px;
+    width: 65%;
+    padding: 5px;
 }
 .op{
     margin: 5px;
@@ -179,4 +178,36 @@ footer > div {
 .pokeInfos > p {
     width: 50px;
     font-size: 22px;
+}
+
+.moves{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 100%;
+    align-items: center;
+    justify-items: center;
+}
+.moves > button{
+    width: 95%;
+    height: 90%;
+    font-size: 32px;
+
+    border-radius: 3px;
+    border: 1px solid #333;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.moves > button:hover{
+    transition: all 0.7s;
+    background: radial-gradient(#fff 60%, rgb(122, 122, 122, 0.7) 100%);
+}
+
+
+
+.inv{
+    display: none;
+    visibility: hidden;
 }
