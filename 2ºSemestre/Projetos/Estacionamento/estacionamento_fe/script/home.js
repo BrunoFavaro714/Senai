@@ -12,7 +12,22 @@ function preencher() {
 }
 
 function cadastrar() {
-    fetchCadastro();
+    
+    let cpfPart1 = inpCpf.value.split('.')
+    let cpfPart2 = cpfPart1[2].split('-')
+
+    let cpf = (cpfPart1[0]).toString();
+    cpf += (cpfPart1[1]).toString();
+    cpf += (cpfPart2[0]).toString();
+    cpf += (cpfPart2[1]).toString();
+
+    console.log(cpf)
+
+    if(validarCpf(cpf) && validarPlaca(inpPlaca.value)){
+        fetchCadastro();
+    }else{
+        alert("CPF invalido")
+    }
 }
 function saida(cpf, id_vaga){
     fetchSaida(cpf, id_vaga);
@@ -73,27 +88,11 @@ function fetchCadastro() {
     .then(resp => {
         if(resp != undefined){
             console.log("ok");
+            window.location.reload();
         }else{
             console.log("n ok");
         }
     });
-
-    fetch('http://localhost:3000/estacionamento/put/vaga', {
-        "method": "PUT",
-        "headers":{
-            "content-type":"application/json"
-        },
-        "body": JSON.stringify(cadastri)
-    }).then( res => { return res.json() })
-    .then( resp => {
-        if(resp != undefined){
-            console.log("ok");
-        }else{
-            console.log("n ok");
-        }
-    });
-
-    window.location.reload();
 }
 
 function fetchSaida(cpf, id_vaga) {
@@ -114,4 +113,50 @@ function fetchSaida(cpf, id_vaga) {
         console.log(resp) ;
         window.location.reload();
     })
+}
+
+
+
+const validarPlaca = (placa) => {
+    if(placa.length == 7) {
+        let modeloAntigo = /^[a-zA-Z]{3}[0-9]{4}$/;
+        let modeloNovo = /^[a-zA-Z]{3}[0-9]{1}[a-zA-Z]{1}[0-9]{2}$/;
+        let modeloMoto = /^[a-zA-Z]{3}[0-9]{2}[a-zA-Z]{1}[0-9]{1}$/;
+        
+        if(modeloAntigo.test(placa) || modeloNovo.test(placa) || modeloMoto.test(placa)) return true;
+    }
+
+    return false;
+}
+const validarCpf = (cpf) => {
+    if(cpf.length != 11) return false;
+
+    if(cpf == "11111111111"|| 
+        cpf == "22222222222" ||
+        cpf == "33333333333" ||
+        cpf == "44444444444" ||
+        cpf == "55555555555" ||
+        cpf == "66666666666" ||
+        cpf == "77777777777" ||
+        cpf == "88888888888" ||
+        cpf == "99999999999" ||
+        cpf == "00000000000" 
+     ) return false;
+
+    let d1 = 0, d2 = 0;
+    for(let i = 0; i <= 8; i++) {
+        d1 += cpf[i] * (i+1);
+        d2 += cpf[i] * i;
+    }
+
+    d1 %= 11;
+    if(d1 == 10) d1 = 0;
+    if(d1 != cpf[9]) return false;
+
+    d2 += d1 * 9;
+    d2 %= 11;
+    if(d2 == 10) d2 = 0;
+    if(d2 != cpf[10]) return false;
+
+    return true;
 }

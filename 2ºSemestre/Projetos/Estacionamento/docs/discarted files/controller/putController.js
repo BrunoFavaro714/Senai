@@ -1,4 +1,4 @@
-const conDB = require('../conDB.js');
+const conDB = require('../../../estacionamento_be/src/conDB.js');
 const estacionamento = require('../model/putModel.js');
 
 const vagas = (req, res) => {
