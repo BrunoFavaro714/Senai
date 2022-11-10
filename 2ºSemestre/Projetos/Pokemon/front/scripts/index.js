@@ -1,3 +1,6 @@
+var yourObjPoke = [{"vazio":"vazio"}];
+var yourPokeLv = 100;
+
 const load = () => {
     PokemonEscolhido();
     PokemonInimigo();
@@ -15,9 +18,45 @@ const PokemonEscolhido = () => {
     .then(pokemon => {
         document.querySelector('#suaSprite').src = pokemon.sprites.versions["generation-v"]["black-white"].animated.back_default;
 
-        choseMoves(pokemon.moves)
+        let nature = 1;
 
-        let hp = (2 * pokemon.stats[0].base_stat)/100;
+        let stats = pokemon.stats;
+
+        let hp = ( ( ( 2 * stats[0].base_stat + iv() + (ev()/4) ) * yourPokeLv ) / 100 ) + yourPokeLv + 10;
+        let atk = ( ( ( ( 2 * stats[1].base_stat+ iv() + (ev()/4) ) * yourPokeLv ) / 100) + 5 )*nature;
+        let def = ( ( ( ( 2 * stats[2].base_stat+ iv() + (ev()/4) ) * yourPokeLv ) / 100 ) + 5 ) * nature;
+        let sp_atk = ((((2 * stats[3].base_stat+ iv() + (ev()/4)) * yourPokeLv)/100)+5)*nature;
+        let sp_def = ((((2 * stats[4].base_stat+ iv() + (ev()/4)) * yourPokeLv)/100)+5)*nature;
+        let spe = ((((2 * stats[5].base_stat+ iv() + (ev()/4)) * yourPokeLv)/100)+5)*nature;
+
+
+        if(yourObjPoke[0].vazio == 'vazio'){
+            yourObjPoke = [{
+                "name": pokemon.name,
+                "lv": yourPokeLv,
+                "stats": {
+                    "hp": Math.round(hp),
+                    "atk": atk,
+                    "def": def,
+                    "sp_atk": sp_atk,
+                    "sp_def": sp_def,
+                    "spe": spe
+                }
+            }]
+        }else{
+            yourObjPoke.push({
+                "name": pokemon.name,
+                "lv": 100,
+                "stats": pokemon.stats
+            }) 
+        }
+        
+        console.log(yourObjPoke);
+        
+        
+        choseMoves(pokemon.moves);
+
+        
 
         document.querySelector('#yourHealth').max = hp+11;
         document.querySelector('#yourHealth').value = hp+11;
@@ -56,49 +95,21 @@ const choseMoves = (moves) => {
         .then(res => { return res.json() })
         .then(desc => {
             moveSet[i].innerHTML = (desc.name).toUpperCase();
+            moveSet[i].addEventListener('click', () => {useMove(desc)});
             i++;
         })
     })
 }
 
+const useMove = (move) => {
+    console.log(move.damage_class);
+}
 
 
-// const typeColor = (type) => {
-//     if(type == 'bug'){
-//         return('rgb(166, 185, 26)');
-//     }else if(type == 'dark'){
-//         return('rgb(112, 87, 70)');
-//     }else if(type == 'dragon'){
-//         return('rgb(111, 53, 252)');
-//     }else if(type == 'electric'){
-//         return('rgb(247, 208, 44)');
-//     }else if(type == 'fairy'){
-//         return('rgb(214, 133, 173)');
-//     }else if(type == 'fight'){
-//         return('rgb(194, 46, 40)');
-//     }else if(type == 'fire'){
-//         return('rgb(238, 129, 48)');
-//     }else if(type == 'flying'){
-//         return('rgb(169, 143, 243)');
-//     }else if(type == 'ghost'){
-//         return('rgb(115, 87, 151)');
-//     }else if(type == 'grass'){
-//         return('rgb(122, 199, 76)');
-//     }else if(type == 'ground'){
-//         return('rgb(226, 191, 101)');
-//     }else if(type == 'ice'){
-//         return('rgb(150, 217, 214)');
-//     }else if(type == 'normal'){
-//         return('rgb(168, 167, 122)');
-//     }else if(type == 'poison'){
-//         return('rgb(163, 62, 161)');
-//     }else if(type == 'psychc'){
-//         return('rgb(249, 85, 135)');
-//     }else if(type == 'rock'){
-//         return('rgb(182, 161, 54)');
-//     }else if(type == 'steel'){
-//         return('rgb(183, 183, 206)');
-//     }else if(type == 'water'){
-//         return('rgb(99, 144, 240)');
-//     }
-// }
+
+const iv = () => {
+    return (Math.floor(Math.random() * 31)+1)
+}
+const ev = () => {
+    return (Math.floor(Math.random() * 256))
+}

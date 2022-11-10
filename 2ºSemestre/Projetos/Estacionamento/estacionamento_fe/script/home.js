@@ -58,7 +58,7 @@ function buscaVisao() {
             colunas[5].innerHTML = cliente.modelo;
             colunas[6].innerHTML = cliente.cor;
             colunas[7].innerHTML = cliente.id_vaga;
-            colunas[8].innerHTML = `<button type="button" id="saida_veiculo" onclick="saida(${cliente.cpf}, ${cliente.id_vaga})"><img src="../../assets/"></button>`
+            colunas[8].innerHTML = `<button type="button" id="saida_veiculo" onclick="saida('${cliente.cpf}', ${cliente.id_vaga})"><img src="../../assets/remover.png"/></button>`
 
             document.querySelector("#container").appendChild(nLinha);
         })

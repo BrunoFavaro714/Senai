@@ -202,7 +202,7 @@ footer > div {
 
 .moves > button:hover{
     transition: all 0.7s;
-    background: radial-gradient(#fff 60%, rgb(122, 122, 122, 0.7) 100%);
+    background: linear-gradient(rgb(122, 122, 122, 0.5) 10%, rgb(122, 122, 122, 0.1) 30%, #fff 100%);
 }
 
 
