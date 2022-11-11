@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/index.css">
+    <title>Salgateria da Beth</title>
+</head>
+<body onload="load()">
+    <header>
+        <div class="navbar">
+            <div>Home</div>
+            <div>filter</div>
+            <div><button onclick="abrirCadastro()" id="cad_salg">Cadastrar Salgado</button></div>
+        </div>
+    </header>
+    <main>
+        <div class="body">
+            <div class="model modal">
+                <div id="img_salg"></div>
+                <div class="info">
+                    <span class="nome"></span>
+                    <span class="descricao"></span>
+                </div>
+                <div class="remove">
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <div class="cadastro">
+        <div class="cadastro-content">
+            <div>
+                <button id="fechar" onclick="fecharCadastro()">X</button>
+                <input id="nomeSalgado" type="text" placeholder="Nome do Salgado">
+                <input id="descricaoSalgado" type="text" placeholder="Descrição Breve">
+                <input id="fotoSalgado" type="text" placeholder="Foto do Salgado">
+                <button id="btn_cadastrar" onclick="cadSalgado()">Cadastrar</button>    
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../script/index.js"></script>
+</html>

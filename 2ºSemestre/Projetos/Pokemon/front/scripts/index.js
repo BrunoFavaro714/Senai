@@ -23,11 +23,11 @@ const PokemonEscolhido = () => {
         let stats = pokemon.stats;
 
         let hp = ( ( ( 2 * stats[0].base_stat + iv() + (ev()/4) ) * yourPokeLv ) / 100 ) + yourPokeLv + 10;
-        let atk = ( ( ( ( 2 * stats[1].base_stat+ iv() + (ev()/4) ) * yourPokeLv ) / 100) + 5 )*nature;
-        let def = ( ( ( ( 2 * stats[2].base_stat+ iv() + (ev()/4) ) * yourPokeLv ) / 100 ) + 5 ) * nature;
-        let sp_atk = ((((2 * stats[3].base_stat+ iv() + (ev()/4)) * yourPokeLv)/100)+5)*nature;
-        let sp_def = ((((2 * stats[4].base_stat+ iv() + (ev()/4)) * yourPokeLv)/100)+5)*nature;
-        let spe = ((((2 * stats[5].base_stat+ iv() + (ev()/4)) * yourPokeLv)/100)+5)*nature;
+        let atk = ( ( ( ( 2 * stats[1].base_stat + iv() + (ev()/4) ) * yourPokeLv ) / 100) + 5 ) * nature;
+        let def = ( ( ( ( 2 * stats[2].base_stat + iv() + (ev()/4) ) * yourPokeLv ) / 100 ) + 5 ) * nature;
+        let sp_atk = ( ( ( ( 2 * stats[3].base_stat + iv() + (ev()/4) ) * yourPokeLv ) / 100 ) + 5 ) * nature;
+        let sp_def = ( ( ( ( 2 * stats[4].base_stat + iv() + (ev()/4) ) * yourPokeLv ) / 100 ) + 5 ) * nature;
+        let spe = ( ( ( ( 2 * stats[5].base_stat + iv() + (ev()/4)) * yourPokeLv ) / 100 ) + 5 ) * nature;
 
 
         if(yourObjPoke[0].vazio == 'vazio'){
@@ -36,18 +36,25 @@ const PokemonEscolhido = () => {
                 "lv": yourPokeLv,
                 "stats": {
                     "hp": Math.round(hp),
-                    "atk": atk,
-                    "def": def,
-                    "sp_atk": sp_atk,
-                    "sp_def": sp_def,
-                    "spe": spe
+                    "atk": Math.round(atk),
+                    "def": Math.round(def),
+                    "sp_atk": Math.round(sp_atk),
+                    "sp_def": Math.round(sp_def),
+                    "spe": Math.round(spe)
                 }
             }]
         }else{
             yourObjPoke.push({
                 "name": pokemon.name,
                 "lv": 100,
-                "stats": pokemon.stats
+                "stats": {
+                    "hp": Math.round(hp),
+                    "atk": Math.round(atk),
+                    "def": Math.round(def),
+                    "sp_atk": Math.round(sp_atk),
+                    "sp_def": Math.round(sp_def),
+                    "spe": Math.round(spe)
+                }
             }) 
         }
         
@@ -56,10 +63,11 @@ const PokemonEscolhido = () => {
         
         choseMoves(pokemon.moves);
 
-        
+        document.querySelector('.yourPokeName').innerHTML = yourObjPoke[0].name;
+        document.querySelector('.yourPokeLv').innerHTML += yourObjPoke[0].lv
 
-        document.querySelector('#yourHealth').max = hp+11;
-        document.querySelector('#yourHealth').value = hp+11;
+        document.querySelector('#yourHealth').max = hp;
+        document.querySelector('#yourHealth').value = hp;
     })
 
 }

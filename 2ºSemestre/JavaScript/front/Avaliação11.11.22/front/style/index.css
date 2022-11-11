@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #333;
+}
+
+#img_salg{
+    width: 150px;
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid #fff;
+    border-radius: 20px 0 0 20px;
+}
+.modal{
+    display: none;
+    visibility: hidden;
+    position: fixed;
+}
+.remove_img, .comentario_img{
+    width: 25px;  
+}
+#btn_remove, #btn_comentari{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #333
+}
+.model{
+    margin: 20px 0;
+    width: clamp(400px, 60%, 900px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 20px;
+    padding-right: 20px;
+}
+.info{
+    margin-left: 5px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px 0
+}
+.nome{
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.descricao{
+    font-size: 16px;
+    font-weight: 500;
+    color: #232323cc
+}
+.remove{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.cadastro{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0006;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cadastro-content{
+    background-color: #fff;
+    width: 500px;
+    height: 300px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cadastro-content > div{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+input{
+    height: 30px;
+    width: 70%;
+    border-radius: 15px;
+    border-style: none;
+    outline: none;
+    background-color: #f3f3f3;
+    padding: 2px 15px;
+}
+#btn_cadastrar{
+    width: 120px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 16px;
+}
+#fechar{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    background: none;
+    border: none;
+}

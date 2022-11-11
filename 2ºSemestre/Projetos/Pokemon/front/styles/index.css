@@ -204,6 +204,9 @@ footer > div {
     transition: all 0.7s;
     background: linear-gradient(rgb(122, 122, 122, 0.5) 10%, rgb(122, 122, 122, 0.1) 30%, #fff 100%);
 }
+.yourPokeName::first-letter {
+    text-transform:capitalize;
+}
 
 
 
