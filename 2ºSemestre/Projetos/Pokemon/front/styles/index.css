@@ -207,7 +207,9 @@ footer > div {
 .yourPokeName::first-letter {
     text-transform:capitalize;
 }
-
+.otherPokeName::first-letter{
+    text-transform:capitalize;
+}
 
 
 .inv{

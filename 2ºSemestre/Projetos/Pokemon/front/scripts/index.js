@@ -1,5 +1,7 @@
 var yourObjPoke = [{"vazio":"vazio"}];
-var yourPokeLv = 100;
+var otherObjPoke = [{"vazio":"vazio"}];
+var PokeLv = 100;
+
 
 const load = () => {
     PokemonEscolhido();
@@ -22,18 +24,18 @@ const PokemonEscolhido = () => {
 
         let stats = pokemon.stats;
 
-        let hp = ( ( ( 2 * stats[0].base_stat + iv() + (ev()/4) ) * yourPokeLv ) / 100 ) + yourPokeLv + 10;
-        let atk = ( ( ( ( 2 * stats[1].base_stat + iv() + (ev()/4) ) * yourPokeLv ) / 100) + 5 ) * nature;
-        let def = ( ( ( ( 2 * stats[2].base_stat + iv() + (ev()/4) ) * yourPokeLv ) / 100 ) + 5 ) * nature;
-        let sp_atk = ( ( ( ( 2 * stats[3].base_stat + iv() + (ev()/4) ) * yourPokeLv ) / 100 ) + 5 ) * nature;
-        let sp_def = ( ( ( ( 2 * stats[4].base_stat + iv() + (ev()/4) ) * yourPokeLv ) / 100 ) + 5 ) * nature;
-        let spe = ( ( ( ( 2 * stats[5].base_stat + iv() + (ev()/4)) * yourPokeLv ) / 100 ) + 5 ) * nature;
+        let hp = ( ( ( 2 * stats[0].base_stat + iv() + (ev()/4) ) * PokeLv ) / 100 ) + PokeLv + 10;
+        let atk = ( ( ( ( 2 * stats[1].base_stat + iv() + (ev()/4) ) * PokeLv ) / 100) + 5 ) * nature;
+        let def = ( ( ( ( 2 * stats[2].base_stat + iv() + (ev()/4) ) * PokeLv ) / 100 ) + 5 ) * nature;
+        let sp_atk = ( ( ( ( 2 * stats[3].base_stat + iv() + (ev()/4) ) * PokeLv ) / 100 ) + 5 ) * nature;
+        let sp_def = ( ( ( ( 2 * stats[4].base_stat + iv() + (ev()/4) ) * PokeLv ) / 100 ) + 5 ) * nature;
+        let spe = ( ( ( ( 2 * stats[5].base_stat + iv() + (ev()/4)) * PokeLv ) / 100 ) + 5 ) * nature;
 
 
         if(yourObjPoke[0].vazio == 'vazio'){
             yourObjPoke = [{
                 "name": pokemon.name,
-                "lv": yourPokeLv,
+                "lv": PokeLv,
                 "stats": {
                     "hp": Math.round(hp),
                     "atk": Math.round(atk),
@@ -64,7 +66,7 @@ const PokemonEscolhido = () => {
         choseMoves(pokemon.moves);
 
         document.querySelector('.yourPokeName').innerHTML = yourObjPoke[0].name;
-        document.querySelector('.yourPokeLv').innerHTML += yourObjPoke[0].lv
+        document.querySelector('.yourPokeLv').innerHTML += yourObjPoke[0].lv;
 
         document.querySelector('#yourHealth').max = hp;
         document.querySelector('#yourHealth').value = hp;
@@ -78,8 +80,51 @@ const PokemonInimigo = () => {
     .then(resp => { return resp.json() })
     .then(pokemon => {
         document.querySelector('#outraSprite').src = pokemon.sprites.versions["generation-v"]["black-white"].animated.front_default;
+
+        let nature = 1;
+
+        let stats = pokemon.stats;
+
+        let hp = ( ( ( 2 * stats[0].base_stat + iv() + (ev()/4) ) * PokeLv ) / 100 ) + PokeLv + 10;
+        let atk = ( ( ( ( 2 * stats[1].base_stat + iv() + (ev()/4) ) * PokeLv ) / 100) + 5 ) * nature;
+        let def = ( ( ( ( 2 * stats[2].base_stat + iv() + (ev()/4) ) * PokeLv ) / 100 ) + 5 ) * nature;
+        let sp_atk = ( ( ( ( 2 * stats[3].base_stat + iv() + (ev()/4) ) * PokeLv ) / 100 ) + 5 ) * nature;
+        let sp_def = ( ( ( ( 2 * stats[4].base_stat + iv() + (ev()/4) ) * PokeLv ) / 100 ) + 5 ) * nature;
+        let spe = ( ( ( ( 2 * stats[5].base_stat + iv() + (ev()/4)) * PokeLv ) / 100 ) + 5 ) * nature;
+
+
+        if(otherObjPoke[0].vazio == 'vazio'){
+            otherObjPoke = [{
+                "name": pokemon.name,
+                "lv": PokeLv,
+                "stats": {
+                    "hp": Math.round(hp),
+                    "atk": Math.round(atk),
+                    "def": Math.round(def),
+                    "sp_atk": Math.round(sp_atk),
+                    "sp_def": Math.round(sp_def),
+                    "spe": Math.round(spe)
+                }
+            }]
+        }else{
+            otherObjPoke.push({
+                "name": pokemon.name,
+                "lv": 100,
+                "stats": {
+                    "hp": Math.round(hp),
+                    "atk": Math.round(atk),
+                    "def": Math.round(def),
+                    "sp_atk": Math.round(sp_atk),
+                    "sp_def": Math.round(sp_def),
+                    "spe": Math.round(spe)
+                }
+            }) 
+        }
         
-        let hp = (2 * pokemon.stats[0].base_stat)/100;
+        console.log(otherObjPoke);
+
+        document.querySelector('.otherPokeName').innerHTML = otherObjPoke[0].name;
+        document.querySelector('.otherPokeLv').innerHTML += otherObjPoke[0].lv;
 
         document.querySelector('#otherHealth').max = hp+11;
         document.querySelector('#otherHealth').value = hp+11;
@@ -105,12 +150,25 @@ const choseMoves = (moves) => {
             moveSet[i].innerHTML = (desc.name).toUpperCase();
             moveSet[i].addEventListener('click', () => {useMove(desc)});
             i++;
+            console.log(desc.id);
         })
     })
 }
 
 const useMove = (move) => {
-    console.log(move.damage_class);
+    let otherHealth = document.querySelector("#otherHealth");
+
+    let damage = 0;
+
+    if(move.damage_class.name == 'physical') {
+        damage = ( ( ( ( 2*PokeLv/5 +2 ) * move.power * yourObjPoke[0].stats.atk/otherObjPoke[0].stats.def ) / 50 + 2 ));
+    }else if(move.damage_class.name == 'special'){
+        damage = ( ( ( ( 2*PokeLv/5 +2 ) * move.power * yourObjPoke[0].stats.sp_atk/otherObjPoke[0].stats.sp_def ) / 50 + 2 ));
+    }else{
+        console.log('status')
+    }
+    
+    otherHealth.value = otherHealth.value - Math.round(damage);
 }
 
 

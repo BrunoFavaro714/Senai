@@ -1,6 +1,8 @@
 calc stats:
 https://bulbapedia.bulbagarden.net/wiki/Stat
 
+damege calculation:
+https://bulbapedia.bulbagarden.net/wiki/Damage#Damage_calculation
 
 lifebar:
 https://stackoverflow.com/questions/20277052/how-to-make-a-health-bar
