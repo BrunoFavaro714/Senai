@@ -29,8 +29,8 @@ function cadastrar() {
         alert("CPF invalido")
     }
 }
-function saida(cpf, id_vaga){
-    fetchSaida(cpf, id_vaga);
+function saida(cpf, id_vaga, vHora){
+    fetchSaida(cpf, id_vaga, vHora);
 }
 
 function abrirModal() {
@@ -58,7 +58,16 @@ function buscaVisao() {
             colunas[5].innerHTML = cliente.modelo;
             colunas[6].innerHTML = cliente.cor;
             colunas[7].innerHTML = cliente.id_vaga;
-            colunas[8].innerHTML = `<button type="button" id="saida_veiculo" onclick="saida('${cliente.cpf}', ${cliente.id_vaga})"><img src="../../assets/remover.png"/></button>`
+
+            let valor_hora = 0;
+
+            if(((new Date()).getHours() - (cliente.entrada).slice(11, 13)) >= 0){
+                valor_hora = ((new Date()).getHours() - (cliente.entrada).slice(11, 13)) * cliente.valor_hora
+            }
+
+            colunas[8].innerHTML = `<button type="button" id="saida_veiculo" onclick="saida('${cliente.cpf}', ${cliente.id_vaga}, ${valor_hora})"><img src="../../assets/remover.png"/></button>`
+            
+            console.log(((new Date()).getHours() - (cliente.entrada).slice(11, 13)) * cliente.valor_hora)
 
             document.querySelector("#container").appendChild(nLinha);
         })
@@ -95,11 +104,12 @@ function fetchCadastro() {
     });
 }
 
-function fetchSaida(cpf, id_vaga) {
+function fetchSaida(cpf, id_vaga, vHora) {
     let saida = {
         "cpf":cpf,
         "id_vaga":id_vaga,
-        "status":false
+        "valor_total":vHora,
+        "status":false,
     }
 
     fetch('http://localhost:3000/estacionamento/delete/cadastro', {

@@ -1,5 +1,5 @@
 const deleteCadastro = (body) => {
-    return `CALL check_out('${body.cpf}', ${body.id_vaga})`
+    return `CALL check_out('${body.cpf}', ${body.id_vaga}, ${body.valor_total})`
 }
 
 const deleteVaga = (body) => {

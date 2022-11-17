@@ -19,6 +19,9 @@ function fetchCompleto() {
             coluna[2].innerHTML = item.saida;
             coluna[3].innerHTML = item.placa;
             coluna[4].innerHTML = item.id_vaga;
+            coluna[5].innerHTML = item.valor_total;
+
+            console.log(item.valor_total)
 
             document.querySelector("#container").appendChild(nLinha);
         })

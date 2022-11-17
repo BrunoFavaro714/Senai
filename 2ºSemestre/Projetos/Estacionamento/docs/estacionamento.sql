@@ -29,20 +29,23 @@ CREATE TABLE controle (
     entrada datetime not null,
     saida datetime,
     placa varchar(7) not null,
-    id_vaga integer not null
+    id_vaga integer not null,
+    valor_total float(6,2)
 );
 
 insert into clientes value('989.724.070-54', 'Carlos Andrade Machado Silva', '(68)3216-6247');
 insert into veiculos value('CKN2236', 'Carro', 'Fiat Uno', 'Preto', '989.724.070-54');
 insert into vagas value(default, 1, 'Idoso', 5.00);
-insert into controle value('989.724.070-54','2022-04-23 13:34:26','2022-04-23 15:42:31', 'CKN2236', 1);
+insert into controle value('989.724.070-54','2022-04-23 13:34:26','2022-04-23 15:42:31', 'CKN2236', 1, null);
 
 create view vw_completa as
-SELECT c.cpf, c.nome, c.telefone, v.placa, v.tipo, v.modelo, v.cor, ct.entrada, ct.saida, ct.id_vaga From clientes c
+SELECT c.cpf, c.nome, c.telefone, v.placa, v.tipo, v.modelo, v.cor, ct.entrada, ct.saida, ct.id_vaga, vg.valor_hora From clientes c
 inner join veiculos v
 on c.cpf = v.cpf
 join controle ct
-on v.placa  = ct.placa;
+on v.placa  = ct.placa
+join vagas vg
+on ct.id_vaga = vg.id_vaga;
 
 select * from clientes;
 select * from veiculos;
@@ -64,10 +67,11 @@ delimiter ;
 
 drop procedure if exists check_out;
 delimiter //
-create procedure check_out(cli_cpf varchar(14), idVaga int)
+create procedure check_out(cli_cpf varchar(14), idVaga int, vTotal float)
 BEGIN
 
     update controle set saida=curdate() where cpf=cli_cpf order by entrada desc limit 1;
+    update controle set valor_total=vTotal where cpf=cli_cpf order by entrada desc limit 1;
     update vagas set status=0 where id_vaga=idVaga;
     delete from veiculos where cpf=cli_cpf;
     delete from clientes where cpf=cli_cpf;
