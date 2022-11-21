@@ -44,7 +44,7 @@ inner join veiculos v
 on c.cpf = v.cpf
 join controle ct
 on v.placa  = ct.placa
-join vagas vg
+inner join vagas vg
 on ct.id_vaga = vg.id_vaga;
 
 select * from clientes;
@@ -59,7 +59,7 @@ BEGIN
 
     insert into clientes value(cpf, nome, telefone);
     insert into veiculos value(placa, tipo, modelo, cor, cpf);
-    insert into controle value(cpf, curdate(), null, placa, idVaga);
+    insert into controle value(cpf, curdate(), null, placa, idVaga, null);
     update vagas set status=1 where id_vaga=idVaga;
 
 END //

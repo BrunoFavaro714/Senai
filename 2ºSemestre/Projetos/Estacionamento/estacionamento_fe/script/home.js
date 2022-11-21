@@ -21,12 +21,10 @@ function cadastrar() {
     cpf += (cpfPart2[0]).toString();
     cpf += (cpfPart2[1]).toString();
 
-    console.log(cpf)
-
     if(validarCpf(cpf) && validarPlaca(inpPlaca.value)){
         fetchCadastro();
     }else{
-        alert("CPF invalido")
+        alert("CPF ou Placa invalido")
     }
 }
 function saida(cpf, id_vaga, vHora){
@@ -61,13 +59,12 @@ function buscaVisao() {
 
             let valor_hora = 0;
 
+            console.log(new Date().getHours());
             if(((new Date()).getHours() - (cliente.entrada).slice(11, 13)) >= 0){
                 valor_hora = ((new Date()).getHours() - (cliente.entrada).slice(11, 13)) * cliente.valor_hora
             }
 
             colunas[8].innerHTML = `<button type="button" id="saida_veiculo" onclick="saida('${cliente.cpf}', ${cliente.id_vaga}, ${valor_hora})"><img src="../../assets/remover.png"/></button>`
-            
-            console.log(((new Date()).getHours() - (cliente.entrada).slice(11, 13)) * cliente.valor_hora)
 
             document.querySelector("#container").appendChild(nLinha);
         })
@@ -96,8 +93,7 @@ function fetchCadastro() {
     }).then( res => { return res.json()})
     .then(resp => {
         if(resp != undefined){
-            console.log("ok");
-            window.location.reload();
+           window.location.reload();
         }else{
             console.log("n ok");
         }

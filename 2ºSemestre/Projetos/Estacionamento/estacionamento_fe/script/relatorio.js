@@ -15,13 +15,15 @@ function fetchCompleto() {
 
             let coluna = nLinha.querySelectorAll('td');
             coluna[0].innerHTML = item.cpf;
-            coluna[1].innerHTML = item.entrada;
-            coluna[2].innerHTML = item.saida;
+            coluna[1].innerHTML = (item.entrada).slice(0,10) + " " + (item.entrada).slice(11,16);
+            if(item.saida != null){
+                coluna[2].innerHTML = (item.saida).slice(0,10) + " " + (item.saida).slice(11,16);
+            }else{
+                coluna[2].innerHTML = item.saida;
+            }
             coluna[3].innerHTML = item.placa;
             coluna[4].innerHTML = item.id_vaga;
             coluna[5].innerHTML = item.valor_total;
-
-            console.log(item.valor_total)
 
             document.querySelector("#container").appendChild(nLinha);
         })

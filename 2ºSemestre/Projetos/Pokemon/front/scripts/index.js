@@ -31,6 +31,19 @@ const PokemonEscolhido = () => {
         let sp_def = ( ( ( ( 2 * stats[4].base_stat + iv() + (ev()/4) ) * PokeLv ) / 100 ) + 5 ) * nature;
         let spe = ( ( ( ( 2 * stats[5].base_stat + iv() + (ev()/4)) * PokeLv ) / 100 ) + 5 ) * nature;
 
+        let types;
+
+        if(pokemon.types.length > 1){
+            types = {
+                'tipo1':pokemon.types[0].type.name,
+                'tipo2':pokemon.types[1].type.name
+            }
+        }else{
+            types = {
+                'tipo1':pokemon.types[0].type.name
+            }
+        }
+
 
         if(yourObjPoke[0].vazio == 'vazio'){
             yourObjPoke = [{
@@ -43,7 +56,8 @@ const PokemonEscolhido = () => {
                     "sp_atk": Math.round(sp_atk),
                     "sp_def": Math.round(sp_def),
                     "spe": Math.round(spe)
-                }
+                },
+                "type":types
             }]
         }else{
             yourObjPoke.push({
@@ -56,7 +70,8 @@ const PokemonEscolhido = () => {
                     "sp_atk": Math.round(sp_atk),
                     "sp_def": Math.round(sp_def),
                     "spe": Math.round(spe)
-                }
+                },
+                "type":types
             }) 
         }
         
@@ -92,6 +107,18 @@ const PokemonInimigo = () => {
         let sp_def = ( ( ( ( 2 * stats[4].base_stat + iv() + (ev()/4) ) * PokeLv ) / 100 ) + 5 ) * nature;
         let spe = ( ( ( ( 2 * stats[5].base_stat + iv() + (ev()/4)) * PokeLv ) / 100 ) + 5 ) * nature;
 
+        let types;
+
+        if(pokemon.types.length > 1){
+            types = {
+                'tipo1':pokemon.types[0].type.name,
+                'tipo2':pokemon.types[1].type.name
+            }
+        }else{
+            types = {
+                'tipo1':pokemon.types[0].type.name
+            }
+        }
 
         if(otherObjPoke[0].vazio == 'vazio'){
             otherObjPoke = [{
@@ -104,7 +131,8 @@ const PokemonInimigo = () => {
                     "sp_atk": Math.round(sp_atk),
                     "sp_def": Math.round(sp_def),
                     "spe": Math.round(spe)
-                }
+                },
+                "type":types
             }]
         }else{
             otherObjPoke.push({
@@ -117,7 +145,8 @@ const PokemonInimigo = () => {
                     "sp_atk": Math.round(sp_atk),
                     "sp_def": Math.round(sp_def),
                     "spe": Math.round(spe)
-                }
+                },
+                "type":types
             }) 
         }
         
@@ -178,4 +207,8 @@ const iv = () => {
 }
 const ev = () => {
     return (Math.floor(Math.random() * 256))
+}
+
+const STAB = () => {
+    
 }
