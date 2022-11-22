@@ -1,0 +1,35 @@
+tema: joguinhos pixeladinhos;
+
+necessario: 
+    cadastro de usuarios; \
+    publicar duvidas; \
+    responder duvidas; \
+    responder as respostas; \
+    categoria psras perguntas; \ 
+        subcategorias;
+    filtro por categoria e data; \
+    favoritos; \
+    documentação mer/der
+
+
+email@ > unico
+nome de usuario
+senha (confirmação tambem)
+
+
+publicacoes:
+id
+quem publicou
+horas que publicou 
+categoria q publicou
+
+comentarios:
+id usuario,
+id publicacao
+o comentarios
+id comentario
+
+respostas:
+id_resp 
+id comentario sendo respondido
+id_user
