@@ -1,0 +1,13 @@
+A partir dos três arquivos CSV na pasta "docs":
+A. Crie um Modelo Conceitual MER x DER do banco de dados e salve em uma pasta chamada "docs/der.png"
+
+
+
+Crie uma API com 7 End Points no padrão de projeto MVC, crie em uma pasta chamada "back"
+OBS: o result deve vir no formato apresentado no arquivo "docs/composite.json"
+Exporte o arquivo de testes do Insomnia e salve na pasta "docs/insomnia.json"
+Deixe a estrutura de pastas de seu projeto organizada
+Uma única pasta com o nome do projeto "dentistas"
+Dentro desta pasta uma chamada "docs" contendo o script.sql, o der.png, os arquivos CSV e JSON
+Também dentro da pasta de seu projeto a API NodeJS em uma pasta chamada "back"
+Crie um repositório público no GitHub com o nome do seu projeto "dentistas", suba seu projeto e apresente ao professor.
