@@ -40,7 +40,6 @@ class Profissional{
     }
 }
 
-
 const profissionais = (req, res) => {
     conDB.query(dentista.getProfissionais(), (err, result) => {
         if(err == null){
@@ -54,11 +53,22 @@ const profissionais = (req, res) => {
 const vw_completa = (req, res) => {
     conDB.query(dentista.getVW_completa(req.params), (err, result) => {
         if(err == null){
-            result.forEach(linha => {
-                
-            })
+            let resultado = [];
+            let i = 0;
+            result.forEach(item => {
+                tratamento = new Tratamento(item.id_tratamento, item.id_consulta, item.tratamento, item.valor);
 
-            res.status(200).json(result).end();
+                consulta = new Consulta(item.id_consulta, item.paciente, item.data, item.horario);
+                consulta.addTratamentos(tratamento);
+    
+                profissional = new Profissional(item.id_profissional, item.nome, item.especialidade);
+                profissional.addConsultas(consulta);
+
+                resultado[i] = profissional
+
+                i++;
+            })
+            res.status(200).json(resultado).end();
         }else{
             res.status(400).json(err).end();
         }
