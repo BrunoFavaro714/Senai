@@ -11,6 +11,28 @@ const getRespostas = (req, res) => {
     })
 }
 
+const postRespostas = (req, res) => {
+    conDB.query(respostas.postRespostas(req.body), (err, result) => {
+        if (err == null || err === undefined){
+            res.status(201).json(result).end();
+        }else{
+            res.status(400).json(err).end();
+        }
+    })
+}
+
+const delRespostas = (req, res) => {
+    conDB.query(respostas.delRespostas(req.params), (err, result) => {
+        if (err == null || err === undefined){
+            res.status(200).json(result).end();
+        }else{
+            res.status(400).json(err).end();
+        }
+    })
+}
+
 module.exports = {
-    getRespostas
+    getRespostas,
+    postRespostas,
+    delRespostas
 }

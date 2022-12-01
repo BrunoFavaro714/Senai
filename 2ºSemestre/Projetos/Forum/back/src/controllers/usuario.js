@@ -3,7 +3,7 @@ const usuario = require('../models/usuario.js');
 
 const getUsuario = (req, res) => {
     conDB.query(usuario.getUsuario(), (err, result) => {
-        if (err == null){
+        if (err == null || err === undefined){
             res.status(200).json(result).end();
         }else{
             res.status(400).json(err).end();
@@ -13,7 +13,7 @@ const getUsuario = (req, res) => {
 
 const postUsuario = (req, res) => {
     conDB.query(usuario.postUsuario(req.body), (err, result) => {
-        if (err == null){
+        if (err == null || err === undefined){
             res.status(201).json(result).end();
         }else{
             res.status(400).json(err).end();
@@ -23,7 +23,7 @@ const postUsuario = (req, res) => {
 
 const delUsuario = (req, res) => {
     conDB.query(usuario.delUsuario(req.params), (err, result) => {
-        if (err == null){
+        if (err == null || err === undefined){
             res.status(200).json(result).end();
         }else{
             res.status(400).json(err).end();
