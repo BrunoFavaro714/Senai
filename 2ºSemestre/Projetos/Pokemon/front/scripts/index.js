@@ -40,7 +40,8 @@ const PokemonEscolhido = () => {
             }
         }else{
             types = {
-                'tipo1':pokemon.types[0].type.name
+                'tipo1':pokemon.types[0].type.name,
+                'tipo2':null
             }
         }
 
@@ -116,7 +117,8 @@ const PokemonInimigo = () => {
             }
         }else{
             types = {
-                'tipo1':pokemon.types[0].type.name
+                'tipo1':pokemon.types[0].type.name,
+                'tipo2':null
             }
         }
 
@@ -167,6 +169,17 @@ const choseMoves = (moves) => {
         rngMove[i] = Math.round(Math.random() * moves.length)+1;
     }
 
+    rngMove.forEach(moove => {
+        for(let i = 0; i < 4; i++){
+            let nMoove = Math.round(Math.random() * moves.length)+1;
+            if(rngMove[i] == moove && rngMove[i] != nMoove){
+                rngMove[i] = nMoove;
+            }else if(rngMove[i] == moove && rngMove[i] == nMoove){
+                nMoove = Math.round(Math.random() * moves.length)+1;
+            }
+        }
+    })
+
     console.log(rngMove)
 
     let moveSet = document.querySelector(".moves").querySelectorAll('button')
@@ -185,22 +198,56 @@ const choseMoves = (moves) => {
 }
 
 const useMove = (move) => {
+
+    if(yourObjPoke[0].stats.spe >= otherObjPoke[0].stats.spe) {
+        yourTurn(move);
+        setTimeout(() => {console.log("ok");}, 1000);
+    }else{
+        console.log("ok");
+        setTimeout(() => {yourTurn(move);}, 1000);
+    }
+    
+
+    
+}
+
+const yourTurn = (move) => {
     let otherHealth = document.querySelector("#otherHealth");
+    let yourHealth = document.querySelector("#yourHealth");
 
     let damage = 0;
+    let self = 0;
 
     if(move.damage_class.name == 'physical') {
-        damage = ( ( ( ( 2*PokeLv/5 +2 ) * move.power * yourObjPoke[0].stats.atk/otherObjPoke[0].stats.def ) / 50 + 2 ));
+        damage = ( ( ( ( 2*PokeLv/5 +2 ) * move.power * yourObjPoke[0].stats.atk/otherObjPoke[0].stats.def ) / 50 + 2 ) * STAB(move.type.name));
+        self = damage*(move.meta.drain)/100
     }else if(move.damage_class.name == 'special'){
-        damage = ( ( ( ( 2*PokeLv/5 +2 ) * move.power * yourObjPoke[0].stats.sp_atk/otherObjPoke[0].stats.sp_def ) / 50 + 2 ));
+        damage = ( ( ( ( 2*PokeLv/5 +2 ) * move.power * yourObjPoke[0].stats.sp_atk/otherObjPoke[0].stats.sp_def ) / 50 + 2 ) * STAB(move.type.name));
+        self = damage*(move.meta.drain)/100
     }else{
         console.log('status')
     }
     
-    otherHealth.value = otherHealth.value - Math.round(damage);
+    if(move.meta.min_hits == null){
+        otherHealth.value = otherHealth.value - Math.round(damage);
+        yourHealth.value = yourHealth.value + Math.round(self);
+    }else{
+        let qtd = (Math.random() * (move.meta.max_hits - move.meta.min_hits)) + move.meta.min_hits;
+        console.log(Math.round(qtd));
+
+        let count = 1;
+
+        let interval = setInterval(() => {
+            otherHealth.value = otherHealth.value - Math.round(damage);
+
+            if(count == Math.round(qtd)){
+                clearInterval(interval);
+            }
+
+            count++;
+        }, 400);
+    }
 }
-
-
 
 const iv = () => {
     return (Math.floor(Math.random() * 31)+1)
@@ -209,6 +256,10 @@ const ev = () => {
     return (Math.floor(Math.random() * 256))
 }
 
-const STAB = () => {
-    
+const STAB = (move_type) => {
+    if(move_type == yourObjPoke[0].type.tipo1 || move_type == yourObjPoke[0].type.tipo2){
+        return 1.5;
+    }else{
+        return 1;
+    }
 }
