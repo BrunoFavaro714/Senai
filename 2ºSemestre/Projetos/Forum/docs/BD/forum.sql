@@ -2,12 +2,19 @@ drop database if exists reenyedito;
 create database reenyedito charset=UTF8 collate utf8_general_ci;
 use reenyedito;
 
+create table roles(
+    id_role int not null auto_increment primary key,
+    tipo varchar(10) not null
+);
+
 create table usuario(
     id_user int auto_increment not null primary key,
+    id_role int not null,
     email varchar(60) unique not null,
     user varchar(15) not null,
     senha varchar(30) not null,
-    favoritos varchar(30) not null
+    favoritos varchar(30) not null,
+    foreign key (id_role) references roles(id_role)
 );
 
 create table categorias(
@@ -52,6 +59,7 @@ create table respostas(
     foreign key (id_coment) references comentarios(id_coment)
 );
 
+describe roles;
 describe usuario;
 describe categorias;
 describe sub_cat;
@@ -60,10 +68,14 @@ describe comentarios;
 describe respostas;
 show tables;
 
+insert into roles values 
+(1, "ADMIN"),
+(2, "USER");
+
 insert into usuario values
-(null, "victoriacduo@gmail.com", "victoriacduo", "1234", "stardew"),
-(null, "brunofavaro.714@gmail.com", "brunofavaro", "4321", "pokemon"),
-(null, "reenyes.lima@gmail.com", "reenyelima", "6789", "mario");
+(null, 1, "victoriacduo@gmail.com", "victoriacduo", "1234", "stardew"),
+(null, 2, "brunofavaro.714@gmail.com", "brunofavaro", "4321", "pokemon"),
+(null, 2,"reenyes.lima@gmail.com", "reenyelima", "6789", "mario");
 
 insert into categorias values
 (null, "stardew valley", "joguinho maravilhoso de fazendinha <3"),
@@ -97,6 +109,7 @@ insert into comentarios values
 insert into respostas values
 (null, 3, 3, "não sabia disso, obrigado pela dica");
 
+select * from roles;
 select * from usuario;
 select * from categorias;
 select * from sub_cat;
