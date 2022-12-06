@@ -3,7 +3,7 @@ const getUsuario = () => {
 }
 
 const getUsuarioLogin = (body) => {
-    return `select * from usuario where email='${body.email}'`;
+    return `select * from usuario where email='${body.email}' and senha='${body.senha}'`;
 }
 
 const postUsuario = (body) => {

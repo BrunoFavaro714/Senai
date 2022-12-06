@@ -13,7 +13,7 @@ const getPublic = (req, res) => {
 
 const postPublic = (req, res) => {
     conDB.query(publicacoes.postPublicacoes(req.body), (err, result) => {
-        if (err == null || err === undefined){
+        if (err == null){
             res.status(201).json(result).end();
         }else{
             res.status(400).json(err).end();
@@ -22,8 +22,8 @@ const postPublic = (req, res) => {
 }
 
 const delPublic = (req, res) => {
-    conDB.query(publicacoes.delPublicacoes(req.params) , (err, result) => {
-        if (err == null || err === undefined){
+    conDB.query(publicacoes.delPublicacoes(req.body) , (err, result) => {
+        if (err == null){
             res.status(200).json(result).end();
         }else{
             res.status(400).json(err).end();
