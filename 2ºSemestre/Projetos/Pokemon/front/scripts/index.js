@@ -90,7 +90,7 @@ const PokemonEscolhido = () => {
 
 }
 const PokemonInimigo = () => {
-    let chosenPoke = Math.round(Math.random() * 152);
+    let chosenPoke = Math.round(Math.random() * 151)+1;
 
     fetch(`https://pokeapi.co/api/v2/pokemon/${chosenPoke}`)
     .then(resp => { return resp.json() })
@@ -201,9 +201,8 @@ const useMove = (move) => {
 
     if(yourObjPoke[0].stats.spe >= otherObjPoke[0].stats.spe) {
         yourTurn(move);
-        setTimeout(() => {console.log("ok");}, 1000);
+        setTimeout(() => {console.log()}, 1000);
     }else{
-        console.log("ok");
         setTimeout(() => {yourTurn(move);}, 1000);
     }
     
