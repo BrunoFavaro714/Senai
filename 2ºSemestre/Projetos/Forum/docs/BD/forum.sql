@@ -35,7 +35,7 @@ create table publicacoes(
     id_publi int primary key not null auto_increment,
     id_user int not null,
     id_subcat int not null,
-    horario datetime not null,
+    horario time not null,
     conteudo varchar(150) not null,
     foreign key (id_user) references usuario(id_user),
     foreign key (id_subcat) references sub_cat(id_subcat)

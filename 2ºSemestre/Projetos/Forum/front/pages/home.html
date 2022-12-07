@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reenyedito: Explore jogos</title>
+    <link rel="stylesheet" href="../style/home.css">
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
+</head>
+<body onload="fetchPublic()">
+    <header>
+        <div>
+            <img class="logo" src="../assets/favicon.png" alt="Logo Reenyedito"/>
+        </div>
+        <div>
+            <input id="search" class="input" type="text" placeholder="Digite para encontrar usuários ou publicações..."/>
+        </div>
+        <div>
+            <span class="nome">username</span>
+        </div>
+    </header>
+    <main>
+        <div class="timeline">
+            <div class="post">
+                <div>
+                    <img class="fota" src="../assets/publi.jpg" alt="Publicação" />
+                </div>
+                <div class="escritos">
+                    <div class="infos">
+                        <span class="negritosos">Publicado por:</span>
+                        <small class="publisher">victoriacduo às 14:30:23</small>
+                    </div>
+    
+                    <div class="infos">
+                        <span class="negritosos line2">Categoria</span>
+                        <small class="cat_published">Stardew Valley</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div>
+                    <img class="fota" src="../assets/mario.png" alt="Publicação" />
+                </div>
+                <div class="escritos">
+                    <div class="infos">
+                        <span>Publicado por:</span>
+                        <small>brunofavaro às 04:53:12</small>
+                    </div>
+    
+                    <div class="infos">
+                        <span>Categoria</span>
+                        <small>Mario</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu">
+            <span>FAVORITOS</span>
+        </div>
+    </main>
+
+    <div class="modal model">
+        <div class="content">
+            <button id="fecharModal">X</button>   
+            <div class="publi">
+                <div class="naosei">
+                    <img class="fotaDnv" src="../assets/publi.jpg" alt="Publicação" />
+                </div>
+                
+                <div class="descricoes">
+                    <span>victoriacduo</span>
+                    <small>seria o único propósito da folha o de cair???</small>
+                    </small>
+                    <button class="btnFavPubli">FAVORITAR</button>
+                    <div class="testando">
+                        <span class="userComent">reenye.lima</span>
+                        <small class="comentzinho">a verdade eh q a lamina q nao se ve é a mais mortífera</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../script/home.js"></script>
+</html>
