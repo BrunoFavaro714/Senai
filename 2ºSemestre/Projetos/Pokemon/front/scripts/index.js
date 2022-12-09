@@ -172,11 +172,14 @@ const choseMoves = (moves) => {
     rngMove.forEach(moove => {
         for(let i = 0; i < 4; i++){
             let nMoove = Math.round(Math.random() * moves.length)+1;
-            if(rngMove[i] == moove && rngMove[i] != nMoove){
-                rngMove[i] = nMoove;
-            }else if(rngMove[i] == moove && rngMove[i] == nMoove){
-                nMoove = Math.round(Math.random() * moves.length)+1;
+            for(let j = 0; j < rngMove.length; j++){
+                if(rngMove[j] == moove && rngMove[j] != nMoove){
+                    rngMove[j] = nMoove;
+                }else if(rngMove[i] == moove && rngMove[j] == nMoove){
+                    nMoove = Math.round(Math.random() * moves.length)+1;
+                }
             }
+            
         }
     })
 
