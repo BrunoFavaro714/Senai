@@ -88,11 +88,11 @@ insert into publicacoes values
 (null, 2, 2, "2022-12-07 14:29:41", "como se usa o itemfinder");
 
 insert into publi_images values
-(1, "C:\Users\PICHAU\Desktop\assets\publi.jpg"),
-(2, "https://cdn1.dotesports.com/wp-content/uploads/2022/07/12031124/maxresdefault-16.jpg"),
-(3, "https://s2.glbimg.com/Yt1wNO0s6Z0l44YDM87HnmPg9K4=/0x0:695x391/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2021/t/s/DvTuADTQKN4hAHkmuOyw/2016-03-18-pokemon-fire-red-leaf-green-inicial.jpg"),
-(4, "C:\Users\PICHAU\Desktop\assets\mario.png"),
-(5, "https://1.bp.blogspot.com/-Z2iqChEGNZY/YG-FSW2sPMI/AAAAAAAAtfU/QWHbq9HvRIA49JeSj8aiSMObGZNxHqaPwCLcBGAsYHQ/s1100/pokemon-emerald-inicial.png");
+(1, to_base64(LOAD_FILE("C:\Users\Desenvolvimento\Desktop\assets\publi.jpg"))),
+(2, to_base64(LOAD_FILE("C:\Users\Desenvolvimento\Desktop\assets\stardew2.jpg"))),
+(3, to_base64(LOAD_FILE("https://s2.glbimg.com/Yt1wNO0s6Z0l44YDM87HnmPg9K4=/0x0:695x391/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2021/t/s/DvTuADTQKN4hAHkmuOyw/2016-03-18-pokemon-fire-red-leaf-green-inicial.jpg"))),
+(4, to_base64(LOAD_FILE("C:\Users\Desenvolvimento\Desktop\assets\mario.png"))),
+(5, to_base64(LOAD_FILE("https://1.bp.blogspot.com/-Z2iqChEGNZY/YG-FSW2sPMI/AAAAAAAAtfU/QWHbq9HvRIA49JeSj8aiSMObGZNxHqaPwCLcBGAsYHQ/s1100/pokemon-emerald-inicial.png")));
 
 insert into comentarios values
 (null, 3, 1, "sim @victoriacduo o sebastiao está disponível para casamento"),

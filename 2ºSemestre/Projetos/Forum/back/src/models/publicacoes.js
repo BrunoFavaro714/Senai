@@ -18,10 +18,18 @@ const delPublicacoes = (body) => {
     return `delete from publicacoes where id_publi=${body.id_publi}`;
 }
 
+const toAscii = (dados)=>{
+    dados.forEach(d => {
+        if(d.imagem != null) d.imagem = d.imagem.toString('ascii');
+    });
+    return dados;
+}
+
 module.exports = {
     getPublic,
     postPublicacoes,
     getPubli_image,
     delPublicacoes,
-    getVwzinha
+    getVwzinha,
+    toAscii
 }

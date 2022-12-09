@@ -24,7 +24,8 @@ const getVwzinha = (req, res) => {
 const getPubli_image = (req, res) => {
     conDB.query(publicacoes.getPubli_image(req.params), (err, result) => {
         if(err == null){
-            res.status(200).json(result).end();
+            console.log(result);
+            res.status(200).json(publicacoes.toAscii(result)).end();
         }else{
             res.status(400).json(err).end();
         }
