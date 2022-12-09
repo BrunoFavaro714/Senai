@@ -44,11 +44,25 @@ header{
 main{
     display: flex;
     position: relative;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
     background-color: #F0F0F0;
+}
+
+.favoritos{
+    display: flex;
+    justify-content: space-between;
+    background-color: #FFF;
+    width: 20vw;
+    height: 4vh;
+    margin-top: 15px;
+    padding: 5px 15px;
+}
+
+.icos{
+    height: 30px;
 }
 
 .timeline{
@@ -57,8 +71,8 @@ main{
     justify-content: flex-start;
     align-items: center;
     width: 40vw;
-    height: 81.8vh;    
-    margin: 30px;
+    height: 79.4vh;    
+    margin: 15px;
     padding: 20px;
     background-color: #FFF;
     gap: 20px;
@@ -99,19 +113,6 @@ main{
 span{
     font-weight: 700;
     font-size: 18px;
-}
-
-.menu{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    position: absolute;
-    background-color: red;
-    top: 0;
-    right: 0;
-    width: 15vw;
-    height: 100%;
 }
 
 /* aaaa */
@@ -164,9 +165,9 @@ span{
     height: 100%;
 }
 
-.fotaDnv{
-    width: 100%;
-    height: 100%;
+.paasa{
+    padding: 20px;
+    border-bottom: 1px solid #000;
 }
 
 .descricoes{

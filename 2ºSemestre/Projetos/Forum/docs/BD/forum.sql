@@ -1,3 +1,4 @@
+
 drop database if exists reenyedito;
 create database reenyedito charset=UTF8 collate utf8_general_ci;
 use reenyedito;
@@ -23,22 +24,20 @@ create table categorias(
     descricao varchar(150) not null
 );
 
-create table sub_cat(
-    id_subcat int primary key auto_increment not null,
-    id_cat int not null,
-    nome_subcat varchar(30) not null,
-    descricao varchar(150) not null,
-    foreign key (id_cat) references categorias(id_cat)
-);
-
 create table publicacoes(
     id_publi int primary key not null auto_increment,
     id_user int not null,
-    id_subcat int not null,
+    id_cat int not null,
     horario time not null,
     conteudo varchar(150) not null,
     foreign key (id_user) references usuario(id_user),
-    foreign key (id_subcat) references sub_cat(id_subcat)
+    foreign key (id_cat) references categorias(id_cat)
+);
+
+create table publi_images(
+    id_publi int primary key not null auto_increment,
+    imagem mediumblob,
+    foreign key (id_publi) references publicacoes(id_publi)
 );
 
 create table comentarios(
@@ -62,7 +61,6 @@ create table respostas(
 describe roles;
 describe usuario;
 describe categorias;
-describe sub_cat;
 describe publicacoes;
 describe comentarios;
 describe respostas;
@@ -82,23 +80,19 @@ insert into categorias values
 (null, "pokemon", "pokemon temos que pegar, pegá-los eu tentarei"),
 (null, "mario", "its me mario");
 
-insert into sub_cat values 
-(null, 1, "sementes", "tempo de crescimento e valor de cada semente"),
-(null, 1, "npcs", "presentes favoritos e solteiros"),
-(null, 1, "geral", "dúvidas gerais sobre stardew valley"),
-(null, 2, "itens", "como usar itens"),
-(null, 2, "pokebolas", "função de cada pokebola"),
-(null, 2, "geral", "dúvidas gerais sobre pokemon"),
-(null, 3, "segredos", "passagens secretas no geral"),
-(null, 3, "geral", "dúvidas gerais sobre mario"),
-(null, 3, "poderes", "dúvidas de cada poder");
-
 insert into publicacoes values
-(null, 1, 2, "13:47:32", "o sebastiano está na pista galera?? quero casá-lo comigo s2s2"),
-(null, 2, 1, "03:22:57", "a semente de fruta antiga morre no inverno? "),
-(null, 3, 6, "09:36:01", "como que passar pelo inferno da rock cave?"),
-(null, 1, 9, "22:15:28", "qual o poder da fire flower?"),
-(null, 2, 4, "14:29:41", "como se usa o itemfinder");
+(null, 1, 1, "2022-12-06 13:47:32", "o sebastiano está na pista galera?? quero casá-lo comigo s2s2"),
+(null, 2, 1, "2022-12-04 03:22:57", "a semente de fruta antiga morre no inverno? "),
+(null, 3, 2, "2022-12-03 09:36:01", "como que passar pelo inferno da rock cave?"),
+(null, 1, 3, "2022-12-01 22:15:28", "qual o poder da fire flower?"),
+(null, 2, 2, "2022-12-07 14:29:41", "como se usa o itemfinder");
+
+insert into publi_images values
+(1, "C:\Users\PICHAU\Desktop\assets\publi.jpg"),
+(2, "https://cdn1.dotesports.com/wp-content/uploads/2022/07/12031124/maxresdefault-16.jpg"),
+(3, "https://s2.glbimg.com/Yt1wNO0s6Z0l44YDM87HnmPg9K4=/0x0:695x391/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2021/t/s/DvTuADTQKN4hAHkmuOyw/2016-03-18-pokemon-fire-red-leaf-green-inicial.jpg"),
+(4, "C:\Users\PICHAU\Desktop\assets\mario.png"),
+(5, "https://1.bp.blogspot.com/-Z2iqChEGNZY/YG-FSW2sPMI/AAAAAAAAtfU/QWHbq9HvRIA49JeSj8aiSMObGZNxHqaPwCLcBGAsYHQ/s1100/pokemon-emerald-inicial.png");
 
 insert into comentarios values
 (null, 3, 1, "sim @victoriacduo o sebastiao está disponível para casamento"),
@@ -112,7 +106,17 @@ insert into respostas values
 select * from roles;
 select * from usuario;
 select * from categorias;
-select * from sub_cat;
 select * from publicacoes;
+select * from publi_images;
 select * from comentarios;
 select * from respostas;
+
+create view vw_zinha as
+select u.id_user, u.id_role, u.email, u.user, u.senha, u.favoritos, 
+p.id_publi, p.horario, p.conteudo, 
+c.id_cat, c.nome_cat, c.descricao
+from usuario u
+inner join publicacoes p
+on u.id_user = p.id_user
+join categorias c
+on p.id_cat = c.id_cat;
