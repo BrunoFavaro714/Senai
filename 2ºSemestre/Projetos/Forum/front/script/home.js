@@ -17,18 +17,22 @@ const fetchPublic = () => {
         publics.forEach(publi => {
             let nPost = post.cloneNode(true);
 
+            nPost.classList.remove('model');
+
             nPost.querySelector('.publisher').innerHTML = `${publi.user} às ${publi.horario}`;
             nPost.querySelector('.cat_published').innerHTML = publi.nome_cat;
             nPost.querySelector('.conteudo').innerHTML = publi.conteudo;
-
-            fetch('http://localhost:3000/reenyedito/get/posts/images/1')
-            .then(resp => resp.blob())
-            .then(myBlob => {
-            })
-
+            nPost.querySelector('.fota').src = montaImg(publi.img);
             console.log(publi);
 
             timeline.appendChild(nPost);
         })
     })
+}
+
+function montaImg(img) {
+    if (img != null) {
+        return `data:image/png;base64,${img}`;
+    } else
+        return `./default.png`;
 }

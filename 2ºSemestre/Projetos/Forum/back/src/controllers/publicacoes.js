@@ -14,23 +14,23 @@ const getPublic = (req, res) => {
 const getVwzinha = (req, res) => {
     conDB.query(publicacoes.getVwzinha(), (err, result) => {
         if(err == null){
-            res.status(200).json(result).end();
-        }else{
-            res.status(400).json(err).end();
-        }
-    })
-}
-
-const getPubli_image = (req, res) => {
-    conDB.query(publicacoes.getPubli_image(req.params), (err, result) => {
-        if(err == null){
-            console.log(result);
             res.status(200).json(publicacoes.toAscii(result)).end();
         }else{
             res.status(400).json(err).end();
         }
     })
 }
+
+// const getPubli_image = (req, res) => {
+//     conDB.query(publicacoes.getPubli_image(req.params), (err, result) => {
+//         if(err == null){
+//             console.log(result);
+//             res.status(200).json().end();
+//         }else{
+//             res.status(400).json(err).end();
+//         }
+//     })
+// }
 
 const postPublic = (req, res) => {
     conDB.query(publicacoes.postPublicacoes(req.body), (err, result) => {
@@ -54,7 +54,6 @@ const delPublic = (req, res) => {
 
 module.exports = {
     getPublic,
-    getPubli_image,
     postPublic,
     delPublic,
     getVwzinha

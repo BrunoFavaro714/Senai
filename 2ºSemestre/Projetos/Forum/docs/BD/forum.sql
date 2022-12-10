@@ -29,15 +29,10 @@ create table publicacoes(
     id_user int not null,
     id_cat int not null,
     horario time not null,
+    img mediumblob,
     conteudo varchar(150) not null,
     foreign key (id_user) references usuario(id_user),
     foreign key (id_cat) references categorias(id_cat)
-);
-
-create table publi_images(
-    id_publi int primary key not null auto_increment,
-    imagem mediumblob,
-    foreign key (id_publi) references publicacoes(id_publi)
 );
 
 create table comentarios(
@@ -81,18 +76,11 @@ insert into categorias values
 (null, "mario", "its me mario");
 
 insert into publicacoes values
-(null, 1, 1, "2022-12-06 13:47:32", "o sebastiano está na pista galera?? quero casá-lo comigo s2s2"),
-(null, 2, 1, "2022-12-04 03:22:57", "a semente de fruta antiga morre no inverno? "),
-(null, 3, 2, "2022-12-03 09:36:01", "como que passar pelo inferno da rock cave?"),
-(null, 1, 3, "2022-12-01 22:15:28", "qual o poder da fire flower?"),
-(null, 2, 2, "2022-12-07 14:29:41", "como se usa o itemfinder");
-
-insert into publi_images values
-(1, to_base64(LOAD_FILE("C:\Users\Desenvolvimento\Desktop\assets\publi.jpg"))),
-(2, to_base64(LOAD_FILE("C:\Users\Desenvolvimento\Desktop\assets\stardew2.jpg"))),
-(3, to_base64(LOAD_FILE("https://s2.glbimg.com/Yt1wNO0s6Z0l44YDM87HnmPg9K4=/0x0:695x391/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2021/t/s/DvTuADTQKN4hAHkmuOyw/2016-03-18-pokemon-fire-red-leaf-green-inicial.jpg"))),
-(4, to_base64(LOAD_FILE("C:\Users\Desenvolvimento\Desktop\assets\mario.png"))),
-(5, to_base64(LOAD_FILE("https://1.bp.blogspot.com/-Z2iqChEGNZY/YG-FSW2sPMI/AAAAAAAAtfU/QWHbq9HvRIA49JeSj8aiSMObGZNxHqaPwCLcBGAsYHQ/s1100/pokemon-emerald-inicial.png")));
+(null, 1, 1, "2022-12-06 13:47:32", (to_base64(LOAD_FILE("C:/Users/PICHAU/Desktop/assets/publi.jpg"))), "o sebastiano está na pista galera?? quero casá-lo comigo s2s2"),
+(null, 2, 1, "2022-12-04 03:22:57", (to_base64(LOAD_FILE("C:/Users/PICHAU/Desktop/assets/stardew2.jpg"))), "a semente de fruta antiga morre no inverno? "),
+(null, 3, 2, "2022-12-03 09:36:01", (to_base64(LOAD_FILE("C:/Users/PICHAU/Desktop/assets/poke1.jpg"))), "como que passar pelo inferno da rock cave?"),
+(null, 1, 3, "2022-12-01 22:15:28", (to_base64(LOAD_FILE("C:/Users/PICHAU/Desktop/assets/mario.png"))), "qual o poder da fire flower?"),
+(null, 2, 2, "2022-12-07 14:29:41", (to_base64(LOAD_FILE("C:/Users/PICHAU/Desktop/assets/Poke2.jpg"))), "como se usa o itemfinder");
 
 insert into comentarios values
 (null, 3, 1, "sim @victoriacduo o sebastiao está disponível para casamento"),
@@ -107,13 +95,12 @@ select * from roles;
 select * from usuario;
 select * from categorias;
 select * from publicacoes;
-select * from publi_images;
 select * from comentarios;
 select * from respostas;
 
 create view vw_zinha as
 select u.id_user, u.id_role, u.email, u.user, u.senha, u.favoritos, 
-p.id_publi, p.horario, p.conteudo, 
+p.id_publi, p.horario, p.conteudo, p.img, 
 c.id_cat, c.nome_cat, c.descricao
 from usuario u
 inner join publicacoes p

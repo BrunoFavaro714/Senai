@@ -6,10 +6,6 @@ const getVwzinha = () => {
     return `select * from vw_zinha`;
 }
 
-const getPubli_image = (params) => {
-    return `select * from publi_images where id_publi=${params.id}`;
-}
-
 const postPublicacoes = (body) => {
     return `insert into publicacoes value(null, ${body.id_user}, ${body.id_cat}, '${body.horario}','${body.imagem}' ,'${body.conteudo}')`;
 }
@@ -20,7 +16,7 @@ const delPublicacoes = (body) => {
 
 const toAscii = (dados)=>{
     dados.forEach(d => {
-        if(d.imagem != null) d.imagem = d.imagem.toString('ascii');
+        if(d.img != null) d.img = d.img.toString('ascii');
     });
     return dados;
 }
@@ -28,7 +24,6 @@ const toAscii = (dados)=>{
 module.exports = {
     getPublic,
     postPublicacoes,
-    getPubli_image,
     delPublicacoes,
     getVwzinha,
     toAscii
