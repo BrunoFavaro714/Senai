@@ -67,8 +67,7 @@
     </main>
 
     <div class="modal model">
-        <div class="content">
-            <button class="fecharModal">X</button>   
+        <div class="content"> 
             <div class="publi">
                 <div class="naosei">
                     <img class="fotaDnv" src="../assets/publi.jpg" alt="Publicação" />
@@ -80,11 +79,21 @@
                     </small>
                     <div class="options-bar">
                     </div>
-                    
-                    <div class="testando">
-                        <span class="userComent">reenye.lima</span>
-                        <small class="comentzinho">a verdade eh q a lamina q nao se ve é a mais mortífera</small>
+                    <div class="comentariso">
+                        <div class="testando model">
+                            <span class="userComent">reenye.lima</span>
+                            <small class="comentzinho">a verdade eh q a lamina q nao se ve é a mais mortífera</small>
+                            <div class="drop"></div>
+                            <div class="respostas">
+                                <div class="neutra model">
+                                    <span class="userResp">reenye.lima</span>
+                                    <small class="respostinha">a verdade eh q a lamina q nao se ve é a mais mortífera</small>
+                                    <div class="drop"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -92,7 +101,7 @@
 
     <div class="modPublicar modal model">
         <div class="content-publicar">
-            <button id="fecharModal" onclick="fecharModal()">X</button> 
+            <button id="fecharModal" onclick="toggleModel('modPublicar')">X</button>
             <form class="publicar" method="post" enctype="multipart/form-data"  action="http://localhost:3000/reenyedito/post/publicacoes">
                 <input type="hidden" name="id_user" id="id_user">
                 <input type="hidden" name="id_cat" value="1">
@@ -103,8 +112,28 @@
                 <input type="file" name="imagem" id="publi_img"/>
                 <input type="button" id="falso_btn" value="Browse..." onclick="document.getElementById('publi_img').click();" />
 
-                <button class="btn_confirmar" >Publicar</button>
+                <button class="btn_confirmar">Publicar</button>
             </form>
+        </div>
+    </div>
+
+    <div class="modComentario modal model">
+        <div class="content-comentar">
+            <button id="fecharModal" onclick="toggleModel('modComentario')">X</button>
+            <div class="comentar">
+                <textarea id="coment_content" cols="50" rows="3"></textarea>
+                <button class="btn_confirmar" onclick="comentar()">Publicar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modResposta modal model">
+        <div class="content-responder">
+            <button id="fecharModal" onclick="toggleModel('modResposta')">X</button>
+            <div class="responder">
+                <textarea id="respon_content" cols="50" rows="3"></textarea>
+                <button class="btn_confirmar" onclick="responder()">Publicar</button>
+            </div>
         </div>
     </div>
 

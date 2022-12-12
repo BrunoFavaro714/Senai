@@ -1,5 +1,1 @@
-apresentar comentarios
-criar comentario
-deletar (publi, coment, resp)
-filtar admin
 buscar

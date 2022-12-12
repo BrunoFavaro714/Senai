@@ -138,6 +138,25 @@ span{
     height: 80%;
     position: relative;
 }
+.content-publicar{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #D9D9D9;
+    width: 75%;
+    height: 80%;
+    position: relative;
+}
+.content-comentar{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #D9D9D9;
+    width: 75%;
+    height: 80%;
+    position: relative;
+}
+
 
 .fecharModal{
     width: 40px;
@@ -180,7 +199,7 @@ span{
     height: 100%;
 }
 
-.testando{
+.comentariso{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -188,6 +207,11 @@ span{
     height: 80%;  
     padding: 15px;
     background-color: #FFF;
+}
+.testando{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .btnFavPubli, .btnComPubli, .btnDelPubli{
@@ -241,4 +265,22 @@ span{
 
 .btnDelPubli > img{
     width: 20px;
+}
+
+.drop{
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content span {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
 }

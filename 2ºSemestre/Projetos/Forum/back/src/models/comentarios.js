@@ -2,16 +2,22 @@ const getComentarios = () => {
     return `select * from comentarios`
 }
 
+const getComentariosFiltrado = (params) => {
+    return `select * from comentarios where id_publi=${params.publi}`
+}
+
+
 const postCometarios = (body) => {
     return `insert into comentarios value(null, ${body.id_user}, ${body.id_publi}, '${body.conteudo}')`;
 }
 
-const delComentarios = (body) => {
-    return `delete from comentarios where id_coment=${body.id_coment}`;
+const delComentarios = (params) => {
+    return `delete from comentarios where id_coment=${params.id_coment}`;
 }
 
 module.exports = {
-    getComentarios, 
+    getComentarios,
+    getComentariosFiltrado,
     postCometarios,
     delComentarios
 }
