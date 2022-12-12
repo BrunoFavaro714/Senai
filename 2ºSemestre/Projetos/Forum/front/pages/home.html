@@ -9,13 +9,14 @@
 </head>
 <body onload="carregar()">
     <header>
-        <div>
+        <div class="div-logo">
             <img class="logo" src="../assets/favicon.png" alt="Logo Reenyedito"/>
         </div>
         <div>
             <input id="search" class="input" type="text" placeholder="Digite para encontrar usuários ou publicações..."/>
         </div>
-        <div>
+        <div class="div-user">
+            <button class="btnpublicar" onclick="abrirModalPublicar()"><img id="crirar" src="../assets/icons/criar.png"></button>
             <span class="nome">username</span>
         </div>
     </header>
@@ -31,7 +32,7 @@
             <div class="post model">
                 <div class="paasa">
                     <span class="conteudo">como que faz pra ser feliz nessa vida quando vc trabalha e estuda ?</span>
-                    <img class="fota" src="" alt="" />
+                    
                 </div>
                 <div class="escritos">
                     <div class="infos">
@@ -67,17 +68,19 @@
 
     <div class="modal model">
         <div class="content">
-            <button id="fecharModal">X</button>   
+            <button class="fecharModal">X</button>   
             <div class="publi">
                 <div class="naosei">
                     <img class="fotaDnv" src="../assets/publi.jpg" alt="Publicação" />
                 </div>
                 
                 <div class="descricoes">
-                    <span>victoriacduo</span>
-                    <small>seria o único propósito da folha o de cair???</small>
+                    <span class="user">victoriacduo</span>
+                    <small class="description">seria o único propósito da folha o de cair???</small>
                     </small>
-                    <button class="btnFavPubli">FAVORITAR</button>
+                    <div class="options-bar">
+                    </div>
+                    
                     <div class="testando">
                         <span class="userComent">reenye.lima</span>
                         <small class="comentzinho">a verdade eh q a lamina q nao se ve é a mais mortífera</small>
@@ -86,6 +89,25 @@
             </div>
         </div>
     </div>
+
+    <div class="modPublicar modal model">
+        <div class="content-publicar">
+            <button id="fecharModal" onclick="fecharModal()">X</button> 
+            <form class="publicar" method="post" enctype="multipart/form-data"  action="http://localhost:3000/reenyedito/post/publicacoes">
+                <input type="hidden" name="id_user" id="id_user">
+                <input type="hidden" name="id_cat" value="1">
+                <input type="text" id="publi_header">
+
+                <textarea name="conteudo" id="publi_content" cols="50" rows="3"></textarea>
+
+                <input type="file" name="imagem" id="publi_img"/>
+                <input type="button" id="falso_btn" value="Browse..." onclick="document.getElementById('publi_img').click();" />
+
+                <button class="btn_confirmar" >Publicar</button>
+            </form>
+        </div>
+    </div>
+
 </body>
 <script src="../script/home.js"></script>
 </html>

@@ -8,8 +8,9 @@ const comentarios = require('./src/routers/comentarios.js');
 const respostas = require('./src/routers/respostas.js');
 
 const app = express();
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
+
 
 app.use(usuario);
 app.use(categorias);

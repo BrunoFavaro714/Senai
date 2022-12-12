@@ -139,7 +139,7 @@ span{
     position: relative;
 }
 
-#fecharModal{
+.fecharModal{
     width: 40px;
     height: 40px;
     font-size: 18px;
@@ -190,16 +190,16 @@ span{
     background-color: #FFF;
 }
 
-.btnFavPubli{
-    width: 100%;
-    height: 30px;
+.btnFavPubli, .btnComPubli, .btnDelPubli{
+    width: 40px;
+    height: 40px;
     border-radius: 20px;
+    align-items: center;
+    justify-content: center;
     border: none;
     background-color: #ff3c3c;
-    font-size: 16px;
-    font-weight: 700;
-    color: #FFF;
 }
+
 
 .userComent{
     font-weight: 700;
@@ -210,4 +210,35 @@ span{
 .model{
     display: none;
     visibility: hidden;
+}
+
+#publi_img{
+   display: none; 
+}
+
+.btnpublicar{
+    width: 20px;
+}
+
+#crirar{
+    width: 20px;
+}
+
+.options-bar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly
+}
+
+.btnFavPubli > img{
+    width: 20px;
+}
+
+.btnComPubli > img{
+    width: 20px;
+}
+
+.btnDelPubli > img{
+    width: 20px;
 }
