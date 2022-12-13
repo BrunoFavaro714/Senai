@@ -25,10 +25,13 @@ const fetchPublic = () => {
 
             nPost.querySelector('.publisher').innerHTML = `${publi.user} às ${publi.horario}`;
             nPost.querySelector('.cat_published').innerHTML = publi.nome_cat;
-            nPost.querySelector('.conteudo').innerHTML = publi.conteudo;
-            nPost.querySelector('.paasa').innerHTML += `<img class="fota" src="${montaImg(publi.img)}" onclick="abrirModal(${publi.id_publi}, ${publi.id_user})" />`;
+            nPost.querySelector('.paasa').innerHTML = `<span class="conteudo" onclick="abrirModal(${publi.id_publi}, ${publi.id_user})">${publi.conteudo}</span>`;
+            if(publi.img != null){
+                nPost.querySelector('.paasa').innerHTML += `<img class="fota" src="${montaImg(publi.img)}" onclick="abrirModal(${publi.id_publi}, ${publi.id_user})" />`;
+                nModal.querySelector('.fotaDnv').src = montaImg(publi.img);
+            }
 
-            nModal.querySelector('.fotaDnv').src = montaImg(publi.img);
+            
             nModal.querySelector('.user').innerHTML = `${publi.user}`;
             nModal.querySelector('.description').innerHTML = publi.conteudo;
             nModal.classList.add(`publi${publi.id_publi}`);

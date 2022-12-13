@@ -104,15 +104,20 @@
             <button id="fecharModal" onclick="toggleModel('modPublicar')">X</button>
             <form class="publicar" method="post" enctype="multipart/form-data"  action="http://localhost:3000/reenyedito/post/publicacoes">
                 <input type="hidden" name="id_user" id="id_user">
-                <input type="hidden" name="id_cat" value="1">
-                <input type="text" id="publi_header">
 
-                <textarea name="conteudo" id="publi_content" cols="50" rows="3"></textarea>
+                <select name="id_cat" id="categ">
+                    <option value="1">Stardew Valley</option>
+                    <option value="2">Pokemon</option>
+                    <option value="3">Mario</option>
+                </select>
+                
+
+                <textarea name="conteudo" id="publi_content" cols="50" rows="3" placeholder="Mensagem limitada a 150 caracteres!"></textarea>
 
                 <input type="file" name="imagem" id="publi_img"/>
                 <input type="button" id="falso_btn" value="Browse..." onclick="document.getElementById('publi_img').click();" />
 
-                <button class="btn_confirmar">Publicar</button>
+                <button class="btn_confirmar" onclick="publicar()">Publicar</button>
             </form>
         </div>
     </div>
@@ -122,7 +127,7 @@
             <button id="fecharModal" onclick="toggleModel('modComentario')">X</button>
             <div class="comentar">
                 <textarea id="coment_content" cols="50" rows="3"></textarea>
-                <button class="btn_confirmar" onclick="comentar()">Publicar</button>
+                <button class="btn_confirmar">Publicar</button>
             </div>
         </div>
     </div>

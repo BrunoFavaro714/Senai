@@ -137,6 +137,7 @@ span{
     width: 75%;
     height: 80%;
     position: relative;
+    border-radius: 20px;
 }
 .content-publicar{
     display: flex;
@@ -146,6 +147,7 @@ span{
     width: 75%;
     height: 80%;
     position: relative;
+    border-radius: 20px;
 }
 .content-comentar{
     display: flex;
@@ -155,6 +157,7 @@ span{
     width: 75%;
     height: 80%;
     position: relative;
+    border-radius: 20px;
 }
 
 
@@ -180,8 +183,15 @@ span{
 }
 
 .naosei{
-    width: 73%;
-    height: 100%;
+    width: 75%;
+    height: 80%;
+    position: relative;
+}
+.fotaDnv{
+    position: absolute;
+    top: 40px;
+    border-radius: 20px;
+    width: 100%;
 }
 
 .paasa{
