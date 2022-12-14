@@ -99,7 +99,7 @@ select * from comentarios;
 select * from respostas;
 
 create view vw_zinha as
-select u.id_user, u.id_role, u.email, u.user, u.senha, u.favoritos, 
+select u.id_user, u.id_role, u.email, u.user, u.favoritos, 
 p.id_publi, p.horario, p.conteudo, p.img, 
 c.id_cat, c.nome_cat, c.descricao
 from usuario u
@@ -107,3 +107,18 @@ inner join publicacoes p
 on u.id_user = p.id_user
 join categorias c
 on p.id_cat = c.id_cat;
+
+create view vw_coment as
+select u.id_user, u.user,
+c.id_coment, c.conteudo, c.id_publi
+from usuario u
+inner join comentarios c
+on u.id_user = c.id_user;
+
+
+create view vw_respo as
+select u.id_user, u.user,
+r.id_resp, r.conteudo, r.id_coment
+from usuario u
+inner join respostas r
+on u.id_user = r.id_user;

@@ -23,12 +23,14 @@ const fetchPublic = () => {
 
             nPost.classList.remove('model');
 
-            nPost.querySelector('.publisher').innerHTML = `${publi.user} às ${publi.horario}`;
+            nPost.querySelector('.publisher').innerHTML = `${publi.user} às ${(publi.horario).slice(0,10)} ${(publi.horario).slice(11, 16)}`;
             nPost.querySelector('.cat_published').innerHTML = publi.nome_cat;
             nPost.querySelector('.paasa').innerHTML = `<span class="conteudo" onclick="abrirModal(${publi.id_publi}, ${publi.id_user})">${publi.conteudo}</span>`;
             if(publi.img != null){
                 nPost.querySelector('.paasa').innerHTML += `<img class="fota" src="${montaImg(publi.img)}" onclick="abrirModal(${publi.id_publi}, ${publi.id_user})" />`;
                 nModal.querySelector('.fotaDnv').src = montaImg(publi.img);
+            }else{
+                nModal.querySelector('.fotaDnv').src = '../assets/logo.png';
             }
 
             
@@ -52,7 +54,7 @@ const fetchPublic = () => {
                     nComentario.classList.remove('model');
                     nComentario.classList.add(`coment${coment.id_coment}`);
 
-                    nComentario.querySelector('.userComent').innerHTML = coment.id_user;
+                    nComentario.querySelector('.userComent').innerHTML = coment.user;
                     nComentario.querySelector('.comentzinho').innerHTML = coment.conteudo;
                     nComentario.querySelector('.drop').innerHTML = `<button onclick="dropDown(${coment.id_coment})" class="dropbtn">...</button>
                                                                         <div id="dropdown" class="dropdown-content drop${coment.id_coment} model">
@@ -69,7 +71,7 @@ const fetchPublic = () => {
                             nRespostas.classList.remove('model');
                             nRespostas.classList.add(`resp${resposta.id_coment}`);
 
-                            nRespostas.querySelector('.userResp').innerHTML = resposta.id_user;
+                            nRespostas.querySelector('.userResp').innerHTML = resposta.user;
                             nRespostas.querySelector('.respostinha').innerHTML = resposta.conteudo;
                             nRespostas.querySelector('.drop').innerHTML = `<button onclick="dropDownResp(${resposta.id_resp})" class="dropbtn">...</button>
                                                                             <div id="dropdown" class="dropdown-content dropResp${resposta.id_resp} model">
@@ -94,6 +96,10 @@ function montaImg(img) {
         return `data:image/png;base64,${img}`;
     } else
         return `./default.png`;
+}
+
+const fecharPublicar = () => {
+    document.querySelector(`.modPublicar`).classList.toggle('model');
 }
 
 const toggleModel = (model) => {
@@ -128,12 +134,17 @@ const abrirModal = (publi, publisher) => {
 const deletarPost = (id_publi) => {
     var user = JSON.parse(localStorage.getItem('usuario'));
 
+    let body = {
+        id_user:user.id_user
+    }
+
     fetch(`http://localhost:3000/reenyedito/delete/publicacoes/${id_publi}`, {
         "method":"DELETE",
         "headers":{
             "Content-Type":"application/json",
             "Authorization":user.token
-        }
+        },
+        "body":JSON.stringify(body)
     }).then(res => { return res.json() })
     .then(resp => { 
         console.log(resp);
@@ -172,12 +183,17 @@ const dropDown = (coment) => {
 const deletarComentario = (comentario) => {
     var user = JSON.parse(localStorage.getItem('usuario'));
 
+    let body = {
+        id_user:user.id_user
+    }
+
     fetch(`http://localhost:3000/reenyedito/delete/comentarios/${comentario}`, {
         "method":"DELETE",
         "headers":{
             "content-type":"application/json",
             "Authorization":user.token
-        }
+        },
+        "body":JSON.stringify(body)
     }).then(res => { return res.json() })
     .then(resp => { 
         console.log(resp);
@@ -215,12 +231,17 @@ const dropDownResp = (resp) => {
 const deletarResposta = (resp) => {
     var user = JSON.parse(localStorage.getItem('usuario'));
 
+    let body = {
+        id_user:user.id_user
+    }
+
     fetch(`http://localhost:3000/reenyedito/delete/respostas/${resp}`, {
         "method":"DELETE",
         "headers":{
             "content-type":"application/json",
             "Authorization":user.token
-        }
+        },
+        "body":JSON.stringify(body)
     }).then(res => { return res.json() })
     .then(resp => { 
         console.log(resp);

@@ -3,7 +3,7 @@ const getRespostas = () => {
 }
 
 const getRespostasFiltrada = (params) => {
-    return `select * from respostas where id_coment=${params.coment}`
+    return `select * from vw_respo where id_coment=${params.coment}`
 }
 
 const postRespostas = (body) => {

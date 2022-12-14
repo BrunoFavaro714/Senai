@@ -22,7 +22,7 @@
     </header>
     <main>
         <div class="favoritos">
-            <img class="icos" src="../assets/icons/favorito.png" alt="Favoritos" />
+            <!-- <img class="icos" src="../assets/icons/favorito.png" alt="Favoritos" /> -->
             <img class="icos" src="../assets/icons/SV_icon.png" alt="Stardew Valley" />
             <img class="icos" src="../assets/icons/Pokemon_icon.png" alt="Pokemon" />
             <img class="icos" src="../assets/icons/Mario_icon.png" alt="Mario" />
@@ -81,9 +81,11 @@
                     </div>
                     <div class="comentariso">
                         <div class="testando model">
-                            <span class="userComent">reenye.lima</span>
-                            <small class="comentzinho">a verdade eh q a lamina q nao se ve é a mais mortífera</small>
-                            <div class="drop"></div>
+                            <div class="comentario">
+                                <span class="userComent">reenye.lima</span>
+                                <small class="comentzinho">a verdade eh q a lamina q nao se ve é a mais mortífera</small>
+                                <div class="drop"></div>
+                            </div>
                             <div class="respostas">
                                 <div class="neutra model">
                                     <span class="userResp">reenye.lima</span>
@@ -101,7 +103,7 @@
 
     <div class="modPublicar modal model">
         <div class="content-publicar">
-            <button id="fecharModal" onclick="toggleModel('modPublicar')">X</button>
+            <button id="fecharModal" onclick="fecharPublicar()">X</button>
             <form class="publicar" method="post" enctype="multipart/form-data"  action="http://localhost:3000/reenyedito/post/publicacoes">
                 <input type="hidden" name="id_user" id="id_user">
 
@@ -117,7 +119,7 @@
                 <input type="file" name="imagem" id="publi_img"/>
                 <input type="button" id="falso_btn" value="Browse..." onclick="document.getElementById('publi_img').click();" />
 
-                <button class="btn_confirmar" onclick="publicar()">Publicar</button>
+                <button class="btn_confirmar">Publicar</button>
             </form>
         </div>
     </div>
@@ -127,7 +129,7 @@
             <button id="fecharModal" onclick="toggleModel('modComentario')">X</button>
             <div class="comentar">
                 <textarea id="coment_content" cols="50" rows="3"></textarea>
-                <button class="btn_confirmar">Publicar</button>
+                <button class="btn_confirmar" onclick="comentar()">Publicar</button>
             </div>
         </div>
     </div>

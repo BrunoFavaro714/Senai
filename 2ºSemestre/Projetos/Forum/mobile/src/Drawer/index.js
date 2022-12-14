@@ -3,8 +3,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 const Drawer = createDrawerNavigator();
 
-import Home from '../Pages/Home/Home.js';
-import Usuario from '../Pages/Usuario/Usuario.js';
+import Home from '../Pages/Home/index.js';
 import Favoritados from '../Pages/Favoritos/Favoritados.js';
 
 export default function Seila(){

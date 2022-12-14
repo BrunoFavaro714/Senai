@@ -6,7 +6,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 const Tab = createMaterialBottomTabNavigator();
 
 import Home from './src/Drawer/index.js';
-import Usuario from './src/pages/Usuario/Usuario';
+import Usuario from './src/Pages/Usuario';
 
 export default function App(){
   return(
@@ -29,9 +29,9 @@ export default function App(){
               tabBarLabel: 'Profile',
               tabBarIcon: ({ color }) => (
                 <MaterialCommunityIcons name="account" color={color} size={26} />
-          ),
-        }}
-      />
+              ),
+            }}
+            />
       </Tab.Navigator>
     </NavigationContainer>
   );

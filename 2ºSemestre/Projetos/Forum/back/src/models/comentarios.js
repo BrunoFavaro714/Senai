@@ -3,7 +3,7 @@ const getComentarios = () => {
 }
 
 const getComentariosFiltrado = (params) => {
-    return `select * from comentarios where id_publi=${params.publi}`
+    return `select * from vw_coment where id_publi=${params.publi}`
 }
 
 
