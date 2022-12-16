@@ -249,6 +249,10 @@ const yourTurn = (move) => {
             count++;
         }, 400);
     }
+
+    if(move.meta.category.name == "ohko"){
+        otherHealth.value = otherHealth.value - otherHealth.value;
+    }
 }
 
 const iv = () => {
