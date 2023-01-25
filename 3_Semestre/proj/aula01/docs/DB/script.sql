@@ -17,7 +17,7 @@ create table pedidos (
     produto varchar(150) not null,
     data date not null,
     hora_pedido time not null,
-    hora_entrega time not null,
+    hora_entrega time,
     hora_fim time,
     entregador integer not null,
     foreign key (entregador) references entregadores(id)
@@ -36,6 +36,8 @@ fields terminated by ';'
 enclosed by '"'
 lines terminated by '\r\n'
 ignore 1 rows;
+
+update pedidos set hora_fim = null WHERE hora_fim='00:00:00';
 
 select * from entregadores;
 select * from pedidos;
