@@ -2,6 +2,14 @@ const getPedidos = () => {
     return `SELECT * FROM pedidos`;
 }
 
+const getPedidosEntrega = () => {
+    return `SELECT * FROM pedidos WHERE hora_entrega=null`;
+}
+
+const getPedidosFim = () => {
+    return `SELECT * FROM pedidos WHERE hora_fim=null`;
+}
+
 const postPedidos = (body) => {
     return `INSERT INTO pedidos VALUES(null, '${body.client}', '${body.endereco}', '${body.produto}', CURDATE(), CURTIME(), null, null, ${body.entregador})`
 }
