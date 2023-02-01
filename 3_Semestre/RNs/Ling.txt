@@ -1,0 +1,12 @@
+[RN-01]Estoque:
+[RN-01.1]Entrada de Produtos (preço compra/locação/quantidade)
+[RN-01.2]Saida para Prateleira(qual produto/quantidade/preço venda unitario)
+
+[RN-02]Caixa:
+[RN-02.1]Login Funcionario(email/senha)
+[RN-02.2]Venda do item(preço/quantidade/id)
+
+[RN-03]Relatorio:
+[RN-03.1]Entrada(Gasto semanal)
+[RN-03.2]Saida(valor de vendas)
+[RN-03.3]Total(diferença entre valor e gastos)
