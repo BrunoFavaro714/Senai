@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.column-setor, .column-vendas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    height: 80%;
+}
+.setor, .vendas{
+    width: clamp(250px, 70%, 500px);
+}
+.name-line, .commission-line, .date-time-line, .id_venda-line, .id_vendedor-line, .detail-id_produto-line, .detail-quantidade-line{
+    display: flex;
+    flex-direction: row;
+}
+.name-label, .commission-label, .date-time-label, .id_venda-label, .id_vendedor-label, .detail-id_produto-label, .detail-quantidade-label{
+    margin-right: 10px;
+}
+
+.date-input, .time-input{
+    background: none;
+    border: none;
+}
+
+/* Collaps ↓ */
+
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.active, .collapsible:hover {
+    background-color: #555;
+}
+
+.content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+}
+
+/* Collaps ↑ */

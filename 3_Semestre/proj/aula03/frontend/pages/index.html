@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/index.css">
+    <title>Document</title>
+</head>
+<body onload="load()">
+    <header>
+        <div class="logo"></div>
+        <div class="search-area"></div>
+        <div class="poster-area"></div>
+    </header>
+    <main>
+        <div class="column-setor">
+            <div class="setor">
+                <span class="name-line">
+                    <p class="name-label">Nome:</p>
+                    <p class="name">Andre Carlos de Manuel Camargo</p>
+                </span>
+                <span class="commission-line">
+                    <p class="commission-label">Comissão:</p>
+                    <p class="commission">R$20,50</p>
+                </span>
+                <span class="vendedorArea">
+                    <button class="collapsible" onclick="collaps()">vendedores</button>
+                    <div class="content">
+                        <div class="groupVendedor">
+                            <span class="vendedores-name-line">
+                                <p class="vendedores-name-label">Nome:</p>
+                                <p class="vendedores-name"></p>
+                            </span>
+                            <span class="vendedores-salario-line">
+                                <p class="vendedores-salario-label">Salario:</p>
+                                <p class="vendedoresSalario"></p>
+                            </span>
+                        </div>
+                    </div>
+                </span>
+                <span class="produtos-area">
+                    <button class="collapsible" onclick="collaps()">Produtos</button>
+                    <div class="content">
+                        <div>
+                            vish
+                        </div>
+                    </div>
+                </span>
+            </div>
+        </div>
+        <div class="column-vendas">
+            <div class="vendas">
+                <span class="id_venda-line">
+                    <p class="id_venda-label">ID da Venda:</p>
+                    <p class="id_venda"></p>
+                </span>
+                <span class="date-time-line">
+                    <p class="date-time-label">Data:</p>
+                    <input type="date" class="date-input" disabled="disabled">
+                    <input type="time" class="time-input" disabled="disabled">
+                </span>
+                <span class="id_vendedor-line">
+                    <p class="id_vendedor-label">ID do Vendedor:</p>
+                    <p class="id_vendedor"></p>
+                </span>
+                <span class="detail-area">
+                    <button class="collapsible" onclick="collaps()">Detalhes</button>
+                    <div class="content">
+                        
+                        <div class="groupDetail">
+                            <span class="detail-id_produto-line">
+                                <p class="detail-id_produto-label">ID do Produto:</p>
+                                <p class="detail-id_produto"></p>
+                            </span>
+                            <span class="detail-quantidade-line">
+                                <p class="detail-quantidade-label">Quantidade:</p>
+                                <p class="detail-quantidade"></p>
+                            </span>
+                        </div>
+
+                    </div>
+                </span>
+            </div>
+        </div>
+    </main>
+
+    <div class="model-frame">
+        <div class="model-body">
+            
+        </div>
+    </div>
+</body>
+<script src="../script/index.js"></script>
+</html>
