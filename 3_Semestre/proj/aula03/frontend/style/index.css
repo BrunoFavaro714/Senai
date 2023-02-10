@@ -3,26 +3,37 @@
     padding: 0;
 }
 
+
+/* Header ↓ */
+
+header{
+    height: 7vh;
+}
+
+/* Header ↑ */
+/* Main ↓ */
+
 main{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    height: 93vh;
 }
 .column-setor, .column-vendas{
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 45%;
-    height: 80%;
+    overflow: scroll;
 }
 .setor, .vendas{
     width: clamp(250px, 70%, 500px);
 }
-.name-line, .commission-line, .date-time-line, .id_venda-line, .id_vendedor-line, .detail-id_produto-line, .detail-quantidade-line{
+.name-line, .commission-line, .date-time-line, .id_venda-line, .id_vendedor-line, .detail-id_produto-line, .detail-quantidade-line, .vendedores-name-line{
     display: flex;
     flex-direction: row;
 }
-.name-label, .commission-label, .date-time-label, .id_venda-label, .id_vendedor-label, .detail-id_produto-label, .detail-quantidade-label{
+.name-label, .commission-label, .date-time-label, .id_venda-label, .id_vendedor-label, .detail-id_produto-label, .detail-quantidade-label, .vendedores-name-label{
     margin-right: 10px;
 }
 
@@ -31,6 +42,85 @@ main{
     border: none;
 }
 
+/* Main ↑ */
+/* Modal ↓ */
+
+.modal{
+    display: none;
+    visibility: hidden;
+}
+
+.modalFrame{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(51, 51, 51, 0.3);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modalFrameDetalhes{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(51, 51, 51, 0.3);
+    width: 100vw;
+    height: 100vh;
+}
+.modal-body{
+    position: relative;
+    background-color: #fff;
+    width: clamp(300px, 35vw, 500px);
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+.modal-body-detalhes{
+    background-color: #fff;
+    width: clamp(150px, 35vw, 250px);
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 20px;
+}
+.fechar-modal{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background:none;
+    border: none;
+}
+.type-add{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background:none;
+    border: none;
+    outline: none;
+    width: 80px;
+}
+
+.modal-setor, .modal-produto, .modal-vendedor, .modal-venda{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 80%;
+}
+
+.unselected{
+    display: none;
+    visibility: hidden;
+}
+
+/* Modal ↑ */
 /* Collaps ↓ */
 
 .collapsible {

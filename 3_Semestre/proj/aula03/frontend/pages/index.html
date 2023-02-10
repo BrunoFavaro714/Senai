@@ -9,13 +9,13 @@
 </head>
 <body onload="load()">
     <header>
-        <div class="logo"></div>
-        <div class="search-area"></div>
-        <div class="poster-area"></div>
+        <div class="logo">LOGO</div>
+        <div class="search-area"><input type="text" class="serch-bar"></div>
+        <div class="poster-area"><button class="poster-btn" onclick="toggleModalAdd()">Adicionar</button></div>
     </header>
     <main>
         <div class="column-setor">
-            <div class="setor">
+            <div class="setor modal">
                 <span class="name-line">
                     <p class="name-label">Nome:</p>
                     <p class="name">Andre Carlos de Manuel Camargo</p>
@@ -27,7 +27,7 @@
                 <span class="vendedorArea">
                     <button class="collapsible" onclick="collaps()">vendedores</button>
                     <div class="content">
-                        <div class="groupVendedor">
+                        <div class="groupVendedor modal">
                             <span class="vendedores-name-line">
                                 <p class="vendedores-name-label">Nome:</p>
                                 <p class="vendedores-name"></p>
@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="column-vendas">
-            <div class="vendas">
+            <div class="vendas modal">
                 <span class="id_venda-line">
                     <p class="id_venda-label">ID da Venda:</p>
                     <p class="id_venda"></p>
@@ -68,7 +68,7 @@
                     <button class="collapsible" onclick="collaps()">Detalhes</button>
                     <div class="content">
                         
-                        <div class="groupDetail">
+                        <div class="groupDetail modal">
                             <span class="detail-id_produto-line">
                                 <p class="detail-id_produto-label">ID do Produto:</p>
                                 <p class="detail-id_produto"></p>
@@ -85,9 +85,48 @@
         </div>
     </main>
 
-    <div class="model-frame">
-        <div class="model-body">
-            
+    <div class="modalFrame modal">
+        <div class="modal-body">
+            <button class="fechar-modal" onclick="toggleModalAdd()">X</button>
+            <select name="" id="" class="type-add" onchange="selectTypeAdd()">
+                <!-- <option value=""></option> -->
+                <option value="setor">Setor</option>
+                <option value="produto">Produto</option>
+                <option value="vendedor">Vendedor</option>
+                <option value="venda">Venda</option>
+            </select>
+            <div class="modal-setor">
+                <input type="text" class="inpNome-setor">
+                <input type="text" class="inpComissao-setor">
+                <button class="btn-confirmar" onclick="criarSetor()">Confirmar</button>
+            </div>
+            <div class="modal-produto unselected">
+                <input type="text" class="inpNome-produto">
+                <input type="float" class="inpValor-produto">
+                <input type="number" class="inpId-setor">
+                <button class="btn-confirmar" onclick="criarProduto()">Confirmar</button>
+            </div>
+            <div class="modal-vendedor unselected">
+                <input type="text" class="inpNome-Vendedor">
+                <input type="text" class="inpSalario-Vendedor">
+                <input type="number" class="inpId-setor">
+                <button class="btn-confirmar" onclick="criarVendedor()">Confirmar</button>
+            </div>
+            <div class="modal-venda unselected">
+                <input type="number" class="inpId-vendedor">
+                <button class="btn-abrir-detalhes" onclick="toggleModalDet()">Adicionar Detalhes</button>
+                <button class="btn-confirmar" onclick="criarVendas()">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modalFrameDetalhes modal">
+        <div class="modal-body-detalhes">
+            <input type="number" class="inpId-produto">
+            <input type="number" class="inpQuantidade">
+            <button class="btn-add-detalhes" onclick="setDetalhes()">Adicionar</button>
+            <button class="btn-finalizar-detalhes" onclick="toggleModalDet()">Finalizar</button>
+            <button class="btn-limpar-detalhes" onclick="setNullDetalhes()">Limpar</button>
         </div>
     </div>
 </body>
