@@ -8,6 +8,28 @@
 
 header{
     height: 7vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #aaa;
+}
+.search-bar{
+    width: clamp(170px, 15vw, 250px);
+    height: 20px;
+    background-color: #eee;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+.poster-btn{
+    background-color: #555;
+    color: #fff;
+    border: none;
+    width: 90px;
+    height: 30px;
+    border-radius: 5px;
 }
 
 /* Header ↑ */
@@ -17,7 +39,8 @@ main{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    height: 93vh;
+    height: 92vh;
+    margin-top: 1vh;
 }
 .column-setor, .column-vendas{
     display: flex;
@@ -25,15 +48,28 @@ main{
     align-items: center;
     width: 45%;
     overflow: scroll;
+    overflow-x: hidden;
 }
 .setor, .vendas{
-    width: clamp(250px, 70%, 500px);
+    width: clamp(250px, 70%, 420px);
+    border: 1px solid #333;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 15px;
 }
-.name-line, .commission-line, .date-time-line, .id_venda-line, .id_vendedor-line, .detail-id_produto-line, .detail-quantidade-line, .vendedores-name-line{
+.name-line, .commission-line{
+    padding: 5px 0 
+}
+
+.groupVendedor, .groupProduto, .groupDetail{
+    padding: 5px 0 10px 0;
+}
+
+.name-line, .commission-line, .date-time-line, .id_venda-line, .id_vendedor-line, .detail-id_produto-line, .detail-quantidade-line, .vendedores-name-line, .produtos-name-line, .produtos-valor-line, .vendedores-salario-line{
     display: flex;
     flex-direction: row;
 }
-.name-label, .commission-label, .date-time-label, .id_venda-label, .id_vendedor-label, .detail-id_produto-label, .detail-quantidade-label, .vendedores-name-label{
+.name-label, .commission-label, .date-time-label, .id_venda-label, .id_vendedor-label, .detail-id_produto-label, .detail-quantidade-label, .vendedores-name-label, .produtos-name-label, .produtos-valor-label, .vendedores-salario-label{
     margin-right: 10px;
 }
 
@@ -62,10 +98,13 @@ main{
     align-items: center;
 }
 .modalFrameDetalhes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(51, 51, 51, 0.3);
+    background-color: rgba(51, 51, 51, 0.7);
     width: 100vw;
     height: 100vh;
 }
@@ -81,11 +120,11 @@ main{
 }
 .modal-body-detalhes{
     background-color: #fff;
-    width: clamp(150px, 35vw, 250px);
-    height: 350px;
+    width: clamp(250px, 35vw, 350px);
+    height: 150px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     border-radius: 20px;
 }
@@ -119,12 +158,63 @@ main{
     display: none;
     visibility: hidden;
 }
+.modal-setor > input, .modal-produto > input, .modal-vendedor > input, .modal-venda > input{
+    margin-bottom: 10px;
+    width: 70%;
+    height: 25px;
+    border-radius: 12px;
+    border: none;
+    padding-left: 12px;
+    background-color: #ddd;
+    outline: none;
+}
+
+.modal-setor > button, .modal-produto > button, .modal-vendedor > button, .modal-venda > button{
+    background-color: #555;
+    color: #fff;
+    border: none;
+    width: 70px;
+    height: 25px;
+    font-size: 12px;
+    border-radius: 5px;
+}
+.btn-abrir-detalhes{
+    width: 120px !important;
+    height: 25px !important;
+    margin-bottom: 10px;
+}
+
+.inpId-produto, .inpQuantidade{
+    margin-bottom: 10px;
+    width: 70%;
+    height: 25px;
+    border-radius: 12px;
+    border: none;
+    padding-left: 12px;
+    background-color: #ddd;
+    outline: none;
+}
+
+.btns{
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%;
+}
+.btns > button{
+    background-color: #555;
+    color: #fff;
+    border: none;
+    width: 60px;
+    height: 20px;
+    font-size: 12px;
+    border-radius: 5px;
+}
 
 /* Modal ↑ */
 /* Collaps ↓ */
 
 .collapsible {
-    background-color: #777;
+    background-color: #999;
     color: white;
     cursor: pointer;
     padding: 18px;
@@ -133,18 +223,39 @@ main{
     text-align: left;
     outline: none;
     font-size: 15px;
+    border-radius: 10px 0 10px 0 ;
 }
-
 .active, .collapsible:hover {
-    background-color: #555;
+    background-color: #777;
 }
-
 .content {
     padding: 0 18px;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
-    background-color: #f1f1f1;
+    background-color: #f0f0f0;
+    margin: 0 6px 10px 4px;
 }
 
 /* Collaps ↑ */
+
+/* Scroll ↓ */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #999;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+/* Scroll ↑ */

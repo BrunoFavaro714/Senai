@@ -10,7 +10,7 @@
 <body onload="load()">
     <header>
         <div class="logo">LOGO</div>
-        <div class="search-area"><input type="text" class="serch-bar"></div>
+        <div class="search-area"><input type="text" class="search-bar"></div>
         <div class="poster-area"><button class="poster-btn" onclick="toggleModalAdd()">Adicionar</button></div>
     </header>
     <main>
@@ -25,7 +25,7 @@
                     <p class="commission">R$20,50</p>
                 </span>
                 <span class="vendedorArea">
-                    <button class="collapsible" onclick="collaps()">vendedores</button>
+                    <button class="collapsible" onclick="collaps()">Vendedores</button>
                     <div class="content">
                         <div class="groupVendedor modal">
                             <span class="vendedores-name-line">
@@ -39,11 +39,18 @@
                         </div>
                     </div>
                 </span>
-                <span class="produtos-area">
+                <span class="produtoArea">
                     <button class="collapsible" onclick="collaps()">Produtos</button>
                     <div class="content">
-                        <div>
-                            vish
+                        <div class="groupProduto modal">
+                            <span class="produtos-name-line">
+                                <p class="produtos-name-label">Nome:</p>
+                                <p class="produtos-name"></p>
+                            </span>
+                            <span class="produtos-valor-line">
+                                <p class="produtos-valor-label">Valor:</p>
+                                <p class="produtosValor"></p>
+                            </span>
                         </div>
                     </div>
                 </span>
@@ -96,24 +103,24 @@
                 <option value="venda">Venda</option>
             </select>
             <div class="modal-setor">
-                <input type="text" class="inpNome-setor">
-                <input type="text" class="inpComissao-setor">
+                <input type="text" class="inpNome-setor" placeholder="Nome do Setor">
+                <input type="text" class="inpComissao-setor" placeholder="Comissão">
                 <button class="btn-confirmar" onclick="criarSetor()">Confirmar</button>
             </div>
             <div class="modal-produto unselected">
-                <input type="text" class="inpNome-produto">
-                <input type="float" class="inpValor-produto">
-                <input type="number" class="inpId-setor">
+                <input type="text" class="inpNome-produto" placeholder="Nome do Produto">
+                <input type="float" class="inpValor-produto" placeholder="Valor do Produto">
+                <input type="number" class="inpId-setor" placeholder="ID do Setor">
                 <button class="btn-confirmar" onclick="criarProduto()">Confirmar</button>
             </div>
             <div class="modal-vendedor unselected">
-                <input type="text" class="inpNome-Vendedor">
-                <input type="text" class="inpSalario-Vendedor">
-                <input type="number" class="inpId-setor">
+                <input type="text" class="inpNome-Vendedor" placeholder="Nome do Vendedor">
+                <input type="text" class="inpSalario-Vendedor" placeholder="Salario do vendedor">
+                <input type="number" class="inpId-setor" placeholder="ID do Setor">
                 <button class="btn-confirmar" onclick="criarVendedor()">Confirmar</button>
             </div>
             <div class="modal-venda unselected">
-                <input type="number" class="inpId-vendedor">
+                <input type="number" class="inpId-vendedor" placeholder="ID do vendedor">
                 <button class="btn-abrir-detalhes" onclick="toggleModalDet()">Adicionar Detalhes</button>
                 <button class="btn-confirmar" onclick="criarVendas()">Confirmar</button>
             </div>
@@ -122,11 +129,13 @@
 
     <div class="modalFrameDetalhes modal">
         <div class="modal-body-detalhes">
-            <input type="number" class="inpId-produto">
-            <input type="number" class="inpQuantidade">
-            <button class="btn-add-detalhes" onclick="setDetalhes()">Adicionar</button>
-            <button class="btn-finalizar-detalhes" onclick="toggleModalDet()">Finalizar</button>
-            <button class="btn-limpar-detalhes" onclick="setNullDetalhes()">Limpar</button>
+            <input type="number" class="inpId-produto" placeholder="ID do Produto">
+            <input type="number" class="inpQuantidade" placeholder="Quantidade do Produto">
+            <div class="btns">
+                <button class="btn-add-detalhes" onclick="setDetalhes()">Adicionar</button>
+                <button class="btn-finalizar-detalhes" onclick="toggleModalDet()">Finalizar</button>
+                <button class="btn-limpar-detalhes" onclick="setNullDetalhes()">Limpar</button>
+            </div>
         </div>
     </div>
 </body>

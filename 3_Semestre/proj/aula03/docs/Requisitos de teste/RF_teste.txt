@@ -1,0 +1,7 @@
+[RF-01]	Cadastrar SETOR
+[RF-02]	Cadastrar Produto
+[RF-03]	Cadastrar Vendedor
+[RF-04]	Cadastrar Venda
+	[RF-04.1] cadastrar multiplos detalhes
+	[RF-04.2] cadastrar nenhum detalhe
+	[RF-04.3] cadastrar unico detalhe

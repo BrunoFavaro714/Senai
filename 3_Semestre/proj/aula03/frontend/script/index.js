@@ -23,7 +23,18 @@ const load = () => {
                 nSetor.querySelector('.vendedorArea').querySelector('.content').appendChild(nVendedor);
             })
 
+            setor.produto.forEach(produto => {
+                let nProduto = nSetor.querySelector('.groupProduto').cloneNode(true);
+                nProduto.classList.remove('modal');
+
+                nProduto.querySelector('.produtos-name').innerHTML = produto.nome;
+                nProduto.querySelector('.produtosValor').innerHTML = produto.valor;
+
+                nSetor.querySelector('.produtoArea').querySelector('.content').appendChild(nProduto);
+            })
+
             document.querySelector('.column-setor').appendChild(nSetor);
+            
         })
     })
 
