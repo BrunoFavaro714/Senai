@@ -8,11 +8,11 @@ const validaAcesso = (req, res, next) => {
         if(err != null){
             res.status(404).json(err).end();
         }else{
-            // if(data.accessLv >= 2){
-            //     next();
-            // }else{
-            //     res.status(401).end();
-            // }
+            if(data.email == req.body.email && data.senha == req.body.senha){
+                next();
+            }else{
+                res.status(401).end();
+            }
         }
     })
 }
