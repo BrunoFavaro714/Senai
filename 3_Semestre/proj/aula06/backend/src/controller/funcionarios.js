@@ -6,19 +6,19 @@ const Funcionarios = require('../model/funcionarios');
 const login = (req, res) => {
     const user = req.body;
 
-    Funcionarios.findOne({ 'email':user.email }, (err, funcionario) => {
+    Funcionarios.findOne({ 'email':user.email, 'senha':user.senha }, (err, funcionario) => {
+        console.log(err, funcionario)
+        
         if(err == null) {
             if(funcionario != null) {
-                if(user.email == funcionario.email && user.senha == funcionario.senha) {
-                    jwt.sign(user, process.env.KEY, function(err, token) {
-                        if(err == null){
-                            user['token'] = token;
-                            res.status(200).json(user.token).end();
-                        }else{
-                            res.status(404).json(err).end();
-                        }
-                    })
-                }
+                jwt.sign(user, process.env.KEY, function(err, token) {
+                    if(err == null){
+                        user['token'] = token;
+                        res.status(200).json(user.token).end();
+                    }else{
+                        res.status(404).json(err).end();
+                    }
+                })
             }else{
                 res.status(404).json(err).end()
             }
