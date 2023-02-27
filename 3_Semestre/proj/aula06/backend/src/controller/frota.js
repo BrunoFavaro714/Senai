@@ -1,4 +1,5 @@
 const Frota = require('../model/frota');
+const Manutencoes = require('../model/manutencao');
 
 const readAll = (req, res) => {
     Frota.find({}, (err, returned) => {
@@ -21,7 +22,31 @@ const create = (req, res) => {
     })
 }
 
+const frotaComplera = (req, res) => {
+    Frota.find({}, (err, frota) => {
+        if(err != null){
+            res.status(500).json({ erro:err }).end();
+        }else{
+            frota.forEach(veiculo => {
+                Manutencoes.find({ placa:veiculo.placa }, (err, manutencoes) => {
+                    if(err != null){
+                        res.status(500).json({ erro:err }).end();
+                    }else{
+                        console.log(manutencoes);
+                        veiculo.manutencao = manutencoes;
+                        console.log(veiculo);
+                    }
+                })
+            })
+
+            //console.log(frota);
+            res.json({ Frota:frota }).end()
+        }
+    })
+}
+
 module.exports = {
     create,
-    readAll
+    readAll,
+    frotaComplera
 }

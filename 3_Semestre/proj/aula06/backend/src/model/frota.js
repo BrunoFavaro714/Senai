@@ -9,6 +9,7 @@ const frotaSchema = new Schema({
     disponibilidade: {type: Boolean, required: true},
     setor: {type: String, required: true},
     motorista: {type: String, required: true},
+    mantencao: {type: Array},
 })
 
 module.exports = mongoose.model('Frota', frotaSchema);
