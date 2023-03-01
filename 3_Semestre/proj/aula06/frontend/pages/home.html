@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../styles/home.css">
     <title>Home</title>
 </head>
-<body>
+<body onload="load()">
     <main>
         <div class="sidebar">
             <div class="icons">Estoque</div>
@@ -23,22 +23,38 @@
             </div>
         </div>
         <div class="disponibilidade">
-            <p>Placa</p>
-            <p>Modelo</p>
-            <p>Setor</p>
-            <p>disponibilidade</p>
+            <div class="dispCard">
+                <div class="infos">
+                    <p class="placa">Placa</p>
+                    <p class="modelo">Modelo</p>
+                    <p class="funcao">Função</p>
+                    <p class="setor">Setor</p>
+                    <input type="checkbox" name="Disponibilidade" class="disponCheck" disabled>
+                    <label name="Disponibilidade" class="dispon">Disponibilidade</label>
+                    <div class="infos-geral">
+                        <p class="preventiva">Ultima preventiva</p>
+                        <p class="motorista">Motorista</p>
+                        <p class="detalhes">Modelo Detalhada</p>
+                    </div>
+                </div>
+                <div class="icon">
+
+                </div>
+            </div>
         </div>
         <div class="manutencao">
-            <p>Placa</p>
-            <p>Data Inicio</p>
-            <p>tempo Previsto</p>
-            <div class="manutencao-geral">
-                <p>Modelo</p>
-                <p>Função Exercida</p>
-                <p>Setor Pertencente</p>
-                <p>Motorista</p>
-                <p>valor</p>
-                <p>descricao</p>
+            <div class="manuCard">
+                <p>Placa</p>
+                <p>Data Inicio</p>
+                <p>tempo Previsto</p>
+                <div class="manutencao-geral">
+                    <p>Modelo</p>
+                    <p>Função Exercida</p>
+                    <p>Setor Pertencente</p>
+                    <p>Motorista</p>
+                    <p>valor</p>
+                    <p>descricao</p>
+                </div>
             </div>
         </div>
     </main>
