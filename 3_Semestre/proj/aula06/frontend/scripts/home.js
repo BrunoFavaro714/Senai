@@ -8,9 +8,52 @@ const load = () => {
 }
 
 const preencher = () => {
-    let frota = fetchFrota();
-    let manutencao = fetchManutencao();
-    let funcionarios = fetchFuncionarios();
+    fetch('http://localhost:3000/get/frotaComplera')
+    .then(response => { return response.json() })
+    .then(infos => {
+        infos.Frota.forEach(info => {
+            let newDisponibilidade = disponibilidade.querySelector('.dispCard').cloneNode(true);
+
+            newDisponibilidade.classList.remove('model')
+
+            let modelo = (info.modelo).split('/');
+            console.log(modelo);
+
+            newDisponibilidade.querySelector('.placa').innerHTML = info.placa;
+            newDisponibilidade.querySelector('.modelo').innerHTML = modelo[0];
+            newDisponibilidade.querySelector('.funcao').innerHTML = info.funcao;
+            newDisponibilidade.querySelector('.setor').innerHTML = info.setor;
+            newDisponibilidade.querySelector('.disponCheck').checked = info.disponibilidade;
+            newDisponibilidade.querySelector('.dispon').innerHTML = info.disponibilidade == true ? 'Disponivel' : 'Ocupado';
+
+            newDisponibilidade.querySelector('.preventiva').innerHTML = info.last_prev.slice(0,10);
+            newDisponibilidade.querySelector('.motorista').innerHTML = info.motorista;
+            newDisponibilidade.querySelector('.detalhes').innerHTML = `${modelo[0]} ${modelo[1]}, ${modelo[2]}, com ${modelo[3]}`;
+
+            disponibilidade.appendChild(newDisponibilidade);
+
+            //=====================================================================================
+            info.manutencaos.forEach(manus => {
+                if(manus.data_fim == null){
+                    let newManutencao = manutencao.querySelector('.manuCard').cloneNode(true);
+
+                    newManutencao.querySelector('.placa').innerHTML = info.placa;
+                    newManutencao.querySelector('.dataIni').innerHTML = manus.data_inicio;
+                    newManutencao.querySelector('.previsao').innerHTML = manus.tempo_estimado;
+
+                    newManutencao.querySelector('.modelo').innerHTML = `${modelo[0]} ${modelo[1]}, ${modelo[2]}, com ${modelo[3]}`;
+                    newManutencao.querySelector('.funcao').innerHTML = info.funcao;
+                    newManutencao.querySelector('.setor').innerHTML = info.setor;
+                    newManutencao.querySelector('.motorista').innerHTML = info.motorista;
+                    newManutencao.querySelector('.valor').innerHTML = manus.valor;
+                    newManutencao.querySelector('.descricao').innerHTML = manus.descricao;
+
+                    manutencao.appendChild(newManutencao);
+                }
+            })
+            
+        })
+    })
 
 }
 
@@ -42,7 +85,13 @@ const fetchFrota = () => {
 }
 
 const fetchManutencao = () => {
+    fetch('http://localhost:3000/get/manutencao')
+    .then(response => { return response.json() })
+    .then(manutencoes => {
+        manutencoes.forEach(manu => {
 
+        })
+    })
 }
 
 const fetchFuncionarios = () => {

@@ -5,6 +5,6 @@ const frota = require('../controller/frota');
 
 Router.post('/post/frota', frota.create);
 Router.get('/get/frota', frota.readAll);
-// Router.get('/get/frotaComplera', frota.frotaComplera)
+Router.get('/get/frotaComplera', frota.view)
 
 module.exports = Router;

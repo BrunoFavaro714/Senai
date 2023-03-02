@@ -58,3 +58,13 @@ main{
     bottom: 10px;
     right: 10px;
 }
+.manuCard{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #333;
+}
+
+.model{
+    visibility: hidden;
+    display: none;
+}

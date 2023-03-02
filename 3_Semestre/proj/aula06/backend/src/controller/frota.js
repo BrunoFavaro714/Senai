@@ -1,4 +1,5 @@
 const Frota = require('../model/frota');
+const FrotasManu = require('../model/view');
 
 const readAll = (req, res) => {
     Frota.find({}, (err, returned) => {
@@ -21,7 +22,18 @@ const create = (req, res) => {
     })
 }
 
+const view = (req, res) => {
+    FrotasManu.find({}, (err, returned) => {
+        if(err != null){
+            res.status(500).json({ erro:err }).end();
+        }else{
+            res.json({ Frota:returned }).end();
+        }
+    })
+}
+
 module.exports = {
     create,
     readAll,
+    view
 }
