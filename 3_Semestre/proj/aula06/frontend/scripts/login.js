@@ -21,7 +21,7 @@ const logar = () => {
         'body': JSON.stringify(usuario)
     }).then(response => { return response.json() })
     .then(info => {
-        if(info !== undefined){
+        if(info.token !== undefined){
             window.localStorage.setItem('usuario', JSON.stringify(info))
             window.location.href = './home.html'
         }else{

@@ -26,7 +26,7 @@ main{
 }
 .alocacao{
     background-color: #3333;
-    background-image: url(../../assets/placeholder_alocacao.JPG);
+    /* background-image: url(../../assets/placeholder_alocacao.JPG); */
     background-repeat: no-repeat;
     background-size: cover;
     height: 350px;
@@ -57,11 +57,17 @@ main{
     position: absolute;
     bottom: 10px;
     right: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 .manuCard{
     display: flex;
     flex-direction: column;
     border: 1px solid #333;
+}
+#bar-chart-2{
+    width: 700px;
+    height: 350px
 }
 
 .model{

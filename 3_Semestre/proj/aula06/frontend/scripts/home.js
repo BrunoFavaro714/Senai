@@ -37,6 +37,8 @@ const preencher = () => {
                 if(manus.data_fim == null){
                     let newManutencao = manutencao.querySelector('.manuCard').cloneNode(true);
 
+                    newManutencao.classList.remove('model');
+
                     newManutencao.querySelector('.placa').innerHTML = info.placa;
                     newManutencao.querySelector('.dataIni').innerHTML = manus.data_inicio;
                     newManutencao.querySelector('.previsao').innerHTML = manus.tempo_estimado;
