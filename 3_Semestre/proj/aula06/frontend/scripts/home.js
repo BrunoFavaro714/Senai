@@ -5,6 +5,7 @@ const manutencao = document.querySelector('.manutencao');
 
 const load = () => {
     preencher()
+    loadHome()
 }
 
 const preencher = () => {
