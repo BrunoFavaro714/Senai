@@ -10,15 +10,24 @@
 <body onload="load()">
     <main>
         <div class="sidebar">
-            <div class="icons" onclick="mudarSetor()">Home</div>
+            <div class="icons" onclick="mudarSetor('')">Home</div>
             <div class="icons" onclick="mudarSetor('Logistica')">Estoque</div>
             <div class="icons" onclick="mudarSetor('Transporte')">Transporte</div>
             <div class="icons" onclick="mudarSetor('Colheita')">Colheita</div>
         </div>
         <div class="alocacao">
             <div class="grafico-analise">
-                <div class="graph-container">
-                    <canvas id="linha-barra"></canvas>
+                <div class="graph-container-Geral">
+                    <canvas id="linha-barra-Geral"></canvas>
+                </div>
+                <div class="graph-container-Logistica">
+                    <canvas id="linha-barra-Logistica"></canvas>
+                </div>
+                <div class="graph-container-Transporte">
+                    <canvas id="linha-barra-Transporte"></canvas>
+                </div>
+                <div class="graph-container-Colheita">
+                    <canvas id="linha-barra-Colheita"></canvas>
                 </div>
             </div>
             <div class="grafico-departamento">

@@ -65,7 +65,7 @@ main{
     flex-direction: column;
     border: 1px solid #333;
 }
-#linha-barra{
+#linha-barra-Geral, #linha-barra-Logistica, #linha-barra-Transporte, #linha-barra-Colheita{
     width: 700px;
     height: 350px;
 }
