@@ -10,9 +10,10 @@
 <body onload="load()">
     <main>
         <div class="sidebar">
-            <div class="icons">Estoque</div>
-            <div class="icons">Transporte</div>
-            <div class="icons">Colheita</div>
+            <div class="icons" onclick="mudarSetor()">Home</div>
+            <div class="icons" onclick="mudarSetor('Logistica')">Estoque</div>
+            <div class="icons" onclick="mudarSetor('Transporte')">Transporte</div>
+            <div class="icons" onclick="mudarSetor('Colheita')">Colheita</div>
         </div>
         <div class="alocacao">
             <div class="grafico-analise">

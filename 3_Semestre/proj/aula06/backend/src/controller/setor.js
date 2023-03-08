@@ -1,7 +1,12 @@
 const Setor = require('../model/setor');
 
 const readInOrder = async (req, res) => {
-    let returned = await Setor.find({}).sort({ nome: 'asc', data_alocada: 'asc' });
+    let returned = await Setor.find({}).sort({ data_alocada: 'asc', nome: 'asc' });
+
+    res.json({ Setor:returned }).end();
+}
+const readInOrderFilter = async (req, res) => {
+    let returned = await Setor.find({ nome:req.params.setor }).sort({ data_alocada: 'asc', nome: 'asc' });
 
     res.json({ Setor:returned }).end();
 }
@@ -27,8 +32,24 @@ const create = (req, res) => {
     })
 }
 
+const del = (req, res) => {
+    Setor.findOneAndDelete({ '_id':req.params.id })
+    .then(resp => {
+        if(resp){
+            res.status(204).json({ resposta:resp }).end()
+        }else{
+            res.status(404).json({ resposta:resp }).end()
+        }
+    })
+    .catch(err => {
+        res.status(500).json({ erro:err }).end()
+    })
+}
+
 module.exports = {
     read,
     readInOrder,
+    readInOrderFilter,
     create,
+    del,
 }
