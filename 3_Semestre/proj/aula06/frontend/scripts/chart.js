@@ -1,7 +1,56 @@
-const ctxGeral = document.getElementById('linha-barra-Geral');
-const ctxLogistica = document.getElementById('linha-barra-Logistica');
-const ctxTransporte = document.getElementById('linha-barra-Transporte');
-const ctxColheita = document.getElementById('linha-barra-Colheita');
+const ctxGeral = document.getElementById('graphGeral');
+const ctxLogistica = document.getElementById('graphLogistica');
+const ctxTransporte = document.getElementById('graphTransporte');
+const ctxColheita = document.getElementById('graphColheita');
+const ctxDistribuicao = document.getElementById('graphDistri');
+
+const totalUltimoMes = () => {
+
+    fetch('http://localhost:3000/get/setor/inOrder/desc')
+    .then( response => { return response.json() })
+    .then(dados => {
+        let alocacoes = {
+            setor: [],
+            mes: [],
+            total_alocado: []
+        }
+        dados.Setor.forEach(info => {
+            console.log(alocacoes.mes);
+            if(alocacoes.setor.length == 0){
+                alocacoes.setor.push(info.nome);
+                alocacoes.mes.push(info.data_alocada.slice(0,7));
+                alocacoes.total_alocado.push(info.total_alocado);
+            }else if((info.data_alocada.slice(0,7)) == alocacoes.mes[0]){
+                alocacoes.setor.push(info.nome);
+                alocacoes.mes.push(info.data_alocada.slice(0,7));
+                alocacoes.total_alocado.push(info.total_alocado);
+            }
+        })
+        console.log(alocacoes);
+        new Chart(ctxDistribuicao, {
+            type: 'doughnut',
+            data: {
+                labels: alocacoes.setor,
+                datasets: [{
+                    type: 'doughnut',
+                    data: alocacoes.total_alocado,
+                    borderColor: 'rgba(255, 255, 255, 0.2)',
+                    borderWidth: 2,
+                    backgroundColor: ['rgba(51, 170, 51, 0.333)', 'rgba(170, 119, 51, 0.333)', 'rgba(34, 102, 102, 0.333)'],
+                }],
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Jaguariúna mínimas diárias de temperatura'
+                    },
+                }
+            }
+        });
+    }) 
+}
 
 const fetchSetores = () => {
     
@@ -103,7 +152,7 @@ const fetchSetores = () => {
             }  
         })
         
-        Chart(ctxLogistica, {
+        new Chart(ctxLogistica, {
             type: 'bar',
             data: {
                 labels: alocacoes.mes,
@@ -178,7 +227,7 @@ const fetchSetores = () => {
             }  
         })
         
-        Chart(ctxTransporte, {
+        new Chart(ctxTransporte, {
             type: 'bar',
             data: {
                 labels: alocacoes.mes,
@@ -253,7 +302,7 @@ const fetchSetores = () => {
             }  
         })
         
-        Chart(ctxColheita, {
+        new Chart(ctxColheita, {
             type: 'bar',
             data: {
                 labels: alocacoes.mes,

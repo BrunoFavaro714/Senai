@@ -5,6 +5,11 @@ const readInOrder = async (req, res) => {
 
     res.json({ Setor:returned }).end();
 }
+const readInOrderDesc = async (req, res) => {
+    let returned = await Setor.find({}).sort({ data_alocada: 'desc', nome: 'asc' });
+
+    res.json({ Setor:returned }).end();
+}
 const readInOrderFilter = async (req, res) => {
     let returned = await Setor.find({ nome:req.params.setor }).sort({ data_alocada: 'asc', nome: 'asc' });
 
@@ -49,6 +54,7 @@ const del = (req, res) => {
 module.exports = {
     read,
     readInOrder,
+    readInOrderDesc,
     readInOrderFilter,
     create,
     del,

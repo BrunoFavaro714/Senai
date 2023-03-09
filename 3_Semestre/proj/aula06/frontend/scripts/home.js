@@ -5,10 +5,18 @@ const manutencao = document.querySelector('.manutencao');
 
 const load = () => {
     preencher()
-    fetchSetores('')
+    fetchSetores()
+    totalUltimoMes()
 }
 const mudarSetor = (setor) => {
-    fetchSetores(setor)
+    let graphis = document.querySelector('.grafico-analise').querySelectorAll('div');
+
+    graphis.forEach(g => {
+        g.classList.add('model')
+    })
+
+    document.querySelector(`.graph-container-${setor}`).classList.remove('model')
+
 }
 
 const preencher = () => {
