@@ -38,6 +38,10 @@ const preencher = () => {
                 newDisponibilidade.querySelector('.iconDisponivel').classList.add('covered');
                 newDisponibilidade.querySelector('.iconIndisponivel').classList.remove('model')
             }
+            
+            newDisponibilidade.querySelector('.expand').addEventListener('click', () => {
+                newDisponibilidade.querySelector('.infos-geral').classList.toggle('model');
+            })
 
             newDisponibilidade.querySelector('.preventiva').innerHTML += info.last_prev.slice(0,10);
             newDisponibilidade.querySelector('.motorista').innerHTML += info.motorista;
@@ -71,5 +75,4 @@ const preencher = () => {
     })
 
 }
-
 
