@@ -1,0 +1,83 @@
+Name: Auto Rename Tag
+Id: formulahendry.auto-rename-tag
+Description: Auto rename paired HTML/XML tag
+Version: 0.1.10
+Publisher: Jun Han
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag
+
+Name: Better Comments
+Id: aaron-bond.better-comments
+Description: Improve your code commenting by annotating with alert, informational, TODOs, and more!
+Version: 3.0.2
+Publisher: Aaron Bond
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments
+
+Name: Color Highlight
+Id: naumovs.color-highlight
+Description: Highlight web colors in your editor
+Version: 2.5.0
+Publisher: Sergii N
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight
+
+Name: Dracula Official
+Id: dracula-theme.theme-dracula
+Description: Official Dracula Theme. A dark theme for many editors, shells, and more.
+Version: 2.24.2
+Publisher: Dracula Theme
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=dracula-theme.theme-dracula
+
+Name: HTML Snippets
+Id: abusaidm.html-snippets
+Description: Full HTML tags including HTML5 Snippets
+Version: 0.2.1
+Publisher: Mohamed Abusaid
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=abusaidm.html-snippets
+
+Name: JavaScript (ES6) code snippets
+Id: xabikos.JavaScriptSnippets
+Description: Code snippets for JavaScript in ES6 syntax
+Version: 1.8.0
+Publisher: charalampos karypidis
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets
+
+Name: Live Server
+Id: ritwickdey.LiveServer
+Description: Launch a development local Server with live reload feature for static & dynamic pages
+Version: 5.7.9
+Publisher: Ritwick Dey
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
+
+Name: Material Icon Theme
+Id: PKief.material-icon-theme
+Description: Material Design Icons for Visual Studio Code
+Version: 4.24.0
+Publisher: Philipp Kief
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme
+
+Name: Prettier - Code formatter
+Id: esbenp.prettier-vscode
+Description: Code formatter using prettier
+Version: 9.10.4
+Publisher: Prettier
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+
+Name: Prisma
+Id: Prisma.prisma
+Description: Adds syntax highlighting, formatting, auto-completion, jump-to-definition and linting for .prisma files.
+Version: 4.11.0
+Publisher: Prisma
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=Prisma.prisma
+
+Name: Prisma - Insider
+Id: Prisma.prisma-insider
+Description: This is the Insider Build of the Prisma VSCode extension (only use it if you are also using the dev version of the CLI).
+Version: 31.0.1989
+Publisher: Prisma
+
+Name: Tabnine AI Autocomplete for Javascript, Python, Typescript, PHP, Go, Java, Ruby & more
+Id: TabNine.tabnine-vscode
+Description: JavaScript, Python, Java, Typescript & all other languages - AI Code completion plugin. Tabnine makes developers more productive by auto-completing their code.
+Version: 3.6.41
+Publisher: TabNine
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=Prisma.prisma-insider

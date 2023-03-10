@@ -16,7 +16,6 @@ const mudarSetor = (setor) => {
     })
 
     document.querySelector(`.graph-container-${setor}`).classList.remove('model')
-
 }
 
 const preencher = () => {
@@ -31,15 +30,18 @@ const preencher = () => {
             let modelo = (info.modelo).split('/');
 
             newDisponibilidade.querySelector('.placa').innerHTML = info.placa;
-            newDisponibilidade.querySelector('.modelo').innerHTML = modelo[0];
+            newDisponibilidade.querySelector('.modelo').innerHTML = `${modelo[0]} ${modelo[1]}, ${modelo[2]}`;
             newDisponibilidade.querySelector('.funcao').innerHTML = info.funcao;
             newDisponibilidade.querySelector('.setor').innerHTML = info.setor;
-            newDisponibilidade.querySelector('.disponCheck').checked = info.disponibilidade;
             newDisponibilidade.querySelector('.dispon').innerHTML = info.disponibilidade == true ? 'Disponivel' : 'Ocupado';
+            if(!info.disponibilidade){
+                newDisponibilidade.querySelector('.iconDisponivel').classList.add('covered');
+                newDisponibilidade.querySelector('.iconIndisponivel').classList.remove('model')
+            }
 
-            newDisponibilidade.querySelector('.preventiva').innerHTML = info.last_prev.slice(0,10);
-            newDisponibilidade.querySelector('.motorista').innerHTML = info.motorista;
-            newDisponibilidade.querySelector('.detalhes').innerHTML = `${modelo[0]} ${modelo[1]}, ${modelo[2]}, com ${modelo[3]}`;
+            newDisponibilidade.querySelector('.preventiva').innerHTML += info.last_prev.slice(0,10);
+            newDisponibilidade.querySelector('.motorista').innerHTML += info.motorista;
+            newDisponibilidade.querySelector('.detalhes').innerHTML += `${modelo[3]}`;
 
             disponibilidade.appendChild(newDisponibilidade);
 
@@ -51,14 +53,14 @@ const preencher = () => {
                     newManutencao.classList.remove('model');
 
                     newManutencao.querySelector('.placa').innerHTML = info.placa;
-                    newManutencao.querySelector('.dataIni').innerHTML = manus.data_inicio;
+                    newManutencao.querySelector('.dataIni').innerHTML = manus.data_inicio.slice(0,10);
                     newManutencao.querySelector('.previsao').innerHTML = manus.tempo_estimado;
 
                     newManutencao.querySelector('.modelo').innerHTML = `${modelo[0]} ${modelo[1]}, ${modelo[2]}, com ${modelo[3]}`;
                     newManutencao.querySelector('.funcao').innerHTML = info.funcao;
                     newManutencao.querySelector('.setor').innerHTML = info.setor;
                     newManutencao.querySelector('.motorista').innerHTML = info.motorista;
-                    newManutencao.querySelector('.valor').innerHTML = manus.valor;
+                    newManutencao.querySelector('.valor').innerHTML = `R$ ${manus.valor}`;
                     newManutencao.querySelector('.descricao').innerHTML = manus.descricao;
 
                     manutencao.appendChild(newManutencao);
@@ -67,47 +69,6 @@ const preencher = () => {
             
         })
     })
-
-}
-
-const fetchFrota = () => {
-    fetch('http://localhost:3000/get/frota')
-    .then(response => { return response.json() })
-    .then(frota => {
-        frota.Frota.forEach(veiculo => {
-            console.log(veiculo);
-            let newDisponibilidade = disponibilidade.querySelector('.dispCard').cloneNode(true);
-
-            let modelo = (veiculo.modelo).split('/');
-            console.log(modelo);
-
-            newDisponibilidade.querySelector('.placa').innerHTML = veiculo.placa;
-            newDisponibilidade.querySelector('.modelo').innerHTML = modelo[0];
-            newDisponibilidade.querySelector('.funcao').innerHTML = veiculo.funcao;
-            newDisponibilidade.querySelector('.setor').innerHTML = veiculo.setor;
-            newDisponibilidade.querySelector('.disponCheck').checked = veiculo.disponibilidade;
-            newDisponibilidade.querySelector('.dispon').innerHTML = veiculo.disponibilidade == true ? 'Disponivel' : 'Ocupado';
-
-            newDisponibilidade.querySelector('.preventiva').innerHTML = veiculo.last_prev.slice(0,10);
-            newDisponibilidade.querySelector('.motorista').innerHTML = veiculo.motorista;
-            newDisponibilidade.querySelector('.detalhes').innerHTML = `${modelo[0]} ${modelo[1]}, ${modelo[2]}, com ${modelo[3]}`;
-
-            disponibilidade.appendChild(newDisponibilidade);
-        })
-    })
-}
-
-const fetchManutencao = () => {
-    fetch('http://localhost:3000/get/manutencao')
-    .then(response => { return response.json() })
-    .then(manutencoes => {
-        manutencoes.forEach(manu => {
-
-        })
-    })
-}
-
-const fetchFuncionarios = () => {
 
 }
 

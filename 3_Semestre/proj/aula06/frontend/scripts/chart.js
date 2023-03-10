@@ -4,6 +4,7 @@ const ctxTransporte = document.getElementById('graphTransporte');
 const ctxColheita = document.getElementById('graphColheita');
 const ctxDistribuicao = document.getElementById('graphDistri');
 
+
 const totalUltimoMes = () => {
 
     fetch('http://localhost:3000/get/setor/inOrder/desc')
@@ -15,7 +16,6 @@ const totalUltimoMes = () => {
             total_alocado: []
         }
         dados.Setor.forEach(info => {
-            console.log(alocacoes.mes);
             if(alocacoes.setor.length == 0){
                 alocacoes.setor.push(info.nome);
                 alocacoes.mes.push(info.data_alocada.slice(0,7));
@@ -37,6 +37,7 @@ const totalUltimoMes = () => {
                     borderColor: 'rgba(255, 255, 255, 0.2)',
                     borderWidth: 2,
                     backgroundColor: ['rgba(51, 170, 51, 0.333)', 'rgba(170, 119, 51, 0.333)', 'rgba(34, 102, 102, 0.333)'],
+                    color: 'rgba(255, 255, 255, 1)'
                 }],
             },
             options: {
@@ -46,8 +47,11 @@ const totalUltimoMes = () => {
                         display: true,
                         text: 'Jaguariúna mínimas diárias de temperatura'
                     },
-                }
-            }
+                    colors: {
+                        enabled: false
+                    }
+                },
+            },
         });
     }) 
 }
@@ -85,9 +89,9 @@ const fetchSetores = () => {
                     type: 'bar',
                     label: "Total Alocado",
                     data: alocacoes.total_alocado,
-                    borderColor: 'rgba(250,50,0,100)',
-                    borderWidth: 2,
-                    backgroundColor: 'rgba(250,50,0,0.5)',
+                    borderWidth: 0,
+                    fill: false,
+                    backgroundColor: 'rgb(64, 142, 47,0.6)',
                     borderRadius: 5,
                     borderSkipped: false,
                 },
@@ -95,13 +99,11 @@ const fetchSetores = () => {
                     type: 'line',
                     label: "Limite Alocavel",
                     data: alocacoes.limite_alocacao,
-                    borderColor: 'rgba(100,100,200,100)',
+                    borderColor: 'rgb(44, 71, 112)',
                     backgroundColor: 'rgba(0,0,0,0)',
-                    borderWidth: 2,
-                    borderRadius: Number.MAX_VALUE,
-                    
-                        
-                    
+                    borderWidth: 3,
+                    borderRadius: Number.MAX_VALUE,    
+                    tension: 0,     
                 }],
             },
             options: {
@@ -160,9 +162,9 @@ const fetchSetores = () => {
                     type: 'bar',
                     label: "Total Alocado",
                     data: alocacoes.total_alocado,
-                    borderColor: 'rgba(250,50,0,100)',
-                    borderWidth: 2,
-                    backgroundColor: 'rgba(250,50,0,0.5)',
+                    borderWidth: 0,
+                    fill: false,
+                    backgroundColor: 'rgb(64, 142, 47,0.6)',
                     borderRadius: 5,
                     borderSkipped: false,
                 },
@@ -170,13 +172,11 @@ const fetchSetores = () => {
                     type: 'line',
                     label: "Limite Alocavel",
                     data: alocacoes.limite_alocacao,
-                    borderColor: 'rgba(100,100,200,100)',
+                    borderColor: 'rgb(44, 71, 112)',
                     backgroundColor: 'rgba(0,0,0,0)',
-                    borderWidth: 2,
-                    borderRadius: Number.MAX_VALUE,
-                    
-                        
-                    
+                    borderWidth: 3,
+                    borderRadius: Number.MAX_VALUE,    
+                    tension: 0,     
                 }],
             },
             options: {
@@ -235,9 +235,9 @@ const fetchSetores = () => {
                     type: 'bar',
                     label: "Total Alocado",
                     data: alocacoes.total_alocado,
-                    borderColor: 'rgba(250,50,0,100)',
-                    borderWidth: 2,
-                    backgroundColor: 'rgba(250,50,0,0.5)',
+                    borderWidth: 0,
+                    fill: false,
+                    backgroundColor: 'rgb(64, 142, 47,0.6)',
                     borderRadius: 5,
                     borderSkipped: false,
                 },
@@ -245,13 +245,11 @@ const fetchSetores = () => {
                     type: 'line',
                     label: "Limite Alocavel",
                     data: alocacoes.limite_alocacao,
-                    borderColor: 'rgba(100,100,200,100)',
+                    borderColor: 'rgb(44, 71, 112)',
                     backgroundColor: 'rgba(0,0,0,0)',
-                    borderWidth: 2,
-                    borderRadius: Number.MAX_VALUE,
-                    
-                        
-                    
+                    borderWidth: 3,
+                    borderRadius: Number.MAX_VALUE,    
+                    tension: 0,     
                 }],
             },
             options: {
@@ -310,9 +308,9 @@ const fetchSetores = () => {
                     type: 'bar',
                     label: "Total Alocado",
                     data: alocacoes.total_alocado,
-                    borderColor: 'rgba(250,50,0,100)',
-                    borderWidth: 2,
-                    backgroundColor: 'rgba(250,50,0,0.5)',
+                    borderWidth: 0,
+                    fill: false,
+                    backgroundColor: 'rgb(64, 142, 47,0.6)',
                     borderRadius: 5,
                     borderSkipped: false,
                 },
@@ -320,13 +318,11 @@ const fetchSetores = () => {
                     type: 'line',
                     label: "Limite Alocavel",
                     data: alocacoes.limite_alocacao,
-                    borderColor: 'rgba(100,100,200,100)',
+                    borderColor: 'rgb(44, 71, 112)',
                     backgroundColor: 'rgba(0,0,0,0)',
-                    borderWidth: 2,
-                    borderRadius: Number.MAX_VALUE,
-                    
-                        
-                    
+                    borderWidth: 3,
+                    borderRadius: Number.MAX_VALUE,    
+                    tension: 0,     
                 }],
             },
             options: {

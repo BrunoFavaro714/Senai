@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&family=Inter:wght@100;400;800&family=Noto+Sans+Bassa+Vah:wght@400;600&display=swap');
+:root{
+    --bg-campos-color: #5559;
+    --font-color: #f0f0f0;
+    --font-placa: 'Noto Sans Bassa Vah'
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -5,7 +12,7 @@
 body{
     height: 100vh;
     width: 100vw;
-    background-color: #f3f3f3;
+    background-color: #333;
     /* background-color: #30D9Ef40; */
     display: flex;
     justify-content: center;
@@ -18,7 +25,7 @@ body{
     position: relative;
 } */
 .sidebar{
-    background-color: #3333;
+    background-color: var(--bg-campos-color);
     width: 350px;
     height: 98%;
     position: absolute;
@@ -26,7 +33,7 @@ body{
     left: 10px;
 }
 .alocacao{
-    background-color: #3333;
+    background-color: rgb(220, 220, 220, 1);
     /* background-image: url(../../assets/placeholder_alocacao.JPG); */
     background-repeat: no-repeat;
     background-size: cover;
@@ -37,58 +44,104 @@ body{
     right: 10px;
     display: flex;
     flex-direction: row;
+    border-radius: 15px;
 }
 .disponibilidade{
-    background-color: #3333;
-    width: 525px;
-    height: 440px;
+    background-color: var(--bg-campos-color);
+    width: 735px;
+    height: 410px;
     position: absolute;
     bottom: 10px;
-    right: 545px;
+    left: 370px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    padding: 15px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
-.dispCard{
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #333;
-}
 .manutencao{
-    background-color: #3333;
-    width: 525px;
-    height: 440px;
+    background-color: var(--bg-campos-color);
+    width: 735px;
+    height: 410px;
     position: absolute;
     bottom: 10px;
     right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    padding: 15px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
-.manuCard{
+.manuCard, .dispCard{
     display: flex;
     flex-direction: column;
     border: 1px solid #333;
+    width: 715px;
+    margin-top: 10px;
+    background-color: rgb(220, 220, 220, 1);
 }
+.dispCard{
+    position: relative;
+}
+
+.placa{
+    background: linear-gradient(180deg, rgba(0,142,255,0.9023984593837535) 20%, rgba(255,255,255,1) 20%);
+    display: flex;
+    width: 120px;
+    height: 20px;
+    padding: 10px;
+    font-size: 26px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid #333;
+    font-family: var(--font-placa);
+    font-weight: 600;
+}
+.iconDisponivel-conteiner, .iconIndisponivel-conteiner{
+    position: absolute;
+    right: 75px;
+    height: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.iconDisponivel, .iconIndisponivel{
+    height: 75px;
+}
+
+.covered{
+    opacity: 0.5;
+}
+
+
 
 .grafico-analise{
     width: 1020px;
     height: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 .grafico-departamento{
     width: 520px;
-    height: 100%;
+    height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 #graphGeral, #graphLogistica, #graphTransporte, #graphColheita{
-    width: 1000px;
+    width: 950px !important;
 }
 #graphDistri{
-    height: 240px;
+    width: 440px !important;;
+    height: 440px !important;
 }
-
 
 .model{
     visibility: hidden;
