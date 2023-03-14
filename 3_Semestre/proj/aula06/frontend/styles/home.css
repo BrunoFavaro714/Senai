@@ -255,3 +255,8 @@ body{
     visibility: hidden;
     display: none;
 }
+
+
+::-webkit-scrollbar{
+    width: 0;
+}
