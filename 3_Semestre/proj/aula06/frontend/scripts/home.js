@@ -38,10 +38,12 @@ const preencher = () => {
             newDisponibilidade.querySelector('.modelo').innerHTML = `${modelo[0]} ${modelo[1]}, ${modelo[2]}`;
             newDisponibilidade.querySelector('.funcao').innerHTML += info.funcao;
             newDisponibilidade.querySelector('.setor').innerHTML += info.setor;
-            newDisponibilidade.querySelector('.dispon').innerHTML = info.disponibilidade == true ? 'Disponivel' : 'Ocupado';
-            if(!info.disponibilidade){
+            newDisponibilidade.querySelector('.dispon').innerHTML = info.disponibilidade.em_manutencao == true ? 'Disponivel' : 'Ocupado';
+            if(!info.disponibilidade.em_manutencao){
                 newDisponibilidade.querySelector('.iconDisponivel').classList.add('covered');
                 newDisponibilidade.querySelector('.iconIndisponivel').classList.remove('model')
+            }else if(info.disponibilidade.em_transito){
+                newDisponibilidade.querySelector('.iconDisponivel').classList.add('covered');
             }
             
             newDisponibilidade.querySelector('.expand').addEventListener('click', () => {
@@ -68,7 +70,9 @@ const preencher = () => {
                     newManutencao.querySelector('.previsao').innerHTML += manus.tempo_estimado;
 
                     newManutencao.querySelector('.expandManu').addEventListener('click', () => {
-                        newManutencao.querySelector('.manutencao-geral').classList.toggle('model')
+                        newManutencao.querySelector('.manutencao-geral').classList.toggle('model');
+                        newManutencao.querySelector('.iconExpand').classList.toggle('model');
+                        newManutencao.querySelector('.iconCollaps').classList.toggle('model');
                     })
 
                     newManutencao.querySelector('.modelo').innerHTML = `${modelo[0]} ${modelo[1]}, ${modelo[2]}`;

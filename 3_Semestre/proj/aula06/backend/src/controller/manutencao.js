@@ -21,7 +21,25 @@ const create = (req, res) => {
     })
 }
 
+const update = (req, res) => {
+    Manutencao.findOneAndUpdate({ _id:req.params.id }, {
+        placa: req.body.placa,
+        data_inicio: req.body.data_inicio,
+        tempo_estimado: req.body.tempo_estimado,
+        valor: req.body.valor,
+        descricao: req.body.descricao
+    }, (err, result) => {
+        if(err != null){
+            res.status(500).json({ erro:err }).end();
+        }else{
+
+            res.json({ Manutencao:result }).end();
+        }
+    })
+}
+
 module.exports = {
     readAll,
     create,
+    update,
 }

@@ -6,6 +6,8 @@ const funcionarios = require('../controller/funcionarios');
 
 Router.post('/login', funcionarios.login);
 Router.post("/post/funcionario", funcionarios.create);
-Router.get('/get/funcionarios', funcionarios.readAll)
+Router.get('/get/funcionarios', funcionarios.readAll);
+Router.put('/put/funcionario', funcionarios.update);
+Router.delete('/del/funcionario/:id', funcionarios.del);
 
 module.exports = Router

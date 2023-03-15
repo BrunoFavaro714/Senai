@@ -109,12 +109,12 @@ body{
     margin-top: 10px;
     padding: 15px;
     background-color: rgb(220, 220, 220, 1);
-    position: relative;
 }
 .infos{
-    font-size: 28px;
+    font-size: 24px;
     font-family: var(--Poppins);
     font-weight: 500;
+    position: relative;
 }
 .infos > p{
     height: 44px;
@@ -145,12 +145,13 @@ body{
 .veiculo-setor1{
     display: flex;
     flex-direction: row;
+    width: 500px;
 }
 
 .iconDisponivel-conteiner, .iconIndisponivel-conteiner{
     position: absolute;
     right: 100px;
-    height: 162px;
+    height: 100%;
     top: 0;
     display: flex;
     justify-content: center;
@@ -164,7 +165,7 @@ body{
     right: 0px;
     top: 0px;
     width: 75px;
-    height: 162px;
+    height: 100%;
     border: none;
     background: none;
     cursor: pointer;
@@ -204,13 +205,14 @@ body{
     flex-direction: row;
     min-height: 75px;
     align-items: center;
+    position: relative;
 }
 .expandManu{
     position: absolute;
     right: 0px;
     top: 0px;
     width: 75px;
-    height: 107px;
+    height: 100%;
     border: none;
     background: none;
     cursor: pointer;
