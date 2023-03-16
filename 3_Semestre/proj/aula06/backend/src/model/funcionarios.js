@@ -8,7 +8,7 @@ const funcionarioSchema = new Schema({
     nomeCompleto: {type: String, required: true},
     nascimento: {type: Date, required: true},
     setor: {type: String, required: true},
-    função: {type: String, required: true}
+    funcao: {type: String, required: true}
 })
 
 module.exports = mongoose.model('Funcionario', funcionarioSchema);

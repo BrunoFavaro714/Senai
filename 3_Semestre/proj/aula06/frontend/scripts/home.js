@@ -39,7 +39,7 @@ const preencher = () => {
             newDisponibilidade.querySelector('.funcao').innerHTML += info.funcao;
             newDisponibilidade.querySelector('.setor').innerHTML += info.setor;
             newDisponibilidade.querySelector('.dispon').innerHTML = info.disponibilidade.em_manutencao == true ? 'Disponivel' : 'Ocupado';
-            if(!info.disponibilidade.em_manutencao){
+            if(info.disponibilidade.em_manutencao){
                 newDisponibilidade.querySelector('.iconDisponivel').classList.add('covered');
                 newDisponibilidade.querySelector('.iconIndisponivel').classList.remove('model')
             }else if(info.disponibilidade.em_transito){

@@ -11,6 +11,16 @@ const readAll = (req, res) => {
     })
 }
 
+const readVperF = (req, res) => {
+    Frota.find({ motorista:req.params.nome}, (err, returned) => {
+        if(err != null){
+            res.status(500).json({ erro:err }).end();
+        }else{
+            res.json({ Frota:returned }).end();
+        }
+    })
+}
+
 const create = (req, res) => {
     const newFrota = new Frota(req.body)
     newFrota.save(err => {
@@ -68,6 +78,7 @@ const view = (req, res) => {
 module.exports = {
     create,
     readAll,
+    readVperF,
     update,
     del,
     view
