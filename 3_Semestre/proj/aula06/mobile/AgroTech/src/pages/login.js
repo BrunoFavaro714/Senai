@@ -1,21 +1,28 @@
 import { View,  TextInput, Alert, Image } from 'react-native';
 import { useState } from 'react';
 
-import loginFunction from '../functions/login.js';
-import Button from '../components/button.js'
+import Script from '../functions/script.js';
+import Button from '../components/button.js';
+import Styles from './styles/login.js';
 
 const Login = ({ navigation }) => {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
 
     return(
-        <View>
-            {/* <Image style={styles.imagem} source={require('../../../assets/logo.png')}/> */}
+        <View style={Styles.body}>
+            <View style={Styles.container}>
+                <Image style={Styles.imagem} source={require('../../assets/iconAgroTech.png')}/>
 
-            <TextInput onChangeText={nText => setLogin(nText)} value={login} placeholder="Email"/>
-            <TextInput secureTextEntry={true} onChangeText={nText => setPassword(nText)} value={password} placeholder="Senha"/>
+                <View style={Styles.inputContainer}>
+                    <TextInput style={Styles.input} onChangeText={nText => setLogin(nText)} value={login} placeholder="Email"/>
+                    <TextInput style={Styles.input} secureTextEntry={true} onChangeText={nText => setPassword(nText)} value={password} placeholder="Senha"/>
+                </View>
 
-            <Button value='Login' onPress={()=>{loginFunction.logar(login, password, navigation)}}/>
+                <View style={Styles.buttonContainer}>
+                    <Button value='Login' onPress={()=>{Script.logar(login, password, navigation)}}/>
+                </View>        
+            </View>    
         </View>
     )
 }

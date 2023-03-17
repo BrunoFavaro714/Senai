@@ -1,8 +1,9 @@
-import { View,  Text, Alert, Image, TouchableOpacity } from 'react-native';
+import { View,  Text, Alert, Image, ScrollView } from 'react-native';
 import { useState, useEffect } from 'react';
 
-import homeFunction from '../functions/home.js';
+import Script from '../functions/script.js';
 import Card from '../components/card.js'
+import Styles from './styles/home.js';
 
 const Home = ({ navigation }) => {
     const [veiculos, setVeiculos] = useState([])
@@ -17,17 +18,18 @@ const Home = ({ navigation }) => {
     }, [])
 
     return(
-        <View>
-            <View>
+        <View style={Styles.body}>
+            <ScrollView>
                 {
                     veiculos.map((veiculo, index) => {
-                        console.log(veiculo);
                         return(
-                            <Card veiculo={veiculo} onPress={() => {homeFunction.navigate(veiculo, navigation)}}/>
+                            <View style={Styles.container}>
+                                <Card veiculo={veiculo} onPress={() => {Script.navigateToVeiculo(veiculo, navigation)}}/>
+                            </View>
                         )
                     })
                 }
-            </View>
+            </ScrollView>
         </View>
     )
 }
