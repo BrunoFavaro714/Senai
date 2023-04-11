@@ -1,24 +1,20 @@
 const Afazeres = require('../model/afazeres');
 
 const Create = (req, res) => {
-    const newAfazer = new Afazer(req.body);
+    const newAfazer = new Afazeres(req.body);
 
-    newAfazer.save(err => {
-        if(err){
-            res.status(500).json({ erro:err }).end();
-        }else{
-            res.status(201).end()
-        }
+    newAfazer.save().then(result => {
+        res.status(201).end()
+    }).catch(err => {
+        res.status(500).json({ erro:err }).end();
     })
 }
 
 const Read = (req, res) => {
-    Afazeres.find({}, (err, result) => {
-        if(err != null){
-            res.status(500).json({ erro:err }).end();
-        }else{
-            res.json({ Afazeres:result }).end()
-        }
+    Afazeres.find({}).then(result => {
+        res.json({ Afazeres:result }).end()
+    }).catch(err => {
+        res.status(500).json({ erro:err }).end();
     })
 }
 
@@ -33,22 +29,18 @@ const Update = (req, res) => {
             concluido: req.body.status.concluido,
             atrazado: req.body.status.atrazado,
         }
-    }, (err, result) => {
-        if(err != null){
-            res.status(500).json({ erro:err }).end()
-        }else{
-            res.json({ Afazeres:result }).end()
-        }
+    }).then(result => {
+        res.json({ Afazeres:result }).end()
+    }).catch(err => {
+        res.status(500).json({ erro:err }).end()
     })
 }
 
 const Delete = (req, res) => {
-    Afazeres.findOneAndDelete({ _id: req.params.id }, (err, result) => {
-        if(err != null){
-            res.status(500).json({ erro:err }).end()
-        }else{
-            res.json({ Afazeres:result }).end()
-        }
+    Afazeres.findOneAndDelete({ _id: req.params.id }).then(result => {
+        res.json({ Afazeres:result }).end()
+    }).catch(err => {
+        res.status(500).json({ erro:err }).end()
     })
 }
 
