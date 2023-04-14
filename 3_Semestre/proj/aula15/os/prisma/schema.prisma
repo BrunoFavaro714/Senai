@@ -1,3 +1,6 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -8,34 +11,34 @@ datasource db {
 }
 
 model Colaborador {
-  matricula  Int           @id @default(autoincrement())
-  nome       String
-  cargo      String
-  setor      String
-  pin        Int
-  abertas    Os[]          @relation("abertas")
-  executadas Os[]          @relation("executadas")
-  Comentario Comentarios[] @relation("comentario")
+  matricula   Int          @id @default(autoincrement())
+  nome        String
+  cargo       String
+  setor       String
+  pin         Int
+  abertas     Os[]         @relation("abertas")
+  executadas  Os[]         @relation("executadas")
+  comentarios Comentario[] @relation("comentadas")
 }
 
 model Os {
-  id            Int           @id @default(autoincrement())
+  id            Int          @id @default(autoincrement())
   descricao     String
   colaborador   Int
   executor      Int
-  abertura      DateTime      @default(now())
+  abertura      DateTime     @default(now())
   encerramento  DateTime?
-  colaboradores Colaborador   @relation("abertas", fields: [colaborador], references: [matricula])
-  executores    Colaborador   @relation("executadas", fields: [executor], references: [matricula])
-  comentario    Comentarios[] @relation("contidas")
+  colaboradores Colaborador  @relation("abertas", fields: [colaborador], references: [matricula])
+  executores    Colaborador  @relation("executadas", fields: [executor], references: [matricula])
+  comentarios   Comentario[] @relation("contidas")
 }
 
-model Comentarios {
+model Comentario {
   id            Int         @id @default(autoincrement())
   os            Int
   colaborador   Int
   data          DateTime    @default(now())
   comentario    String
-  colaboradores Colaborador @relation("comentario", fields: [colaborador], references: [matricula])
+  colaboradores Colaborador @relation("comentadas", fields: [colaborador], references: [matricula])
   oss           Os          @relation("contidas", fields: [os], references: [id], onDelete: Cascade)
 }

@@ -5,7 +5,7 @@ ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
 
-LOAD DATA INFILE "D:/BrunoFavaro/Senai/3_Semestre/proj/aula15/os/docs/csvs/os.csv"
+LOAD DATA INFILE "D:/BrunoFavaro/Senai/3_Semestre/proj/aula15/os/docs/csvs/oss.csv"
 INTO TABLE os
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
