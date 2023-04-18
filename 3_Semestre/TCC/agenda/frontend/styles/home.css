@@ -24,7 +24,7 @@ header{
     height: 85vh;
 }
 .mes{
-    height: 5vh;
+    height: 75px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,4 +45,51 @@ header{
 }
 li{
     list-style: none;
+}
+.calendario ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    text-align: center;
+}
+.calendario li{
+    color: #333;
+    width: calc(100% / 7);
+    font-size: 1.07rem;
+}
+.dias li{
+    z-index: 1;
+    cursor: pointer;
+    position: relative;
+}
+.dias{
+    height: calc(85vh - 125px);
+}
+.dias li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dias li.inativo{
+    color: #aaa;
+}
+.dias li.ativo{
+    color: #fff;
+}
+.dias li::before{
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: 50%;
+    height: 40px;
+    width: 40px;
+    z-index: -1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+.dias li.ativo::before{
+    background: #9B59B6;
+}
+.dias li:not(.ativo):hover::before{
+    background: #f2f2f2;
 }
