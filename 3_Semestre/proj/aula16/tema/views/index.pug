@@ -1,0 +1,35 @@
+head 
+  meta(charset='utf-8')
+  title IMC
+  link(rel="stylesheet", href="style.css")
+  link(rel="shortcut icon", href="")
+  script(src="script.js")
+body
+  header
+    div 
+      p Avaliação Física
+      button(onclick='adicionar()') Novo Paciente
+  main 
+    div 
+      p #{console.log(pacientes)}
+      p ID
+      p Nome Completo
+      p Nascimento
+      p Peso
+      p Altura
+      p Idade
+      P Atualizar 
+      P Excluir
+    each paciente in pacientes
+      div 
+        p #{paciente.id}
+        p #{paciente.nome_completo}
+        p #{paciente.nascimento.toISOString().split('T')[0]}
+        p #{paciente.peso}
+        p #{paciente.altura}
+        p #{(new Date().toISOString().split('-')[0] - paciente.nascimento.toISOString().split('-')[0])}
+        p #{a}
+        p #{a}
+        button *
+        button -
+      

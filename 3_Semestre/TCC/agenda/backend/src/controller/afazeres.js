@@ -22,6 +22,7 @@ const Update = (req, res) => {
     Afazeres.findOneAndUpdate({ _id:req.params.id }, {
         id_usuario: req.body.id_usuario,
         data: req.body.data,
+        titulo: req.body.titulo,
         conteudo: req.body.conteudo,
         cor: req.body.cor,
         urgencia: req.body.urgencia,

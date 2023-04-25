@@ -47,7 +47,7 @@ const login = async (req, res) => {
 
         let executores = await prisma.colaborador.findMany({
             where: {
-                setor: "Manutenção"
+                setor: "Manutencao"
             },
             select: {
                 matricula: true,

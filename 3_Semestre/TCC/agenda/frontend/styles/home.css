@@ -90,6 +90,51 @@ li{
 .dias li.ativo::before{
     background: #9B59B6;
 }
-.dias li:not(.ativo):hover::before{
+.dias li:not(.ativo, .atividade, .hoje):hover::before{
     background: #f2f2f2;
+}
+
+.atividade::before{
+    background: #9B59B645;
+}
+
+.hoje::before{
+    background: #aaa;
+}
+
+.model{
+    visibility: hidden;
+    display: none !important;   
+}
+
+.selected-day{
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.atividades-container{
+    height: calc(100% - 125px);
+    display: flex;
+    flex-direction: column;
+}
+.selected{
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.selectedTitle{
+    width: calc(100% - 20px);
+    padding: 0 10px;
+}
+.selectedContent{
+    width: calc(100 - 10px);
+    padding: 0 5px;
+}
+.selectedUrgen{
+    width: calc(100 - 10px);
+    padding-right: 10px;
+    display: flex;
+    justify-content: flex-end;
 }

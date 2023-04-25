@@ -1,18 +1,18 @@
-LOAD DATA INFILE "D:/BrunoFavaro/Senai/3_Semestre/proj/aula15/os/docs/csvs/colaboradores.csv"
+LOAD DATA INFILE "D:/wellington/senai2023/3des/01-proj/aula15/os/docs/colaboradores.csv"
 INTO TABLE colaborador
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
 
-LOAD DATA INFILE "D:/BrunoFavaro/Senai/3_Semestre/proj/aula15/os/docs/csvs/oss.csv"
+LOAD DATA INFILE "D:/wellington/senai2023/3des/01-proj/aula15/os/docs/oss.csv"
 INTO TABLE os
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
 
-LOAD DATA INFILE "D:/BrunoFavaro/Senai/3_Semestre/proj/aula15/os/docs/csvs/comentarios.csv"
+LOAD DATA INFILE "D:/wellington/senai2023/3des/01-proj/aula15/os/docs/comentarios.csv"
 INTO TABLE comentario
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
