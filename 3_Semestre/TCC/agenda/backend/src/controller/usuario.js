@@ -1,4 +1,8 @@
-const Usuario = require('../model/usuario');
+const jwt = require('jsonwebtoken');
+const mid = require('../middleware/middleware')
+require('dotenv').config;
+
+const Usuarios = require('../model/usuario');
 
 const Create = (req, res) => {
     const newUsuario = new Usuario(req.body)
@@ -11,7 +15,7 @@ const Create = (req, res) => {
 }
 
 const Read = (req, res) => {
-    Usuario.find({}).then(result => {
+    Usuarios.find({}).then(result => {
         res.json({ Usuarios:result }).end()
     }).catch(err => {
         res.status(500).json({ erro:err }).end()
@@ -19,7 +23,7 @@ const Read = (req, res) => {
 }
 
 const Update = (req, res) => {
-    Usuario.findOneAndUpdate({ _id:req.params.id }, {
+    Usuarios.findOneAndUpdate({ _id:req.params.id }, {
         usuario: req.body.usuario,
         email: req.body.email,
         senha: req.body.senha
@@ -31,10 +35,29 @@ const Update = (req, res) => {
 }
 
 const Delete = (req, res) => {
-    Usuario.findOneAndDelete({ _id: req.params.id }).then(result => {
+    Usuarios.findOneAndDelete({ _id: req.params.id }).then(result => {
         res.json({ Usuario:result }).end()
     }).catch(err => {
         res.status(500).json({ erro:err }).end()
+    })
+}
+
+const Login = (req, res) => {
+    const user = req.body;
+
+    Usuarios.findOne({ 'email': user.email, 'senha': user.senha }, {senha:0, __v:0}).then(result => {
+        let us = {}
+        jwt.sign(result.toJSON(), process.env.KEY, (error, token) => {
+            if(error == null){
+                us['token'] = token;
+                us['usuario'] = result;
+                res.status(200).json(us).end()
+            }else{
+                res.status(404).json(error).end()
+            }
+        })
+    }).catch(err => {
+        res.status(404).json('ERRO! Usuario Inexistente/ ' + err).end()
     })
 }
 
@@ -42,5 +65,6 @@ module.exports = {
     Create,
     Read,
     Update,
-    Delete
+    Delete,
+    Login
 }

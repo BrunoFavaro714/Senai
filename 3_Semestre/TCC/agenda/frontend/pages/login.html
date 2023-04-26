@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Login</title>
+    <link rel="shortcut icon" href="">
+    <link rel="stylesheet" href="../styles/login.css" />
+</head>
+<body>
+    <div class="imagem">
+        <!-- <img id="capa" src="../assets/logo1.png" alt=" imagem" /> -->
+    </div>
+    <div class="login">
+        <div class="logar-container">
+            <p class="form-title">Sua vida organizada na Tela de seu Computador</p>
+            <div class="input-container">
+                <input placeholder="digite seu e-mail" type="email" class="email">
+                <input placeholder="Senha" type="password" class="senha">
+            </div>
+            <button class="logar" onclick="login()">
+                Sign in
+            </button>
+            <p> Ainda não tem conta?<a onclick="toggleModel()"> Criar Conta</a></p>
+        </div>
+        <div class="registrar-container model">
+            <p class="form-title">venha fazer parte da nossa comunidade de pessoas organizadas</p>
+            <div class="input-container">
+                <input placeholder="digite seu e-mail" type="email" class="email">
+                <input placeholder="digite seu nome" type="text" class="nome">
+                <input placeholder="Senha" type="password" class="senha">
+                <input placeholder="repita a sua senha" type="password" class="confirSenha">
+            </div>
+            <button class="registrar" onclick="registrar()">
+                Sign in
+            </button>
+            <p> Ainda não tem conta?<a onclick="toggleModel()"> ENTRAR</a></p>
+        </div>
+    </div>
+</body>
+<script src="../scripts/login.js"></script>
+<script src="../scripts/md5.js"></script>
+</html>
