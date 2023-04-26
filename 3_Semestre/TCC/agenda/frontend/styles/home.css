@@ -164,8 +164,8 @@ li{
     justify-content: space-between;
 }
 .selectedTitle{
-    width: calc(100% - 20px);
-    padding: 0 10px;
+    width: calc(100% - 15% - 15px);
+    padding: 0 calc(15% + 5px) 0 10px;
 }
 .selectedContent{
     width: calc(100 - 10px);

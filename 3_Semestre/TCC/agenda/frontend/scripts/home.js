@@ -70,11 +70,7 @@ const clicarDia = (dia) => {
             }
         }
     })
-<<<<<<< HEAD
     checkAtividade(dia)
-=======
-    
->>>>>>> f7ed44e30602a12f2f39228664dbaf0c1ab67a3e
 }
 
 const clicarDiaInativo = (mes, dia) => {
@@ -101,7 +97,6 @@ const clicarDiaInativo = (mes, dia) => {
         }
     })
     }
-<<<<<<< HEAD
     checkAtividade(dia)
 }
 
@@ -109,11 +104,20 @@ const fetchAfazeres = () => {
     fetch('http://localhost:3000/get/afazeres')
     .then(respo => { return respo.json() })
     .then(afaz => {
+        let concluidos = 0
         afaz.Afazeres.forEach(afazer => {
-            afazeres.push(afazer)
-        })
-        checkAtividade(date.getDate())
-        setMes()
+            afazeres.push(afazer);
+
+            if(afazer.status.concluido){
+                concluidos+=1
+            }
+        });
+
+        document.querySelector('.tarefas').max = afazeres.length
+        document.querySelector('.tarefas').value = concluidos
+
+        checkAtividade(date.getDate());
+        setMes();
     })
 }
 
@@ -137,13 +141,18 @@ const checkAtividade = (dia) => {
 
     afazeres.forEach(afaz => {
         if(afaz.data.slice(0,4) == currYear && afaz.data.slice(5,7) == (currMonth + 1) && afaz.data.slice(8,10) == dia){
-            console.log(afaz);
+
             let newAtividade = document.querySelector('.selected').cloneNode(true)
             
             newAtividade.classList.remove('model');
 
             newAtividade.querySelector('.selectedTitle').innerHTML = afaz.titulo;
-            newAtividade.querySelector('.selectedTitle').style.background = `linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 90%, ${afaz.cor} 90%)`;
+            console.log(afaz.status.concluido);
+            if(afaz.status.concluido){
+                newAtividade.querySelector('.selectedTitle').style.background = `#ffffff`;
+            }else{
+                newAtividade.querySelector('.selectedTitle').style.background = `linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 85%, ${afaz.cor} 85%, ${afaz.cor} 95%, rgba(255,255,255,1) 95%)`;
+            }         
             newAtividade.querySelector('.selectedContent').innerHTML = afaz.conteudo;
             newAtividade.querySelector('.selectedUrgen').innerHTML = afaz.urgencia
 
@@ -151,7 +160,6 @@ const checkAtividade = (dia) => {
         }
     })
 
-=======
 }
 
 const load = () => {
@@ -173,5 +181,4 @@ const load = () => {
         let tarefas = document.querySelector('tarefas')
         tarefas.max = afazeresMensal
     })
->>>>>>> f7ed44e30602a12f2f39228664dbaf0c1ab67a3e
 }
