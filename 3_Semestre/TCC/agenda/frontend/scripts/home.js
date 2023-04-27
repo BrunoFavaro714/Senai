@@ -101,7 +101,9 @@ const clicarDiaInativo = (mes, dia) => {
 }
 
 const fetchAfazeres = () => {
-    fetch('http://localhost:3000/get/afazeres')
+    let user = JSON.parse(localStorage.getItem('usuario'));
+
+    fetch(`http://localhost:3000/get/afazeres/${user.usuario._id}`)
     .then(respo => { return respo.json() })
     .then(afaz => {
         let concluidos = 0

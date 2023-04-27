@@ -4,7 +4,8 @@ const Router = express.Router();
 const afazeres = require('../controller/afazeres');
 
 Router.post('/post/afazeres', afazeres.Create);
-Router.get('/get/afazeres', afazeres.Read);
+Router.get('/get/afazeres', afazeres.ReadAll);
+Router.get('/get/afazeres/:id', afazeres.Read);
 Router.put('/put/afazeres/:id', afazeres.Update);
 Router.delete('/delete/afazeres/:id', afazeres.Delete);
 

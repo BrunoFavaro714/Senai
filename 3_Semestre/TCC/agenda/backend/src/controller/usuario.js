@@ -1,11 +1,10 @@
 const jwt = require('jsonwebtoken');
-const mid = require('../middleware/middleware')
 require('dotenv').config;
 
 const Usuarios = require('../model/usuario');
 
 const Create = (req, res) => {
-    const newUsuario = new Usuario(req.body)
+    const newUsuario = new Usuarios(req.body)
 
     newUsuario.save().then(result => {
             res.status(201).end()
