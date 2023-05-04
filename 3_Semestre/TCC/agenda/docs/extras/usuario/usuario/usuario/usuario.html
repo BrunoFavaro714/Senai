@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Usuário</title>
+
+    <link rel="shortcut icon" href="../assets/logo1.png">
+
+
+    <link rel="stylesheet" href="./usuario.css" />
+
+</head>
+
+<body onload="load()">
+    <div class="userInfo">
+        <div class="user">
+            <img src="../assets/user1.png" alt="user" height="125vh">
+
+        </div>
+
+        <div class="nome">
+            <input class="input_field"   id="nome" type="text" placeholder="Nome" disabled=true> </input>
+        </div>
+
+        <div class="email">
+            <input class="input_field" id="email" type="text" placeholder="E-mail" disabled=true></input>
+        </div>
+
+        <div class="senha">
+            <input class="password" id="senha" type="password" placeholder="*******" disabled=true> </input>
+        </div>
+
+        <div class="editar" class="btEditar">
+            <button id="editar" onclick="editar()">
+                editar
+            </button>
+        </div>
+
+        <div id="salvar" class="btSalvar ocultar">
+            <button onclick="salvar()">
+                salvar
+            </button>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    <main>
+
+        <h1>
+            tarefas do dia
+        </h1>
+
+        <p href="../" id="tarefas"> tarefas agendadas</p>
+
+        <p href="../" id="tarefas">tarefas agendadas</p>
+
+        <p href="../" id="tarefas">tarefas agendadas</p>
+
+        <p href="../" id="tarefas">tarefas agendadas</p>
+
+        <p href="../" id="tarefas">tarefas agendadas</p>
+
+        <p href="../" id="tarefas">tarefas agendadas</p>
+
+    </main>
+
+
+
+
+    <div href="../" class="logo">
+        <img src="../assets/logo1.png" alt="user" height="150vh">
+    </div>
+
+
+</body>
+
+
+<script src="./usuario.js"></script>
+
+</html>

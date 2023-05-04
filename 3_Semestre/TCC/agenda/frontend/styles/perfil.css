@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+header{
+    background-color: #3338;
+    width: calc(80% - 20vw);
+    height: 15vh;
+    margin-left: 20vw;
+}
+
+.sidebar{
+    background-color: #6668;
+    position:fixed;
+    left: 0;
+    top: 0;
+    width: 20vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.userInfo{
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+main{
+    background-color: #3458;
+    width: calc(80% -  20vw);
+    margin-left: 20vw;
+    height: 100%;
+}

@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor: default;
 }
 
 body {
@@ -12,6 +13,9 @@ body {
     justify-content: center;
     background-image: url('../assets/capa.png');
     background-repeat: no-repeat;
+}
+input{
+    cursor: text;
 }
 
 .logar-container, .registrar-container{
@@ -62,6 +66,16 @@ body {
     padding-bottom: 0.75rem;
     padding-left: 1.25rem;
     padding-right: 1.25rem;
+}
+
+.otherOption{
+    display: flex;
+    width: 100%;
+    cursor: default;
+}
+.otherOption a{
+    margin-left: 20px;
+    cursor: pointer;
 }
 
 

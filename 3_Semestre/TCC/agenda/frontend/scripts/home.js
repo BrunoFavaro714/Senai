@@ -149,7 +149,7 @@ const checkAtividade = (dia) => {
             newAtividade.classList.remove('model');
 
             newAtividade.querySelector('.selectedTitle').innerHTML = afaz.titulo;
-            console.log(afaz.status.concluido);
+
             if(afaz.status.concluido){
                 newAtividade.querySelector('.selectedTitle').style.background = `#ffffff`;
             }else{
