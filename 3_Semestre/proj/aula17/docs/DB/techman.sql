@@ -38,3 +38,31 @@ describe pefis;
 describe usuarios;
 describe equipamentos;
 describe comentarios;
+
+load data infile 'D:/BrunoFavaro/Senai/3_Semestre/proj/aula17/docs/dados/perfis.csv'
+into table pefis
+fields terminated by ';'
+enclosed by '"'
+lines terminated by '\r\n'
+ignore 1 rows;
+
+load data infile 'D:/BrunoFavaro/Senai/3_Semestre/proj/aula17/docs/dados/usuarios.csv'
+into table usuarios
+fields terminated by ';'
+enclosed by '"'
+lines terminated by '\r\n'
+ignore 1 rows;
+
+load data infile 'D:/BrunoFavaro/Senai/3_Semestre/proj/aula17/docs/dados/equipamentos.csv'
+into table equipamentos
+fields terminated by ';'
+enclosed by '"'
+lines terminated by '\r\n'
+ignore 1 rows;
+
+load data infile 'D:/BrunoFavaro/Senai/3_Semestre/proj/aula17/docs/dados/comentarios.csv'
+into table comentarios
+fields terminated by ';'
+enclosed by '"'
+lines terminated by '\r\n'
+ignore 1 rows;
