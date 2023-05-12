@@ -1,19 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@200;400;600&family=Poppins:wght@300;400;500&display=swap');
+
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Poppins', sans-serif;
 }
 body{
     height: 100vh;
     width: 100vw;
 }
 header{
-    height: 15vh;
+    height: calc(15vh - 2px);
     width: calc(100vw - 50px);
-    background-color: #333;
+    background-color: #f58a6f;
     padding-left: 50px;
     display: flex;
     align-items:  center;
     justify-content: space-between;
+    border-bottom: 2px solid #B14124;
 }
 .containerProgress{
     width: calc(100vw - 50px - 15vw);
@@ -34,7 +38,7 @@ header{
 }
 .tarefas::-webkit-progress-value{
     border-radius: 15px;
-    background: #9B59B6;
+    background: #BB559A;
 }
 .tarefas::-webkit-progress-bar{
     border-radius: 15px;
@@ -51,8 +55,10 @@ header{
     bottom: 0;
     right: 0;
     height: 85vh;
-    width: 15vw;
-    background-color: #666;
+    width: calc(15vw - 20px);
+    padding: 0 10px;
+    background-color: #FFAE99;
+    border-left: 2px solid #B14124;
 }
 .calendario{
     width: 85vw;
@@ -64,7 +70,9 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    background-color: #9993;
+    background-color: #FFAE99;
+    font-size: 22px;
+    font-weight: 500;
 }
 .icons{
     display: flex;
@@ -80,7 +88,9 @@ header{
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    background-color: #6663;
+    background-color: #FFCFC2;
+    font-size: 18px;
+    font-weight: 500;
 }
 li{
     list-style: none;
@@ -134,11 +144,11 @@ li{
 }
 
 .atividade::before{
-    background: #9B59B645;
+    background: #E9B1D7;
 }
 
 .hoje::before{
-    background: #aaa;
+    background: #ddd;
 }
 
 .model{
@@ -156,24 +166,48 @@ li{
     height: calc(100% - 125px);
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
 }
 .selected{
     height: 150px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: #fff;
+    margin-bottom: 7px;
+    border-radius: 15px;
 }
 .selectedTitle{
     width: calc(100% - 15% - 15px);
-    padding: 0 calc(15% + 5px) 0 10px;
+    padding: 0 calc(15% + 5px) 5px 10px;
+    border-radius: 15px 15px 0 0 ;
+    border-bottom: 1px solid #333;
+    font-family: 'Asap', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
 }
 .selectedContent{
     width: calc(100 - 10px);
     padding: 0 5px;
+    font-family: 'Asap', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
 }
 .selectedUrgen{
     width: calc(100 - 10px);
     padding-right: 10px;
     display: flex;
     justify-content: flex-end;
+    font-family: 'Asap', sans-serif;
+    font-size: 14px;
+    font-weight: 200;
+}
+
+.btn-adicionarAfazer{
+    width: 100%;
+    height: 40px;
+    background-color: #B14124;
+    border-style: none;
+    font-size: 20px;
+    color: #fff;
 }

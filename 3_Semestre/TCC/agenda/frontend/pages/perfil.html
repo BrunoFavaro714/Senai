@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../styles/perfil.css">
     <title>Document</title>
 </head>
-<body>
+<body onload="fetchAfazeres()">
     <header>
         <h1>
             tarefas do dia
@@ -48,18 +48,15 @@
         </div>
     </div>
     <main>
-        <p href="../" id="tarefas"> tarefas agendadas</p>
-
-        <p href="../" id="tarefas">tarefas agendadas</p>
-
-        <p href="../" id="tarefas">tarefas agendadas</p>
-
-        <p href="../" id="tarefas">tarefas agendadas</p>
-
-        <p href="../" id="tarefas">tarefas agendadas</p>
-
-        <p href="../" id="tarefas">tarefas agendadas</p>
+        <div class="tarefas-container">
+            <div class="block model">
+                <span class="selectedTitle">linha de cor + titulo</span>
+                <span class="selectedContent">Conteudo</span>
+                <span class="selectedUrgen"> Urgencia</span>
+                <span class="selectedData">10/05/2003</span>
+            </div>
+        </div>
     </main>
 </body>
-<script src="../scripts/"></script>
+<script src="../scripts/perfil.js"></script>
 </html>

@@ -11,7 +11,7 @@ const Create = (req, res) => {
 }
 
 const ReadAll = (req, res) => {
-    Afazeres.find({}).then(result => {
+    Afazeres.find({}).sort({data: 'asc'}).then(result => {
         res.json({ Afazeres:result }).end()
     }).catch(err => {
         res.status(500).json({ erro:err }).end();
@@ -19,7 +19,7 @@ const ReadAll = (req, res) => {
 }
 
 const Read = (req, res) => {
-    Afazeres.find({ id_usuario: req.params.id }).then(result => {
+    Afazeres.find({ id_usuario: req.params.id }).sort({data: 'asc'}).then(result => {
         res.json({ Afazeres:result }).end()
     }).catch(err => {
         res.status(500).json({ erro:err }).end();

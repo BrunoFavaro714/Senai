@@ -163,24 +163,3 @@ const checkAtividade = (dia) => {
     })
 
 }
-
-const load = () => {
-    fetch()
-    .then(returned => { return returned.json() })
-    .then(data => {
-        let afazeresMensal;
-        let afazeresMensalConcluicos;
-
-        data.forEach(d => {
-            if(d.data.split(5, 7) == currMonth){
-                afazeresMensal += 1;
-                if(!d.status.concluido){
-                    afazeresMensalConcluicos += 1;
-                }
-            }
-        })
-
-        let tarefas = document.querySelector('tarefas')
-        tarefas.max = afazeresMensal
-    })
-}
