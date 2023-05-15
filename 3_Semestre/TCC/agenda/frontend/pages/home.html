@@ -54,7 +54,22 @@
 
     <div class="modal-container">
         <div class="modal">
-            <input type="text">
+            <button class="close">X</button>
+            <div class="seg">
+                <input type="text" class="title" placeholder="Titulo">
+                <select name="Urgencia" id="graus">
+                    <option value="nula">Nula</option>
+                    <option value="baixa">Baixa</option>
+                    <option value="intermediaria">Intermediaria</option>
+                    <option value="alta">Alta</option>
+                    <option value="extrema">Extrema</option>
+                    <option value="alerta">Alerta</option>
+                </select>
+                <input type="date" class="date" placeholder="Data">
+                <input type="color" class="color">
+            </div>
+            <textarea class="textbox" rows="5" cols="50" placeholder="Descriçao"></textarea>
+            <button class="submit">Concluir</button>
         </div>
     </div>
 </body>

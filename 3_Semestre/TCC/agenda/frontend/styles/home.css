@@ -211,3 +211,48 @@ li{
     font-size: 20px;
     color: #fff;
 }
+
+.modal-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #3333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+.modal{
+    height: 250px;
+    width: calc(550px - 20px);
+    padding: 0 10px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 5px;
+}
+.modal > .close{
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+}
+.modal > .seg{
+    display: flex;
+    width: calc(100% - 20px);
+    height: calc(75px - 20px);
+    padding: 10px 20px 10px 0;
+}
+
+.model > .textbox{
+    width: 100%;
+}
