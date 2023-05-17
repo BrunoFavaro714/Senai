@@ -163,3 +163,38 @@ const checkAtividade = (dia) => {
     })
 
 }
+
+
+const toggleModel = () => {
+    document.querySelector('.modal-container').classList.toggle('model');
+}
+
+const addAfazer = () => {
+    let user = JSON.parse(localStorage.getItem('usuario'))
+
+    if(document.querySelector('.date').value == null || document.querySelector('.title').value == null || document.querySelector('.textbox').value == null){
+        let info = {
+            id_usuario: user.usuario._id,
+            data: document.querySelector('.date').value,
+            titulo: document.querySelector('.').value,
+            conteudo: document.querySelector('.textbox').value,
+            cor: document.querySelector('.color').value,
+            urgencia: document.querySelector('#graus').value,
+            status:{
+                concluido: false,
+                atrazado: false
+            }
+        }
+
+        fetch('http://localhost:3000/post/afazeres', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.error(err));
+    }else{
+        alert("Preencha todos os campos")
+    }
+}

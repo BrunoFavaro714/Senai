@@ -14,7 +14,7 @@
             <progress class="tarefas" max="10" value="5"></progress>
         </div>
         <div class="containerUser">
-            <img class="iconUsuario" src="../assets/usuario.png" alt="">
+            <img class="iconUsuario" onclick="window.location.href = './perfil.html'" src="../assets/usuario.png" alt="">
         </div>
     </header>
     <main>
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div>
-                <button class="btn-adicionarAfazer" onclick="console.log('ok')">ADICIONAR AFAZER</button>
+                <button class="btn-adicionarAfazer" onclick="toggleModel()">ADICIONAR AFAZER</button>
             </div>
         </div>
         <div class="calendario">
@@ -52,9 +52,9 @@
         </div>
     </main>
 
-    <div class="modal-container">
+    <div class="modal-container model">
         <div class="modal">
-            <button class="close">X</button>
+            <button class="close" onclick="toggleModel()">X</button>
             <div class="seg">
                 <input type="text" class="title" placeholder="Titulo">
                 <select name="Urgencia" id="graus">
@@ -69,7 +69,7 @@
                 <input type="color" class="color">
             </div>
             <textarea class="textbox" rows="5" cols="50" placeholder="Descriçao"></textarea>
-            <button class="submit">Concluir</button>
+            <button class="submit" onclick="addAfazer()">Concluir</button>
         </div>
     </div>
 </body>

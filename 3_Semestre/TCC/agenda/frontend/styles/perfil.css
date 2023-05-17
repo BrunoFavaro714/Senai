@@ -98,3 +98,8 @@ main{
     visibility: hidden;
     display: none;
 }
+.model > .submit{
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+}
