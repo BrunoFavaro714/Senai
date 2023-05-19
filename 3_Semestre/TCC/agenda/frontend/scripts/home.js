@@ -158,6 +158,23 @@ const checkAtividade = (dia) => {
             newAtividade.querySelector('.selectedContent').innerHTML = afaz.conteudo;
             newAtividade.querySelector('.selectedUrgen').innerHTML = afaz.urgencia
 
+            newAtividade.addEventListener('click', () => {
+                console.log(afaz);
+
+                let attModal = document.querySelector('.atividadeModal');
+                attModal.querySelector('.title').value = afaz.titulo;
+                attModal.querySelector('#graus').value = afaz.urgencia;
+                attModal.querySelector('.date').value = (afaz.data.slice(0, 10))
+                attModal.querySelector('.color').value = afaz.cor;
+                attModal.querySelector('.textbox').innerHTML = afaz.conteudo;
+
+                attModal.querySelector('.conclude').addEventListener('click', () => {concluirAtaz(afaz._id)});
+                attModal.querySelector('.exclude').addEventListener('click', () => {excluirAfaz(afaz._id)})
+                attModal.querySelector('.saveChange').addEventListener('click', () => {salvarAlt(afaz._id)})
+                
+                document.querySelector('.atividadeModal-container').classList.remove('model');
+            })
+
             document.querySelector('.atividades-container').appendChild(newAtividade)
         }
     })
@@ -173,13 +190,14 @@ const addAfazer = () => {
     let user = JSON.parse(localStorage.getItem('usuario'))
 
     if(document.querySelector('.date').value == null || document.querySelector('.title').value == null || document.querySelector('.textbox').value == null){
+        let model = document.querySelector('.model')
         let info = {
             id_usuario: user.usuario._id,
-            data: document.querySelector('.date').value,
-            titulo: document.querySelector('.').value,
-            conteudo: document.querySelector('.textbox').value,
-            cor: document.querySelector('.color').value,
-            urgencia: document.querySelector('#graus').value,
+            data: model.querySelector('.date').value,
+            titulo: model.querySelector('.').value,
+            conteudo: model.querySelector('.textbox').value,
+            cor: model.querySelector('.color').value,
+            urgencia: model.querySelector('#graus').value,
             status:{
                 concluido: false,
                 atrazado: false
@@ -189,7 +207,7 @@ const addAfazer = () => {
         fetch('http://localhost:3000/post/afazeres', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(data)
+        body: JSON.stringify(info)
         })
         .then(response => response.json())
         .then(response => console.log(response))
@@ -197,4 +215,63 @@ const addAfazer = () => {
     }else{
         alert("Preencha todos os campos")
     }
+}
+
+const salvarAlt = (id) => {
+    let atividadeModal = document.querySelector('.atividadeModal')
+    let info = {
+        id_usuario: user.usuario._id,
+        data: atividadeModal.querySelector('.date').value,
+        titulo: atividadeModal.querySelector('.').value,
+        conteudo: atividadeModal.querySelector('.textbox').value,
+        cor: atividadeModal.querySelector('.color').value,
+        urgencia: atividadeModal.querySelector('#graus').value,
+        status:{
+            concluido: false,
+            atrazado: false
+        }
+    }
+    fetch(`http://localhost:3000/put/afazeres/${id}`, {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(info)
+    })
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
+
+}
+
+const excluirAfaz = (id) => {
+    fetch(`http://localhost:3000/delete/afazeres/${id}`, {
+        method:'DELETE'
+    })
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
+}
+
+const concluirAtaz = () => {
+    let atividadeModal = document.querySelector('.atividadeModal')
+    let info = {
+        id_usuario: user.usuario._id,
+        data: atividadeModal.querySelector('.date').value,
+        titulo: atividadeModal.querySelector('.').value,
+        conteudo: atividadeModal.querySelector('.textbox').value,
+        cor: atividadeModal.querySelector('.color').value,
+        urgencia: atividadeModal.querySelector('#graus').value,
+        status:{
+            concluido: true,
+            atrazado: false
+        }
+    }
+
+    fetch('http://localhost:3000/post/afazeres', {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body:  JSON.stringify(info)
+    })
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
 }

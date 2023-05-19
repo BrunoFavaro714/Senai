@@ -280,3 +280,65 @@ li{
     visibility: hidden;
     display: none;
 }
+
+.atividadeModal-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #3333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.atividadeModal{
+    height: calc(290px - 20px);
+    width: calc(550px - 20px);
+    padding: 10px 10px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 5px;
+}
+
+.atividadeModal > .close{
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+}
+
+.atividadeModal > .conclude, .exclude, .saveChange{
+    font-size: 14px;
+    width: 100px;
+    height: 40px;
+    background-color: #444;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+}
+.conclude{
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+}
+.exclude{
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+}
+.saveChange{
+    position: absolute;
+    right: 130px;
+    bottom: 15px;
+}
