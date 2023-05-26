@@ -22,8 +22,12 @@
             <div class="selected-day"></div>
             <div class="atividades-container">
             </div>
-            <div>
-                <button class="btn-adicionarAfazer" onclick="toggleModel()">ADICIONAR AFAZER</button>
+            <div class="btn-cont">
+                <button class="btn-adicionarAfazer" onclick="toggleModel()">
+                    <p class="btn-add-text">ADICIONAR AFAZER</p>
+
+                    <img class="btn-add-img" src="../assets/iconADD.png" alt="">
+                </button>
             </div>
         </div>
         <div class="calendario">
@@ -61,7 +65,7 @@
                     <option value="alerta">Alerta</option>
                 </select>
                 <input type="date" class="date" placeholder="Data">
-                <input type="color" class="color">
+                <input type="color" value="#f58a6f" class="color">
             </div>
             <textarea class="textbox" rows="5" cols="50" placeholder="Descriçao"></textarea>
             <button class="submit" onclick="addAfazer()">Concluir</button>
@@ -82,12 +86,14 @@
                     <option value="alerta">Alerta</option>
                 </select>
                 <input type="date" class="date" placeholder="Data">
-                <input type="color" class="color">
+                <input type="color" value="#f58a6f" class="color">
             </div>
-            <textarea class="textbox" rows="5" cols="50" placeholder="Descriçao"></textarea>
-            <button class="conclude">Concluir Atividade</button>
-            <button class="exclude">Excluir Atividade</button>
-            <button class="saveChange" onclick="">Salvar Alterações</button>
+
+                <textarea class="textbox" rows="5" cols="50" placeholder="Descriçao"></textarea>
+                <button class="conclude">Concluir Atividade</button>
+                <button class="exclude">Excluir Atividade</button>
+                <button class="saveChange" onclick="">Salvar Alterações</button>
+
         </div>
     </div>
 </body>
