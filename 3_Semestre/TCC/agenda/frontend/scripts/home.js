@@ -187,17 +187,17 @@ const toggleModel = () => {
 }
 
 const addAfazer = () => {
-    let user = JSON.parse(localStorage.getItem('usuario'))
+    let user = JSON.parse(localStorage.getItem('usuario'));
+    let modal = document.querySelector('.modal');
 
-    if(document.querySelector('.date').value == null || document.querySelector('.title').value == null || document.querySelector('.textbox').value == null){
-        let model = document.querySelector('.model')
+    if(modal.querySelector('.date').value != "" || modal.querySelector('.title').value != ""){
         let info = {
             id_usuario: user.usuario._id,
-            data: model.querySelector('.date').value,
-            titulo: model.querySelector('.').value,
-            conteudo: model.querySelector('.textbox').value,
-            cor: model.querySelector('.color').value,
-            urgencia: model.querySelector('#graus').value,
+            data: modal.querySelector('.date').value,
+            titulo: modal.querySelector('.title').value,
+            conteudo: modal.querySelector('.textbox').value,
+            cor: modal.querySelector('.color').value,
+            urgencia: modal.querySelector('#graus').value,
             status:{
                 concluido: false,
                 atrazado: false
@@ -205,11 +205,11 @@ const addAfazer = () => {
         }
 
         fetch('http://localhost:3000/post/afazeres', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(info)
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(info)
         })
-        .then(response => response.json())
+        .then(respo => { return respo.json() })
         .then(response => console.log(response))
         .catch(err => console.error(err));
     }else{
@@ -247,7 +247,7 @@ const excluirAfaz = (id) => {
         method:'DELETE'
     })
     .then(response => response.json())
-    .then(response => console.log(response))
+    .then(response => window.location.reload())
     .catch(err => console.error(err));
 }
 
