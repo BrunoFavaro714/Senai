@@ -384,7 +384,8 @@ textarea{
     border-radius: 5px;
     color: #fff;
     display: flex;
-
+    align-items: center;
+    justify-content: center;
 }
 
 .home-btns-edicao{
@@ -471,8 +472,8 @@ textarea{
         padding-top: 5px
     }
     .selected{
-        height: 105px;
-        width: 200px;
+        height: calc(100% - 10px);
+        width: 125px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -480,6 +481,7 @@ textarea{
         margin-bottom: 7px;
         border-radius: 15px;
         margin-right: 20px;
+        align-items: center;
     }
     .btn-cont{
         display: flex;
@@ -499,12 +501,14 @@ textarea{
     .dias{
         height: calc(72vh - 125px);
     }
-
 }
 
 
 @media (max-width: 550px)
 {
+    body{
+        overflow: hidden;
+    }
     header{
         height: calc(15vh - 2px);
         width: calc(100vw - 50px);
@@ -515,13 +519,17 @@ textarea{
         justify-content: space-between;
         border-bottom: 2px solid #B14124;
     }
+    .sidebar{
+        height: calc(15vh - 20px);
+        
+    }
     .tarefas{
         width: clamp(200px, 50vw, 300px);
         height: 35px;
         -webkit-appearance: none;
     }
     .atividades-container {
-        height: calc(150px - 25px);
+        height: calc(100%);
         width: calc(100% - 75px);
         display: flex;
         flex-direction: row;
@@ -529,6 +537,7 @@ textarea{
         overflow-x: scroll;
         padding-top: 5px;
         margin-left: 20px;
+        align-items: center;
     }
     .selected-day{
         visibility: hidden;
@@ -564,11 +573,6 @@ textarea{
         visibility: hidden;
         display: none;
     }
-    
-
-
-
-
     .modal{
         width: 300px;
         height: 450px;
@@ -582,51 +586,34 @@ textarea{
         flex-direction: column;
         height: calc(200px - 20px);
     }
-
     .modal > .textbox{
+        width: 250px;
+        background-color:#ffffff ;
+        margin-top: 210px;
+    }
+    .color{
+        margin-left: 30px;
+    }
+    .atividadeModal{
+        width: 300px;
+        height: 450px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 20px;
+    }
+    .atividadeModal > .seg{
+        display: flex;
+        flex-direction: column;
+        height: calc(200px - 20px);
+    }
+    .atividadeModal > .textbox{
         
         width: 250px;
         background-color:#ffffff ;
         margin-top: 210px;
     }
-
-    .color{
-        margin-left: 30px;
-
-
-
-    }
-
-
-
-
-   
-        .atividadeModal{
-            width: 300px;
-            height: 450px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-           justify-content: space-between;
-            border-radius: 20px;
-
-        }
-        .atividadeModal > .seg{
-            display: flex;
-            flex-direction: column;
-            height: calc(200px - 20px);
-        }
-    
-        .atividadeModal > .textbox{
-            
-            width: 250px;
-            background-color:#ffffff ;
-            margin-top: 210px;
-        }
-
-
-
-
     .atividadeModal > .conclude{
         width: 80px;
         position:absolute;
@@ -647,16 +634,9 @@ textarea{
         left: 120px;
         bottom: 5px;
     }
-
-
-
-
-
-
     .submit{
         margin-right: 100px;
     }
-    
 }
 
 @media (max-width: 350px){
@@ -679,16 +659,6 @@ textarea{
     .iconUsuario{
         height: 65px;
     }
-    .atividades-container {
-        height: calc(150px - 25px);
-        width: calc(100% - 45px);
-        display: flex;
-        flex-direction: row;
-        overflow-y: hidden;
-        overflow-x: scroll;
-        padding-top: 5px;
-        margin-left: 20px;
-    }
     .btn-cont{
         position: fixed;
         top: calc(((15vh - 2px) / 2) - (45px / 2));
@@ -709,4 +679,24 @@ textarea{
         border-radius: 50%;
         transform: translate(-50%, -50%);
     }
+    .atividadeModal{
+        width: 100%;
+    }
+    .atividadeModal > .conclude{
+        width: 65px;
+        height: 35px;
+    }
+    .atividadeModal > .exclude{
+        width: 65px;
+        height: 35px;
+    }
+    .atividadeModal > .saveChange{
+        width: 65px;
+        height: 35px;
+        left: calc(50vw - 32.5px)
+    }
+    .textbox{
+        width: 200px !important;
+    }
 }
+
