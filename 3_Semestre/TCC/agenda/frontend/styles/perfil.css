@@ -31,7 +31,7 @@ header{
     align-items: center;
 }
 .userInfo{
-    height: 300px;
+    height: 370px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -57,6 +57,7 @@ main{
     position: relative;
     border: 1px solid #333;
     border-radius: 15px;
+
 }
 .titleConstrain{
     width: 100%;
@@ -74,6 +75,7 @@ main{
     align-items: center;
     border-radius: 15px 15px 0 0;
     border-bottom: 1px solid #333;
+
 }
 .selectedContent{
     width: calc(100% - 10px);
@@ -102,4 +104,44 @@ main{
     position: absolute;
     right: 15px;
     bottom: 15px;
+}
+
+.user{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.input_field , .password{
+    border-radius: 20px;
+    height:30px ;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.password{
+    margin-bottom: 20px;
+}
+
+
+button{
+    height: 40px;
+    width: 150px;
+    border-radius: 20px;
+    background-color: #fff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+}
+.btn-edt-salv{
+    height:100px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+ 
+
 }

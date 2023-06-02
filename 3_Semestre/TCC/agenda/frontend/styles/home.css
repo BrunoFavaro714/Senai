@@ -30,6 +30,7 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 .tarefas{
     width: clamp(300px, 50vw, 700px);
@@ -211,6 +212,7 @@ li{
     font-size: 20px;
     color: #fff;
     border-radius: 20px;
+    cursor: pointer;
 }
 
 
@@ -242,6 +244,7 @@ textarea{
     justify-content: center;
     align-items: center;
     z-index: 1;
+   
 }
 .modal{
     height: calc(290px - 20px);
@@ -254,7 +257,7 @@ textarea{
     border-radius: 5px;
     
     align-items: center;
-    
+    border-radius: 30px;
 }
 
 
@@ -655,6 +658,7 @@ textarea{
     }
     .containerUser{
         width: 65px;
+        cursor: pointer;
     }
     .iconUsuario{
         height: 65px;
