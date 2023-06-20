@@ -296,7 +296,7 @@ const concluirAfaz = (id) => {
     })
     .then(response => response.status)
     .then(response => {
-        if(response == 201){
+        if(response == 200){
             location.reload()
         }
     })
